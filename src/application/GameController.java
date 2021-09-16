@@ -78,8 +78,7 @@ public class GameController {
 
 			if (reader.hasNextLine()) {
 				String word = reader.nextLine();
-				String readWord = "echo " + word + " | festival --tts"; //Passes bash command into process builder
-				Bash.exec(readWord);
+				Festival.speak(word, Festival.Language.ENGLISH);
 			}
 
 			reader.close();
@@ -112,8 +111,7 @@ public class GameController {
 
 				if (answer.equals(word)) { //Compares the answer with the value from text field, and reads out the correctness
 					statusLabel.setText("Correct!");
-					String correctMsg = "echo Correct! | festival --tts";
-					Bash.exec(correctMsg);
+					Festival.speak("Correct!", Festival.Language.ENGLISH);
 
 					if (prevWord.equals(word)) { //If the word is faulted, it adds the word to a file with other faulted words, and also records to statistics file
 						String faulted = "echo " + word + " >> " + faultedFile;
@@ -169,15 +167,14 @@ public class GameController {
 					if (!prevWord.equals(word)) { //If user has only gotten it wrong once, read the word again and wait for answer
 						prevWord = word;
 						statusLabel.setText("Incorrect, try once more");
-						String readWord = "echo Incorrect, try once more " + word + ", " +  word + " | festival --tts";
-						Bash.exec(readWord);
+						String readWord = "echo Incorrect, try once more " + word + ", " +  word;
+						Festival.speak(readWord, Festival.Language.ENGLISH);
 						answerField.clear();
 					}
 
 					else {
 						statusLabel.setText("Incorrect");
-						String incorrect = "echo Incorrect | festival --tts";
-						Bash.exec(incorrect);
+						Festival.speak("Incorrect", Festival.Language.ENGLISH);
 						deleteWord();
 
 						if (wordCountCurrent < wordCountTotal) {

@@ -151,7 +151,7 @@ public class Controller {
 
 			if (reader.hasNextLine()) {
 				String word = reader.nextLine();
-				Bash.exec("echo " + word + " | festival --tts");
+				Festival.speak(word, Festival.Language.ENGLISH);
 			}
 
 			reader.close();
