@@ -1,5 +1,7 @@
 # Assignment 3, Group 37
 
+[![CI](https://github.com/SOFTENG206-2021/assignment-3-and-project-team-37/actions/workflows/ci.yml/badge.svg)](https://github.com/SOFTENG206-2021/assignment-3-and-projefct-team-37/actions/workflows/ci.yml)
+
 ## Set up instructions
 
 - Go to `Window -> Preferences -> Java -> Build Path -> User Libraries` and ensure the user library is called `JavaFX-11`
