@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 
 import java.io.*;
 import java.util.*;
+import application.helpers.*;
 
 public class Controller {
 	private Stage stage; //Declaration of core UI components
@@ -38,7 +39,7 @@ public class Controller {
 
 			else {	
 				String command = "sort -u " + wordFile + " | shuf -n 3 > " + uniqueFile; //Sorts the word lists for unique words and then picks a maximum of 3 random words and adds to file
-				buildProcess(command);
+				Bash.exec(command);
 
 				String wordCountCommand = "wc -l " + uniqueFile; //Counts the number of words to be tested
 				Process wordCountProcess = new ProcessBuilder("bash", "-c", wordCountCommand).start();
@@ -80,10 +81,10 @@ public class Controller {
 
 			else {
 				String failedWords = "sort -u " + reviewFile + " > " + reviewFileTemp + " && mv " + reviewFileTemp + " " + reviewFile; //Removes duplicates from the file of words to be reviewed
-				buildProcess(failedWords);
+				Bash.exec(failedWords);
 
 				String command = "shuf -n 3 " + reviewFile + " > " + uniqueFile; //Picks maximum 3 random words from words to be reviewed and adds to file
-				buildProcess(command);
+				Bash.exec(command);
 
 				String wordCountCommand = "wc -l " + uniqueFile; //Counts number of words to be tested
 				Process wordCountProcess = new ProcessBuilder("bash", "-c", wordCountCommand).start();
@@ -135,10 +136,10 @@ public class Controller {
 		}
 	}
 
-	public void gameClear(ActionEvent e) { //Clears all statistics on button press
+	public void gameClear(ActionEvent e) throws IOException { //Clears all statistics on button press
 
 		String clear = "rm -f " + reviewFile + " " + masteredFile + " " + faultedFile + " " + statsFile; //Deletes all files relating to stats
-		buildProcess(clear);
+		Bash.exec(clear);
 		errorMsg.setText("Statistics cleared!");
 	}
 
@@ -150,8 +151,7 @@ public class Controller {
 
 			if (reader.hasNextLine()) {
 				String word = reader.nextLine();
-				String readWord = "echo " + word + " | festival --tts";
-				buildProcess(readWord);
+				Bash.exec("echo " + word + " | festival --tts");
 			}
 
 			reader.close();
@@ -161,17 +161,4 @@ public class Controller {
 			f.printStackTrace();
 		}
 	}
-
-	public void buildProcess(String command) { //Function that creates a process for bash
-
-		try {
-			ProcessBuilder processBuild = new ProcessBuilder("bash", "-c", command);
-			Process processStart = processBuild.start();
-			processStart.waitFor();
-		}
-
-		catch (Exception f) {
-			f.printStackTrace();
-		}
-	}	
 }
