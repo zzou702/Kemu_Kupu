@@ -72,7 +72,7 @@ public class Controller {
 			}
 
 			else {	
-				String command = "sort -u " + wordFile + " | shuf -n 3 > " + uniqueFile; //Sorts the word lists for unique words and then picks a maximum of 3 random words and adds to file
+				String command = "sort -u " + wordFile + " | shuf -n 5 > " + uniqueFile; //Sorts the word lists for unique words and then picks a maximum of 5 random words and adds to file
 				Bash.exec(command);
 
 				String wordCountCommand = "wc -l " + uniqueFile; //Counts the number of words to be tested
@@ -104,78 +104,6 @@ public class Controller {
 	}
 
 
-	public void gameReview(ActionEvent e) { //Method that changes to the new review screen on button press
-
-		try {
-			File fileTest = new File(reviewFile);
-
-			if (!fileTest.exists()) {
-				errorMsg.setText("No words to test");
-			}
-
-			else {
-				String failedWords = "sort -u " + reviewFile + " > " + reviewFileTemp + " && mv " + reviewFileTemp + " " + reviewFile; //Removes duplicates from the file of words to be reviewed
-				Bash.exec(failedWords);
-
-				String command = "shuf -n 3 " + reviewFile + " > " + uniqueFile; //Picks maximum 3 random words from words to be reviewed and adds to file
-				Bash.exec(command);
-
-				String wordCountCommand = "wc -l " + uniqueFile; //Counts number of words to be tested
-				Process wordCountProcess = new ProcessBuilder("bash", "-c", wordCountCommand).start();
-				Reader rdr = new InputStreamReader(wordCountProcess.getInputStream());
-				int wordCountTotal = Character.getNumericValue(rdr.read());
-
-				FXMLLoader loader = new FXMLLoader(getClass().getResource("gameScene.fxml")); //Changes the reference FXML file
-				root = loader.load();
-
-				GameController newGame = loader.getController(); //Creates new instance of the controller for the corresponding scene
-				newGame.displayCount(wordCountTotal); //Calls methods from other controller
-				newGame.displayTitle("Review");
-
-				stage = (Stage)((Node)e.getSource()).getScene().getWindow(); //Changes to review scene
-				scene = new Scene(root);
-				stage.setScene(scene);
-				stage.show();
-
-				readWord();
-			}
-		}
-
-		catch (Exception f) {
-			f.printStackTrace();
-		}
-
-	}
-
-	public void gameStats(ActionEvent e){ //Changes to scene that displays stats on button press
-
-		try {
-			File fileTest = new File(statsFile); //Tests if stats file exists
-
-			if (!fileTest.exists()) {
-				errorMsg.setText("No stats to show");
-			}
-
-			else { //Switches to stats scene
-				root = FXMLLoader.load(getClass().getResource("statsScene.fxml"));
-				stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-				scene = new Scene(root);
-				stage.setScene(scene);
-				stage.show();
-			}
-		}
-
-		catch (Exception f) {
-			f.printStackTrace();
-		}
-	}
-
-	public void gameClear(ActionEvent e) throws IOException { //Clears all statistics on button press
-
-		String clear = "rm -f " + reviewFile + " " + masteredFile + " " + faultedFile + " " + statsFile; //Deletes all files relating to stats
-		Bash.exec(clear);
-		errorMsg.setText("Statistics cleared!");
-	}
 
 	public void readWord() { //Method reads the first line of a given file
 		try {

@@ -8,9 +8,6 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="235.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
    <children>
       <Button layoutX="34.0" layoutY="83.0" mnemonicParsing="false" onAction="#gameStart" prefHeight="49.0" prefWidth="168.0" text="Start" />
-      <Button layoutX="34.0" layoutY="142.0" mnemonicParsing="false" onAction="#gameReview" prefHeight="49.0" prefWidth="168.0" text="Review" />
-      <Button layoutX="34.0" layoutY="200.0" mnemonicParsing="false" onAction="#gameStats" prefHeight="49.0" prefWidth="168.0" text="Stats" />
-      <Button layoutX="34.0" layoutY="258.0" mnemonicParsing="false" onAction="#gameClear" prefHeight="49.0" prefWidth="168.0" text="Clear" />
       <Label layoutX="62.0" layoutY="14.0" prefHeight="49.0" prefWidth="113.0" text="Spelling Quiz">
          <font>
             <Font name="Arimo" size="19.0" />
