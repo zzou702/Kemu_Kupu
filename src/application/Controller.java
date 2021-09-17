@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
@@ -23,6 +24,8 @@ public class Controller {
 
 	@FXML //Declaration of widgets made in SceneBuilder
 	private Label errorMsg;
+	@FXML
+	private Button quitButton;
 	
 	@FXML
 	private Label rewardLabel;
@@ -98,7 +101,10 @@ public class Controller {
 
 	}
 
-
+	public void exit(ActionEvent e) { //Quits the game
+		Stage stage = (Stage) quitButton.getScene().getWindow();
+	    stage.close();
+	}
 
 	public void readWord() { //Method reads the first line of a given file
 		try {
