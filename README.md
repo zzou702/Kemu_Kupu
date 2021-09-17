@@ -17,3 +17,14 @@
 in eclipse: file -> export -> java -> JAR file -> next -> [check box on left next to repo folder] -> [click browse for save path of JAR file] -> next -> next -> [click browse next to main class] -> finish
 
 </details>
+
+## Format of the word lists
+
+The files under `src/words/*` are csv files. The first row is the name of the topic. All subsequent rows are the words. Example:
+
+```csv
+TopicNameInTeReo,TopicNameInEnglish
+word1TeReo,word1English
+word2TeReo,word2English
+...
+```
