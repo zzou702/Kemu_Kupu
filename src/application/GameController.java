@@ -106,6 +106,10 @@ public class GameController {
 		readWord();
 		
 	}
+	
+	public void repeatWord(ActionEvent e) { //Repeats the word on button press
+		readWord();
+	}
 
 	public void submit(ActionEvent e) {
 

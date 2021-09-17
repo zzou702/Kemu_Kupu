@@ -19,5 +19,6 @@
       <Label fx:id="statusLabel" alignment="CENTER" layoutX="19.0" layoutY="141.0" prefHeight="15.0" prefWidth="197.0" textAlignment="CENTER" />
       <Button fx:id="skipButton" layoutX="97.0" layoutY="200.0" mnemonicParsing="false" onAction="#skipWord" text="Skip" />
       <Button fx:id="submitButton" layoutX="172.0" layoutY="104.0" mnemonicParsing="false" onAction="#submit" text="Submit" />
+      <Button fx:id="repeatButton" layoutX="70.0" layoutY="170.0" mnemonicParsing="false" onAction="#repeatWord" text="Repeat Word" />
    </children>
 </AnchorPane>
