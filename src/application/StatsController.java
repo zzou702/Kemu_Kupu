@@ -87,17 +87,6 @@ public class StatsController implements Initializable {
 		}
 	}
 	
-	public void buildProcess(String command) { //Process builder for bash commands
-		
-		try {
-			ProcessBuilder processBuild = new ProcessBuilder("bash", "-c", command);
-			Process processStart = processBuild.start();
-			processStart.waitFor();
-		} catch (Exception f) {
-			f.printStackTrace();
-		}
-	}
-	
 	public void switchHome(ActionEvent e) throws IOException { //Switches to home on button press
 		
 		root = FXMLLoader.load(getClass().getResource("A2Doc.fxml"));

@@ -16,6 +16,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import application.helpers.*;
+
 public class GameController {
 	private Stage stage; //Declaration of core UI components
 	private Scene scene;
@@ -76,8 +78,7 @@ public class GameController {
 
 			if (reader.hasNextLine()) {
 				String word = reader.nextLine();
-				String readWord = "echo " + word + " | festival --tts"; //Passes bash command into process builder
-				buildProcess(readWord);
+				Festival.speak(word, Festival.Language.ENGLISH);
 			}
 
 			reader.close();
@@ -90,23 +91,11 @@ public class GameController {
 
 		try {
 			String delWord = "tail -n +2 " + uniqueFile + " > " + uniqueFileTemp + " && mv " + uniqueFileTemp + " " + uniqueFile; //Deletes the first word of the file
-			buildProcess(delWord);
+			Bash.exec(delWord);
 			answerField.clear();
 		} catch (Exception f) {
 			f.printStackTrace();
 		}
-	}
-
-	public void buildProcess(String command) { //Function that creates a process for bash
-
-		try {
-			ProcessBuilder processBuild = new ProcessBuilder("bash", "-c", command);
-			Process processStart = processBuild.start();
-			processStart.waitFor();
-		} catch (Exception f) {
-			f.printStackTrace();
-		}
-
 	}
 
 	public void submit(ActionEvent e) {
@@ -122,21 +111,20 @@ public class GameController {
 
 				if (answer.equals(word)) { //Compares the answer with the value from text field, and reads out the correctness
 					statusLabel.setText("Correct!");
-					String correctMsg = "echo Correct! | festival --tts";
-					buildProcess(correctMsg);
+					Festival.speak("Correct!", Festival.Language.ENGLISH);
 
 					if (prevWord.equals(word)) { //If the word is faulted, it adds the word to a file with other faulted words, and also records to statistics file
 						String faulted = "echo " + word + " >> " + faultedFile;
 						String faultedStats = "echo " + word + " faulted >> " + statsFile;
-						buildProcess(faulted);
-						buildProcess(faultedStats);
+						Bash.exec(faulted);
+						Bash.exec(faultedStats);
 					}
 
 					else if (!prevWord.equals(word)){ //If the word is mastered, it adds the word to a file with other mastered words, and also records to statistics file
 						String mastered = "echo " + word + " >> " + masteredFile;
 						String masteredStats = "echo " + word + " mastered >> " + statsFile;
-						buildProcess(mastered);
-						buildProcess(masteredStats);
+						Bash.exec(mastered);
+						Bash.exec(masteredStats);
 
 					}
 
@@ -161,12 +149,12 @@ public class GameController {
 
 						if (lines == 1) { //Deletes the file if there is only one word left 
 							String removeFailedFile = "rm -f " + reviewFile;
-							buildProcess(removeFailedFile);
+							Bash.exec(removeFailedFile);
 						}
 
 						else { //Removes the word from the failed file if user got it correct
 							String removeFromFailed = "grep -vw " + word + " " + reviewFile + " > " + reviewFileTemp + " && mv " + reviewFileTemp + " " + reviewFile;
-							buildProcess(removeFromFailed);
+							Bash.exec(removeFromFailed);
 						}
 					}
 
@@ -179,15 +167,14 @@ public class GameController {
 					if (!prevWord.equals(word)) { //If user has only gotten it wrong once, read the word again and wait for answer
 						prevWord = word;
 						statusLabel.setText("Incorrect, try once more");
-						String readWord = "echo Incorrect, try once more " + word + ", " +  word + " | festival --tts";
-						buildProcess(readWord);
+						String readWord = "echo Incorrect, try once more " + word + ", " +  word;
+						Festival.speak(readWord, Festival.Language.ENGLISH);
 						answerField.clear();
 					}
 
 					else {
 						statusLabel.setText("Incorrect");
-						String incorrect = "echo Incorrect | festival --tts";
-						buildProcess(incorrect);
+						Festival.speak("Incorrect", Festival.Language.ENGLISH);
 						deleteWord();
 
 						if (wordCountCurrent < wordCountTotal) {
@@ -201,8 +188,8 @@ public class GameController {
 
 						String failed = "echo " + word + " >> " + reviewFile; //Adds the failed word onto the failed file
 						String failedStats = "echo " + word + " failed >> " + statsFile;
-						buildProcess(failed);
-						buildProcess(failedStats);
+						Bash.exec(failed);
+						Bash.exec(failedStats);
 					}
 				}
 			}
