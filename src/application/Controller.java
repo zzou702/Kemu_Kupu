@@ -20,11 +20,6 @@ public class Controller {
 
 	private String wordFile = "src/words/popular"; //Declaration of file paths
 	private String uniqueFile = "src/words/.new";
-	private String reviewFile = "src/words/.failed";
-	private String reviewFileTemp = "src/words/.failed.tmp";
-	private String statsFile = "src/words/.stats";
-	private String faultedFile = "src/words/.faulted";
-	private String masteredFile = "src/words/.mastered";
 
 	@FXML //Declaration of widgets made in SceneBuilder
 	private Label errorMsg;

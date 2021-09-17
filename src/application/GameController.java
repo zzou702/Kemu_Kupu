@@ -30,12 +30,7 @@ public class GameController {
 	private String prevWord = "999";
 	private String uniqueFile = "src/words/.new";
 	private String uniqueFileTemp = "src/words/.new.tmp";
-	private String gameState = "a";
-	private String reviewFile = "src/words/.failed";
-	private String reviewFileTemp = "src/words/.failed.tmp";
-	private String statsFile = "src/words/.stats";
-	private String faultedFile = "src/words/.faulted";
-	private String masteredFile = "src/words/.mastered";
+	
 
 	@FXML //Declares widgets created in SceneBuilder
 	private Label statusLabel;
@@ -59,7 +54,6 @@ public class GameController {
 	public void displayTitle(String name) { //Method that changes the title based on the quiz type
 
 		quizTitle.setText("New " + name + " Quiz");
-		gameState = name;
 	}
 
 
