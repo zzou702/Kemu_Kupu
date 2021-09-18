@@ -28,6 +28,40 @@ public class Controller {
 
 	@FXML //Declaration of widgets made in SceneBuilder
 	private Label errorMsg;
+	
+	@FXML
+	private Label rewardLabel;
+	
+	
+	public void switchHomeFromReward(ActionEvent e) throws IOException { //Switches back to home screen on button press
+		root = FXMLLoader.load(getClass().getResource("A2Doc.fxml"));
+		stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
+	}
+	
+	//the method changes to reward scene
+	public void switchToReward(ActionEvent e) throws IOException{
+		root = FXMLLoader.load(getClass().getResource("rewardScene.fxml"));
+		stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		
+		//count only for testing
+		int count = 4;
+		
+		//two different messages
+		if (count > 3) {
+			rewardLabel.setText("Congragulations! You have scored " + count + " out of 5");
+		}else if (count <= 3) {
+			rewardLabel.setText("You have scored " + count + " out of 5, you can definitely do better");
+		}
+		
+		stage.show();
+	}
+	
+	
 
 	public void gameStart(ActionEvent e) { //Method that changes to the new game screen on button press
 
