@@ -30,12 +30,7 @@ public class GameController {
 	private String prevWord = "999";
 	private String uniqueFile = "src/words/.new";
 	private String uniqueFileTemp = "src/words/.new.tmp";
-	private String gameState = "a";
-	private String reviewFile = "src/words/.failed";
-	private String reviewFileTemp = "src/words/.failed.tmp";
-	private String statsFile = "src/words/.stats";
-	private String faultedFile = "src/words/.faulted";
-	private String masteredFile = "src/words/.mastered";
+	
 
 	@FXML //Declares widgets created in SceneBuilder
 	private Label statusLabel;
@@ -47,6 +42,8 @@ public class GameController {
 	private Label quizTitle;
 	@FXML
 	private Button homeButton;
+	@FXML
+	private Button skipButton;
 
 	public void displayCount(int wordCount) { //Method that sets the labels based on word count
 
@@ -57,7 +54,6 @@ public class GameController {
 	public void displayTitle(String name) { //Method that changes the title based on the quiz type
 
 		quizTitle.setText("New " + name + " Quiz");
-		gameState = name;
 	}
 
 
@@ -97,6 +93,23 @@ public class GameController {
 			f.printStackTrace();
 		}
 	}
+	
+	public void skipWord(ActionEvent e) {//Deletes word and reads out the next word, incrementing the word number
+		deleteWord();
+		
+		if (wordCountCurrent < wordCountTotal) { //Increments the current word count
+			wordCountCurrent++;
+		}
+		buttonEnableCount++;
+		displayCount(wordCountTotal);
+		
+		readWord();
+		
+	}
+	
+	public void repeatWord(ActionEvent e) { //Repeats the word on button press
+		readWord();
+	}
 
 	public void submit(ActionEvent e) {
 
@@ -113,21 +126,6 @@ public class GameController {
 					statusLabel.setText("Correct!");
 					Festival.speak("Correct!", Festival.Language.ENGLISH);
 
-					if (prevWord.equals(word)) { //If the word is faulted, it adds the word to a file with other faulted words, and also records to statistics file
-						String faulted = "echo " + word + " >> " + faultedFile;
-						String faultedStats = "echo " + word + " faulted >> " + statsFile;
-						Bash.exec(faulted);
-						Bash.exec(faultedStats);
-					}
-
-					else if (!prevWord.equals(word)){ //If the word is mastered, it adds the word to a file with other mastered words, and also records to statistics file
-						String mastered = "echo " + word + " >> " + masteredFile;
-						String masteredStats = "echo " + word + " mastered >> " + statsFile;
-						Bash.exec(mastered);
-						Bash.exec(masteredStats);
-
-					}
-
 					deleteWord(); //Deletes the word from the file of words currently being tested
 
 					if (wordCountCurrent < wordCountTotal) { //Increments the current word count
@@ -136,27 +134,6 @@ public class GameController {
 
 					buttonEnableCount++;
 
-					if (gameState.equals("Review")) { //Only applies to when the game mode is review
-						int lines = 0;
-						String failedUrl = "src/words/.failed";
-						File fileName = new File(failedUrl);
-
-						try (BufferedReader lineRead = new BufferedReader(new FileReader(fileName))) { //Counts the number of lines in the failed file
-							while (lineRead.readLine() != null) lines++;
-						} catch (IOException g) {
-							g.printStackTrace();
-						}
-
-						if (lines == 1) { //Deletes the file if there is only one word left 
-							String removeFailedFile = "rm -f " + reviewFile;
-							Bash.exec(removeFailedFile);
-						}
-
-						else { //Removes the word from the failed file if user got it correct
-							String removeFromFailed = "grep -vw " + word + " " + reviewFile + " > " + reviewFileTemp + " && mv " + reviewFileTemp + " " + reviewFile;
-							Bash.exec(removeFromFailed);
-						}
-					}
 
 					displayCount(wordCountTotal); //Updates the word count label
 					readWord();
@@ -166,7 +143,7 @@ public class GameController {
 
 					if (!prevWord.equals(word)) { //If user has only gotten it wrong once, read the word again and wait for answer
 						prevWord = word;
-						statusLabel.setText("Incorrect, try once more");
+						statusLabel.setText("Incorrect, try once more. Hint: " + word.charAt(1));
 						String readWord = "echo Incorrect, try once more " + word + ", " +  word;
 						Festival.speak(readWord, Festival.Language.ENGLISH);
 						answerField.clear();
@@ -185,11 +162,7 @@ public class GameController {
 						displayCount(wordCountTotal); //Updates word count label
 						readWord();
 						prevWord = "999";
-
-						String failed = "echo " + word + " >> " + reviewFile; //Adds the failed word onto the failed file
-						String failedStats = "echo " + word + " failed >> " + statsFile;
-						Bash.exec(failed);
-						Bash.exec(failedStats);
+						
 					}
 				}
 			}
