@@ -16,6 +16,9 @@ public class Game extends MainContext {
 
 	/** 1 if this is first attempt at this word. 2 if it is the second attempt */
 	private int attemptNumber = 1;
+	
+	/** the current score, initially 0 **/
+	private int scoreCount = 0;
 
 	@FXML //Declares widgets created in SceneBuilder
 	private Label statusLabel;
@@ -28,11 +31,15 @@ public class Game extends MainContext {
 
 	@FXML
 	private Label quizTitle;
+	
+	@FXML
+	private Label scoreLabel;
 
 	/** called by the topic selection page  */
 	public void startGame(Topics.Topic topic) throws Exception {
 		quizTitle.setText("New Quiz: " + topic.title);
 		words = topic.getRandomWords();
+		scoreLabel.setText("Score: " + scoreCount);
 
 		this.speakCurrentWord();
 		this.refreshUI();
@@ -70,7 +77,7 @@ public class Game extends MainContext {
 		if (currentWordIndex == words.length) {
 			// we are now done
 			Reward rewardPage = (Reward) this.navigateTo("Reward.fxml", e);
-			rewardPage.setScore(4); // TODO: IMPLEMENT SCORING AND USE THE PROPER SCORE HERE
+			rewardPage.setScore(scoreCount); 
 			return;
 		}
 
@@ -89,6 +96,8 @@ public class Game extends MainContext {
 		if (usersAnswer.equals(correctAnswer)) { //Compares the answer with the value from text field, and reads out the correctness
 			statusLabel.setText("Correct!");
 			Festival.speak("Correct!", Festival.Language.ENGLISH);
+			scoreCount++;
+			scoreLabel.setText("Score: " + scoreCount);
 			nextWord(e);
 		} else {
 			// user got the word wrong

@@ -13,12 +13,13 @@
             <Font name="Arimo" size="22.0" />
          </font>
       </Label>
-      <Button layoutX="91.0" layoutY="350.0" mnemonicParsing="false" onAction="#switchHome" text="Back" />
+      <Button layoutX="95.0" layoutY="349.0" mnemonicParsing="false" onAction="#switchHome" text="Back" />
       <TextField fx:id="answerField" layoutX="9.0" layoutY="104.0" onAction="#submit" prefHeight="23.0" prefWidth="158.0" />
       <Label fx:id="countLabel" alignment="CENTER" layoutX="7.0" layoutY="70.0" prefHeight="15.0" prefWidth="221.0" textAlignment="CENTER" />
       <Label fx:id="statusLabel" alignment="CENTER" layoutX="19.0" layoutY="141.0" prefHeight="15.0" prefWidth="197.0" textAlignment="CENTER" />
       <Button fx:id="skipButton" layoutX="97.0" layoutY="200.0" mnemonicParsing="false" onAction="#nextWord" text="Skip" />
       <Button fx:id="submitButton" layoutX="172.0" layoutY="104.0" mnemonicParsing="false" onAction="#submit" text="Submit" />
       <Button fx:id="repeatButton" layoutX="70.0" layoutY="170.0" mnemonicParsing="false" onAction="#speakCurrentWord" text="Repeat Word" />
+      <Label fx:id="scoreLabel" alignment="CENTER" layoutX="67.0" layoutY="323.0" prefHeight="15.0" prefWidth="105.0" />
    </children>
 </AnchorPane>
