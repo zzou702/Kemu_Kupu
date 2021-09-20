@@ -3,7 +3,7 @@ package application.helpers;
 import java.io.IOException;
 
 /**
- * @example: 
+ * @example:
  * Festival.speak("Tāmaki", Festival.Language.TE_REO)
  * Festival.speak("Hello", Festival.Language.ENGLISH)
  */
@@ -17,7 +17,7 @@ public class Festival {
 	public static void speak(String phrase, Language lang) {
 		Runnable callback = () -> {
 			try {
-				String voice = lang.equals(Language.ENGLISH) 
+				String voice = lang.equals(Language.ENGLISH)
 					? "voice_akl_nz_jdt_diphone"
 					: "voice_akl_mi_pk06_cg";
 
