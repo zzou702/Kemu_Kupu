@@ -1,4 +1,5 @@
 Notes from zoom on 21 September:
+
     - We could award half a point if you get it right on the second guess
     - If the whole app was multilingual we would have more to write about in report for target users
     - We should justify why we allow unlimited skips, cf. a limited amount per game. 
