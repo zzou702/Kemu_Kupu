@@ -2,6 +2,7 @@ Group Members: Kyle, Zimo, Ethan
 
 To do list:
 Added and discussed on 16/09/2021
+
     - Set up image on PC - Completed
     - Change Festival to be non-blocking - Kyle, Completed
     - Delete Stats/ClearStats functionality - Ethan, Completed
@@ -25,6 +26,7 @@ Added and discussed on 16/09/2021
         - Comments - Ethan
 
 Added on 18/09/2021 Discussed on 20/09/2021
+
     - Design
         - Kēmu Kupu name - Zimo
         - css? - Zimo
@@ -41,4 +43,5 @@ Added on 18/09/2021 Discussed on 20/09/2021
         - Add final .jar file to repo
 
 Google Doc link for proof of edits: 
+
     - https://docs.google.com/document/d/1aegnmFmoExPen6VH4ZZ35DU_kPfrHIygAGg9Vwp8C8w/edit?usp=sharing
