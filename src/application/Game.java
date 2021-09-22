@@ -126,7 +126,9 @@ public class Game extends MainContext {
 					hintPrefix +
 					" Hint: The second letter is '" +
 					correctAnswer.charAt(1) +
-					"'"
+					"', and the English word is '" +
+					words[currentWordIndex].english +
+					"'."
 				);
 				Festival.speak(
 					"Incorrect, try once more " + correctAnswer + ", " + correctAnswer,
