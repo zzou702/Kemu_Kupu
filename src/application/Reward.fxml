@@ -12,7 +12,7 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <Label fx:id="rewardLabel" layoutX="63.0" layoutY="71.0" text="Ka pai! You have scored ? out of 5">
+      <Label fx:id="rewardLabel" layoutX="1.0" layoutY="71.0" prefHeight="27.0" prefWidth="600.0" text="Ka pai! You have scored ? out of 5">
          <font>
             <Font size="24.0" />
          </font>
