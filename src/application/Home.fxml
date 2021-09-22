@@ -3,6 +3,12 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Arc?>
+<?import javafx.scene.shape.Ellipse?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="235.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Home">
@@ -13,12 +19,42 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="errorMsg" alignment="CENTER" layoutX="30.0" layoutY="331.0" prefHeight="39.0" prefWidth="175.0" />
       <Button fx:id="quitButton" layoutX="33.0" layoutY="239.0" mnemonicParsing="false" onAction="#exit" prefHeight="49.0" prefWidth="168.0" stylesheets="@application.css" text="Whakamutu (Quit)" />
       <Label layoutX="65.0" layoutY="28.0" stylesheets="@application.css" text="Kēmu Kupu">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="154.0" layoutY="214.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="14.0" layoutY="129.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="31.0" layoutY="214.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="74.0" layoutY="104.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="86.0" layoutY="312.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Ellipse layoutX="118.0" layoutY="425.0" radiusX="252.0" radiusY="109.0" stroke="#00000069" strokeType="INSIDE">
+         <fill>
+            <RadialGradient centerX="0.4101123595505618" centerY="0.5192307692307693" radius="0.5476190476190477">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.014999999664723873" green="0.5" blue="0.13625000417232513" opacity="0.7948498129844666" />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </fill>
+      </Ellipse>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="168.0" layoutY="106.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Arc fill="WHITE" layoutX="38.0" layoutY="39.0" length="270.0" radiusX="23.0" radiusY="21.0" startAngle="45.0" stroke="#00000027" strokeType="INSIDE" type="ROUND" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="88.0" layoutY="210.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="200.0" layoutY="37.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="178.0" layoutY="302.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="202.0" layoutY="84.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="116.0" layoutY="196.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="16.0" layoutY="68.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
    </children>
 </AnchorPane>
