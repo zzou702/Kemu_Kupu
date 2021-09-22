@@ -98,7 +98,7 @@ public class Game extends MainContext {
 			Festival.speak("Correct!", Festival.Language.ENGLISH);
 			//If answered correctly on second attempt, add half point. Otherwise add full point
 			if (attemptNumber == 2) {
-				scoreCount = scoreCount + 0.5;
+				scoreCount += 0.5;
 			} else {
 				scoreCount++;
 			}
