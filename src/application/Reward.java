@@ -10,7 +10,7 @@ public class Reward extends MainContext {
 	@FXML
 	private Label rewardLabel;
 
-	public void setScore(int score) {
+	public void setScore(double score) {
 		//two different messages
 		if (score > 3) {
 			rewardLabel.setText(

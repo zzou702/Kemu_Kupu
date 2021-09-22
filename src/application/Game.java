@@ -18,7 +18,7 @@ public class Game extends MainContext {
 	private int attemptNumber = 1;
 	
 	/** the current score, initially 0 **/
-	private int scoreCount = 0;
+	private double scoreCount = 0;
 
 	@FXML //Declares widgets created in SceneBuilder
 	private Label statusLabel;
@@ -96,7 +96,13 @@ public class Game extends MainContext {
 		if (usersAnswer.equals(correctAnswer)) { //Compares the answer with the value from text field, and reads out the correctness
 			statusLabel.setText("Correct!");
 			Festival.speak("Correct!", Festival.Language.ENGLISH);
-			scoreCount++;
+			//If answered correctly on second attempt, add half point. Otherwise add full point
+			if (attemptNumber == 2) {
+				scoreCount = scoreCount + 0.5;
+			} else {
+				scoreCount++;
+			}
+			
 			scoreLabel.setText("Score: " + scoreCount);
 			nextWord(e);
 		} else {
