@@ -37,7 +37,7 @@ public class Game extends MainContext {
 
 	/** called by the topic selection page  */
 	public void startGame(Topics.Topic topic) throws Exception {
-		quizTitle.setText("New Quiz: " + topic.title);
+		quizTitle.setText(topic.title);
 		words = topic.getRandomWords();
 		scoreLabel.setText("Score: " + scoreCount);
 
@@ -101,7 +101,7 @@ public class Game extends MainContext {
 		if (correctness == Answer.Correctness.CORRECT) {
 			// Answer is completely correct
 			statusLabel.setText("Correct!");
-			Festival.speak("Correct!", Festival.Language.ENGLISH);
+
 			//If answered correctly on second attempt, add half point. Otherwise add full point
 			if (attemptNumber == 2) {
 				scoreCount += 0.5;
@@ -130,15 +130,11 @@ public class Game extends MainContext {
 					words[currentWordIndex].english +
 					"'."
 				);
-				Festival.speak(
-					"Incorrect, try once more " + correctAnswer + ", " + correctAnswer,
-					Festival.Language.ENGLISH
-				);
+
 				answerField.clear();
 			} else {
 				// user has gotten it wrong twice
 				statusLabel.setText("Incorrect");
-				Festival.speak("Incorrect", Festival.Language.ENGLISH);
 				nextWord(e);
 			}
 		}
