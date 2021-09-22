@@ -16,7 +16,7 @@ public class Game extends MainContext {
 
 	/** 1 if this is first attempt at this word. 2 if it is the second attempt */
 	private int attemptNumber = 1;
-	
+
 	/** the current score, initially 0 **/
 	private double scoreCount = 0;
 
@@ -31,7 +31,7 @@ public class Game extends MainContext {
 
 	@FXML
 	private Label quizTitle;
-	
+
 	@FXML
 	private Label scoreLabel;
 
@@ -77,7 +77,7 @@ public class Game extends MainContext {
 		if (currentWordIndex == words.length) {
 			// we are now done
 			Reward rewardPage = (Reward) this.navigateTo("Reward.fxml", e);
-			rewardPage.setScore(scoreCount); 
+			rewardPage.setScore(scoreCount);
 			return;
 		}
 
@@ -102,7 +102,7 @@ public class Game extends MainContext {
 			} else {
 				scoreCount++;
 			}
-			
+
 			scoreLabel.setText("Score: " + scoreCount);
 			nextWord(e);
 		} else {

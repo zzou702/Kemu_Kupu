@@ -8,7 +8,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="235.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Home">
    <children>
       <Button layoutX="34.0" layoutY="83.0" mnemonicParsing="false" onAction="#goToTopicSelection" prefHeight="49.0" prefWidth="168.0" text="Start" />
-      <Label layoutX="62.0" layoutY="14.0" prefHeight="49.0" prefWidth="113.0" text="Spelling Quiz">
+      <Label layoutX="62.0" layoutY="14.0" prefHeight="49.0" prefWidth="113.0" text="Kēmu Kupu">
          <font>
             <Font name="Arimo" size="19.0" />
          </font>
