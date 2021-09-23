@@ -11,29 +11,45 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="235.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Home">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="340.0" prefWidth="525.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Home">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#003366" height="408.0" layoutX="-9.0" stroke="BLACK" strokeType="INSIDE" width="245.0" />
-      <Button layoutX="34.0" layoutY="131.0" mnemonicParsing="false" onAction="#goToTopicSelection" prefHeight="49.0" prefWidth="168.0" stylesheets="@application.css" text="Tāti (Start)" />
-      <Label layoutX="-1.0" layoutY="70.0" prefHeight="16.0" prefWidth="235.0" stylesheets="@application.css" text="Spelling Quiz" textAlignment="CENTER">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="340.0" stroke="BLACK" strokeType="INSIDE" width="525.0">
+         <fill>
+            <RadialGradient centerX="0.2640449438202247" centerY="0.125" radius="0.4523809523809524">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.29919999837875366" green="0.4896000027656555" blue="0.6800000071525574" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color green="0.20000000298023224" blue="0.4000000059604645" />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </fill></Rectangle>
+      <Button layoutX="179.0" layoutY="121.0" mnemonicParsing="false" onAction="#goToTopicSelection" prefHeight="49.0" prefWidth="168.0" stylesheets="@application.css" text="Tāti (Start)" />
+      <Label layoutX="145.0" layoutY="72.0" prefHeight="16.0" prefWidth="235.0" stylesheets="@application.css" text="Te reo Spelling Quiz" textAlignment="CENTER">
          <font>
-            <Font size="14.0" />
+            <Font size="18.0" />
          </font>
       </Label>
-      <Button fx:id="quitButton" layoutX="33.0" layoutY="239.0" mnemonicParsing="false" onAction="#exit" prefHeight="49.0" prefWidth="168.0" stylesheets="@application.css" text="Whakamutu (Quit)" />
-      <Label layoutX="65.0" layoutY="28.0" stylesheets="@application.css" text="Kēmu Kupu">
+      <Button fx:id="quitButton" layoutX="179.0" layoutY="200.0" mnemonicParsing="false" onAction="#exit" prefHeight="49.0" prefWidth="168.0" stylesheets="@application.css" text="Whakamutu (Quit)" />
+      <Label layoutX="168.0" layoutY="19.0" stylesheets="@application.css" text="Kēmu Kupu">
          <font>
-            <Font size="20.0" />
+            <Font size="36.0" />
          </font>
       </Label>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="154.0" layoutY="214.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="14.0" layoutY="129.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="408.0" layoutY="25.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="31.0" layoutY="214.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="74.0" layoutY="104.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="86.0" layoutY="312.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
-      <Ellipse layoutX="118.0" layoutY="425.0" radiusX="252.0" radiusY="109.0" stroke="#00000069" strokeType="INSIDE">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="386.0" layoutY="224.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Ellipse layoutX="263.0" layoutY="365.0" radiusX="394.0" radiusY="80.0" stroke="#00000069" strokeType="INSIDE">
          <fill>
-            <RadialGradient centerX="0.4101123595505618" centerY="0.5192307692307693" radius="0.5476190476190477">
+            <RadialGradient centerX="0.47752808988764045" centerY="0.5192307692307693" radius="0.5476190476190477">
                <stops>
                   <Stop>
                      <color>
@@ -50,12 +66,15 @@
          </fill>
       </Ellipse>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="168.0" layoutY="106.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
-      <Arc fill="WHITE" layoutX="38.0" layoutY="39.0" length="270.0" radiusX="23.0" radiusY="21.0" startAngle="45.0" stroke="#00000027" strokeType="INSIDE" type="ROUND" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="88.0" layoutY="210.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="200.0" layoutY="37.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="178.0" layoutY="302.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="202.0" layoutY="84.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="116.0" layoutY="196.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Arc fill="WHITE" layoutX="136.0" layoutY="40.0" length="270.0" radiusX="30.0" radiusY="25.0" startAngle="45.0" stroke="#00000027" strokeType="INSIDE" type="ROUND" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="104.0" layoutY="168.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="476.0" layoutY="129.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="456.0" layoutY="58.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="488.0" layoutY="186.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="422.0" layoutY="160.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="16.0" layoutY="68.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="29.0" layoutY="131.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="454.0" layoutY="251.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="47.0" layoutY="27.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
    </children>
 </AnchorPane>

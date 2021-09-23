@@ -7,6 +7,7 @@
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.RadialGradient?>
 <?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Arc?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Ellipse?>
 <?import javafx.scene.shape.Rectangle?>
@@ -60,7 +61,7 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <Circle layoutX="261.0" layoutY="147.0" radius="38.0" stroke="#00000027" strokeType="INSIDE">
+      <Circle layoutX="261.0" layoutY="147.0" radius="38.0" stroke="#00000007" strokeType="INSIDE">
          <fill>
             <RadialGradient centerX="0.5" centerY="0.5" radius="0.40476190476190477">
                <stops>
@@ -90,5 +91,7 @@
       <Circle fill="WHITE" layoutX="433.0" layoutY="125.0" radius="16.0" stroke="TRANSPARENT" strokeType="INSIDE" />
       <Circle fill="WHITE" layoutX="442.0" layoutY="141.0" radius="16.0" stroke="TRANSPARENT" strokeType="INSIDE" />
       <Circle fill="WHITE" layoutX="449.0" layoutY="125.0" radius="16.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Arc fill="#ffffff83" layoutX="504.0" layoutY="14.0" length="270.0" radiusX="9.0" radiusY="8.0" startAngle="45.0" stroke="#ffffff26" strokeType="INSIDE" type="ROUND" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff8a" height="4.0" layoutX="519.0" layoutY="12.0" stroke="#ffffff07" strokeType="INSIDE" width="4.0" />
    </children>
 </AnchorPane>

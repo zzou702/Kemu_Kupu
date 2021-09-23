@@ -8,6 +8,7 @@
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.RadialGradient?>
 <?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Arc?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Ellipse?>
 <?import javafx.scene.shape.Rectangle?>
@@ -96,5 +97,6 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="129.0" layoutY="70.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="494.0" layoutY="127.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="31.0" layoutY="129.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Arc fill="#ffffffc6" layoutX="36.0" layoutY="15.0" length="270.0" radiusX="8.0" radiusY="8.0" rotate="180.0" startAngle="45.0" stroke="#00000027" strokeType="INSIDE" type="ROUND" />
    </children>
 </AnchorPane>
