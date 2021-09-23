@@ -18,7 +18,7 @@ public class Reward extends MainContext {
 			);
 		} else if (score <= 3) {
 			rewardLabel.setText(
-				"You have scored " + score + " out of 5, you can definitely do better"
+				"You scored " + score + " out of 5, you can certainly do better"
 			);
 		}
 	}
