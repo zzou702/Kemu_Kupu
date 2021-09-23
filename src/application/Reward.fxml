@@ -12,9 +12,9 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Reward">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="340.0" prefWidth="525.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Reward">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="410.0" layoutX="-4.0" layoutY="-2.0" stroke="BLACK" strokeType="INSIDE" width="608.0">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="340.0" layoutX="-4.0" layoutY="-2.0" stroke="BLACK" strokeType="INSIDE" width="534.0">
          <fill>
             <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
                <stops>
@@ -32,7 +32,7 @@
             </RadialGradient>
          </fill>
       </Rectangle>
-      <Ellipse layoutX="317.0" layoutY="380.0" radiusX="394.0" radiusY="80.0" stroke="#00000055" strokeType="INSIDE">
+      <Ellipse layoutX="263.0" layoutY="325.0" radiusX="394.0" radiusY="80.0" stroke="#00000055" strokeType="INSIDE">
          <fill>
             <LinearGradient endX="0.8173076923076923" endY="0.6346153846153846" startX="0.8173076923076923">
                <stops>
@@ -50,17 +50,17 @@
             </LinearGradient>
          </fill>
       </Ellipse>
-      <Button layoutX="261.0" layoutY="341.0" mnemonicParsing="false" onAction="#goHome" text="Go Home">
+      <Button layoutX="224.0" layoutY="275.0" mnemonicParsing="false" onAction="#goHome" text="Go Home">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Label fx:id="rewardLabel" layoutX="33.0" layoutY="71.0" prefHeight="27.0" prefWidth="568.0" text="Ka pai! You have scored ? out of 5">
+      <Label fx:id="rewardLabel" layoutX="21.0" layoutY="31.0" prefHeight="27.0" prefWidth="500.0" text="Ka pai! You have scored ? out of 5">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Circle layoutX="300.0" layoutY="165.0" radius="38.0" stroke="#00000027" strokeType="INSIDE">
+      <Circle layoutX="261.0" layoutY="147.0" radius="38.0" stroke="#00000027" strokeType="INSIDE">
          <fill>
             <RadialGradient centerX="0.5" centerY="0.5" radius="0.40476190476190477">
                <stops>
@@ -84,11 +84,11 @@
       <Circle fill="WHITE" layoutX="117.0" layoutY="155.0" radius="16.0" stroke="TRANSPARENT" strokeType="INSIDE" />
       <Circle fill="WHITE" layoutX="117.0" layoutY="171.0" radius="16.0" stroke="TRANSPARENT" strokeType="INSIDE" />
       <Circle fill="WHITE" layoutX="127.0" layoutY="155.0" radius="16.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-      <Ellipse fill="WHITE" layoutX="464.0" layoutY="213.0" radiusX="42.0" radiusY="18.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-      <Circle fill="WHITE" layoutX="449.0" layoutY="203.0" radius="16.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-      <Circle fill="WHITE" layoutX="449.0" layoutY="219.0" radius="16.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-      <Circle fill="WHITE" layoutX="465.0" layoutY="203.0" radius="16.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-      <Circle fill="WHITE" layoutX="471.0" layoutY="219.0" radius="16.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-      <Circle fill="WHITE" layoutX="481.0" layoutY="203.0" radius="16.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Ellipse fill="WHITE" layoutX="432.0" layoutY="135.0" radiusX="42.0" radiusY="18.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fill="WHITE" layoutX="417.0" layoutY="125.0" radius="16.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fill="WHITE" layoutX="417.0" layoutY="141.0" radius="16.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fill="WHITE" layoutX="433.0" layoutY="125.0" radius="16.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fill="WHITE" layoutX="442.0" layoutY="141.0" radius="16.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fill="WHITE" layoutX="449.0" layoutY="125.0" radius="16.0" stroke="TRANSPARENT" strokeType="INSIDE" />
    </children>
 </AnchorPane>

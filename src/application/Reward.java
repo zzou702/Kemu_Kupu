@@ -14,11 +14,11 @@ public class Reward extends MainContext {
 		//two different messages
 		if (score > 3) {
 			rewardLabel.setText(
-				"Congragulations! You have scored " + score + " out of 5"
+				"Whakamihi! You have scored " + score + " out of 5"
 			);
 		} else if (score <= 3) {
 			rewardLabel.setText(
-				"You scored " + score + " out of 5, you can certainly do better"
+				"You scored " + score + " out of 5, you can do better!"
 			);
 		}
 	}

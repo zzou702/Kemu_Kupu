@@ -39,7 +39,7 @@ public class Game extends MainContext {
 	public void startGame(Topics.Topic topic) throws Exception {
 		quizTitle.setText(topic.title);
 		words = topic.getRandomWords();
-		scoreLabel.setText("Score: " + scoreCount);
+		scoreLabel.setText("Kaute (Score): " + scoreCount);
 
 		this.speakCurrentWord();
 		this.refreshUI();
@@ -51,6 +51,10 @@ public class Game extends MainContext {
 			"Spell word " +
 			Integer.toString(currentWordIndex + 1) +
 			" of " +
+			Integer.toString(words.length) +
+			"\nUiui: " +
+			Integer.toString(currentWordIndex + 1) +
+			" ō " +
 			Integer.toString(words.length)
 		);
 
@@ -109,7 +113,7 @@ public class Game extends MainContext {
 				scoreCount++;
 			}
 
-			scoreLabel.setText("Score: " + scoreCount);
+			scoreLabel.setText("Kaute (Score): " + scoreCount);
 			nextWord(e);
 		} else {
 			// user got the word wrong

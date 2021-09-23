@@ -11,19 +11,18 @@
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#003366" height="406.0" layoutX="-3.0" stroke="BLACK" strokeType="INSIDE" width="244.0" />
       <ListView fx:id="topicListView" layoutX="18.0" layoutY="51.0" prefHeight="253.0" prefWidth="200.0" />
-      <Button fx:id="startButton" layoutX="117.0" layoutY="321.0" mnemonicParsing="false" onAction="#startGame" prefHeight="49.0" prefWidth="94.0" text="Start" />
-      <Label layoutX="45.0" prefHeight="49.0" prefWidth="147.0" text="Select a Topic" textFill="WHITE">
+      <Button fx:id="startButton" layoutX="54.0" layoutY="309.0" mnemonicParsing="false" onAction="#startGame" prefHeight="37.0" prefWidth="126.0" text="Tāti (Start)" />
+      <Label layoutX="-1.0" prefHeight="49.0" prefWidth="244.0" text="Kōwhiri marau (Select a Topic)" textFill="WHITE">
          <font>
-            <Font name="Arimo" size="19.0" />
+            <Font name="Arimo" size="17.0" />
          </font>
       </Label>
-      <Button fx:id="backButton" layoutX="15.0" layoutY="321.0" mnemonicParsing="false" onAction="#goBack" prefHeight="49.0" prefWidth="78.0" text="Back" />
+      <Button fx:id="backButton" layoutX="54.0" layoutY="356.0" mnemonicParsing="false" onAction="#goBack" prefHeight="37.0" prefWidth="126.0" text="Whakahoki (Back)" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="6.0" layoutX="15.0" layoutY="384.0" stroke="BLACK" strokeType="INSIDE" width="6.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="6.0" layoutX="18.0" layoutY="34.0" stroke="BLACK" strokeType="INSIDE" width="6.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="6.0" layoutX="192.0" layoutY="22.0" stroke="BLACK" strokeType="INSIDE" width="6.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="6.0" layoutX="104.0" layoutY="367.0" stroke="BLACK" strokeType="INSIDE" width="6.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="6.0" layoutX="175.0" layoutY="387.0" stroke="BLACK" strokeType="INSIDE" width="6.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="6.0" layoutX="172.0" layoutY="11.0" stroke="BLACK" strokeType="INSIDE" width="6.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="6.0" layoutX="11.0" layoutY="46.0" stroke="BLACK" strokeType="INSIDE" width="6.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="6.0" layoutX="21.0" layoutY="321.0" stroke="BLACK" strokeType="INSIDE" width="6.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="6.0" layoutX="195.0" layoutY="353.0" stroke="BLACK" strokeType="INSIDE" width="6.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="6.0" layoutX="221.0" layoutY="57.0" stroke="BLACK" strokeType="INSIDE" width="6.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="6.0" layoutX="232.0" layoutY="175.0" stroke="BLACK" strokeType="INSIDE" width="6.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="6.0" layoutX="218.0" layoutY="318.0" stroke="BLACK" strokeType="INSIDE" width="6.0" />
    </children>
