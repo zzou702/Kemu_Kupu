@@ -3,6 +3,7 @@ package application.helpers;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.text.MessageFormat;
+import java.util.ArrayList;
 
 /**
  * A class which calls festival in a non-blocking fashion.
@@ -27,13 +28,30 @@ public class Festival {
 	 */
 	private static boolean busy = false;
 
+	/** If festival is already speaking, we create a queue of phrases to speak */
+	private static class QueueItem {
+
+		public String phrase;
+		public Language lang;
+
+		public QueueItem(String phrase, Language lang) {
+			this.phrase = phrase;
+			this.lang = lang;
+		}
+	}
+
+	private static ArrayList<QueueItem> queue = new ArrayList<>();
+
 	public static enum Language {
 		ENGLISH,
 		TE_REO,
 	}
 
 	public static void speak(String phrase, Language lang) {
-		if (busy) return; // do not create a new thread if one is currently active
+		if (busy) {
+			queue.add(new QueueItem(phrase, lang));
+			return; // do not create a new thread if one is currently active
+		}
 
 		busy = true;
 		Runnable callback = () -> {
@@ -63,6 +81,14 @@ public class Festival {
 			} catch (Exception ex) {
 				ex.printStackTrace();
 				busy = false;
+			}
+
+			// once we finish talking, check if there is anything waiting in the queue
+			// the next item in the queue will be dispatched in a new thread.
+			if (queue.size() > 0) {
+				QueueItem nextItem = queue.get(0);
+				queue.remove(0);
+				speak(nextItem.phrase, nextItem.lang);
 			}
 		};
 		Thread thread = new Thread(callback);
