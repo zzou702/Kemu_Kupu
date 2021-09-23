@@ -42,6 +42,13 @@ Added on 18/09/2021 Discussed on 20/09/2021
         - Short variable names - Ethan
         - Add final .jar file to repo
 
+Added on 23/09/2021 Discussed on 21/09/2021:
+
+- award 0.5 points if you get the answer right the second time - Ethan
+- consider making the whole app multilingual (see `translations.md`)
+- accept double vowels instead of macrons - Kyle
+- give hints if your answer is almost right - Kyle
+
 Google Doc link for proof of edits:
 
     - https://docs.google.com/document/d/1aegnmFmoExPen6VH4ZZ35DU_kPfrHIygAGg9Vwp8C8w/edit?usp=sharing
