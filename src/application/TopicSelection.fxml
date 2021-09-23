@@ -4,27 +4,53 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Arc?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="235.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.TopicSelection">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="340.0" prefWidth="525.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.TopicSelection">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#003366" height="406.0" layoutX="-3.0" stroke="BLACK" strokeType="INSIDE" width="244.0" />
-      <ListView fx:id="topicListView" layoutX="18.0" layoutY="51.0" prefHeight="253.0" prefWidth="200.0" />
-      <Button fx:id="startButton" layoutX="117.0" layoutY="321.0" mnemonicParsing="false" onAction="#startGame" prefHeight="49.0" prefWidth="94.0" text="Start" />
-      <Label layoutX="45.0" prefHeight="49.0" prefWidth="147.0" text="Select a Topic" textFill="WHITE">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="340.0" stroke="BLACK" strokeType="INSIDE" width="525.0">
+         <fill>
+            <RadialGradient centerX="0.9269662921348315" centerY="0.27884615384615385" radius="0.19047619047619047">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.06164717301726341" green="0.3334551751613617" blue="0.6052631735801697" opacity="0.9300000071525574" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color green="0.20000000298023224" blue="0.4000000059604645" />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </fill></Rectangle>
+      <ListView fx:id="topicListView" layoutX="18.0" layoutY="63.0" prefHeight="265.0" prefWidth="298.0" />
+      <Button fx:id="startButton" layoutX="338.0" layoutY="215.0" mnemonicParsing="false" onAction="#startGame" prefHeight="37.0" prefWidth="126.0" text="Tāti (Start)" />
+      <Label layoutX="94.0" layoutY="8.0" prefHeight="45.0" prefWidth="338.0" text="Kōwhiri marau (Select a Topic)" textFill="WHITE">
          <font>
-            <Font name="Arimo" size="19.0" />
+            <Font name="Arimo" size="24.0" />
          </font>
       </Label>
-      <Button fx:id="backButton" layoutX="15.0" layoutY="321.0" mnemonicParsing="false" onAction="#goBack" prefHeight="49.0" prefWidth="78.0" text="Back" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="6.0" layoutX="15.0" layoutY="384.0" stroke="BLACK" strokeType="INSIDE" width="6.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="6.0" layoutX="18.0" layoutY="34.0" stroke="BLACK" strokeType="INSIDE" width="6.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="6.0" layoutX="192.0" layoutY="22.0" stroke="BLACK" strokeType="INSIDE" width="6.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="6.0" layoutX="104.0" layoutY="367.0" stroke="BLACK" strokeType="INSIDE" width="6.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="6.0" layoutX="175.0" layoutY="387.0" stroke="BLACK" strokeType="INSIDE" width="6.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="6.0" layoutX="172.0" layoutY="11.0" stroke="BLACK" strokeType="INSIDE" width="6.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="6.0" layoutX="232.0" layoutY="175.0" stroke="BLACK" strokeType="INSIDE" width="6.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="6.0" layoutX="218.0" layoutY="318.0" stroke="BLACK" strokeType="INSIDE" width="6.0" />
+      <Button fx:id="backButton" layoutX="338.0" layoutY="267.0" mnemonicParsing="false" onAction="#goBack" prefHeight="37.0" prefWidth="126.0" text="Whakahoki (Back)" />
+      <Label layoutX="499.0" layoutY="80.0" text="Kupu" textFill="#ffffffc6">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Arc fill="#ffffffc6" layoutX="489.0" layoutY="87.0" length="270.0" radiusX="14.0" radiusY="13.0" startAngle="45.0" stroke="#00000027" strokeType="INSIDE" type="ROUND" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="432.0" layoutY="170.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="30.0" layoutY="29.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="346.0" layoutY="85.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="348.0" layoutY="168.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="397.0" layoutY="126.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="497.0" layoutY="31.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="495.0" layoutY="250.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="316.0" layoutY="292.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
    </children>
 </AnchorPane>
