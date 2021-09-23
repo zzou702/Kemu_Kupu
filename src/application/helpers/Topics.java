@@ -38,7 +38,10 @@ public class Topics {
 
 			while (scanner.hasNextLine()) {
 				String[] line = scanner.nextLine().split(",");
-				allWords.add(new Word(line[0], line[1]));
+				allWords.add(
+					// commas would break the csv format, so we use semicolons instead
+					new Word(line[0].replaceAll(";", ","), line[1].replaceAll(";", ","))
+				);
 			}
 			scanner.close();
 

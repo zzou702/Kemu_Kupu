@@ -16,7 +16,7 @@ public class Game extends MainContext {
 
 	/** 1 if this is first attempt at this word. 2 if it is the second attempt */
 	private int attemptNumber = 1;
-	
+
 	/** the current score, initially 0 **/
 	private double scoreCount = 0;
 
@@ -31,13 +31,13 @@ public class Game extends MainContext {
 
 	@FXML
 	private Label quizTitle;
-	
+
 	@FXML
 	private Label scoreLabel;
 
 	/** called by the topic selection page  */
 	public void startGame(Topics.Topic topic) throws Exception {
-		quizTitle.setText("New Quiz: " + topic.title);
+		quizTitle.setText(topic.title);
 		words = topic.getRandomWords();
 		scoreLabel.setText("Score: " + scoreCount);
 
@@ -77,7 +77,7 @@ public class Game extends MainContext {
 		if (currentWordIndex == words.length) {
 			// we are now done
 			Reward rewardPage = (Reward) this.navigateTo("Reward.fxml", e);
-			rewardPage.setScore(scoreCount); 
+			rewardPage.setScore(scoreCount);
 			return;
 		}
 
@@ -90,37 +90,51 @@ public class Game extends MainContext {
 	/** called when you click the submit button */
 	public void submit(ActionEvent e) {
 		statusLabel.setText("");
-		String usersAnswer = answerField.getText().toLowerCase().strip(); //Gets the value in the text field
-		String correctAnswer = words[currentWordIndex].teReo.toLowerCase().strip();
+		String usersAnswer = answerField.getText(); // Gets the value in the text field
+		String correctAnswer = words[currentWordIndex].teReo;
 
-		if (usersAnswer.equals(correctAnswer)) { //Compares the answer with the value from text field, and reads out the correctness
+		Answer.Correctness correctness = Answer.checkAnswer(
+			usersAnswer,
+			correctAnswer
+		);
+
+		if (correctness == Answer.Correctness.CORRECT) {
+			// Answer is completely correct
 			statusLabel.setText("Correct!");
-			Festival.speak("Correct!", Festival.Language.ENGLISH);
+
 			//If answered correctly on second attempt, add half point. Otherwise add full point
 			if (attemptNumber == 2) {
 				scoreCount += 0.5;
 			} else {
 				scoreCount++;
 			}
-			
+
 			scoreLabel.setText("Score: " + scoreCount);
 			nextWord(e);
 		} else {
 			// user got the word wrong
 			if (attemptNumber == 1) { //If user has only gotten it wrong once, read the word again and wait for answer
 				attemptNumber = 2;
+
+				String hintPrefix = correctness == Answer.Correctness.ONLY_MACRONS_WRONG
+					? "Almost right! Check the macrons. "
+					: correctness == Answer.Correctness.ONLY_SYNTAX_WRONG
+						? "Almost right! Check your spaces and hyphens. "
+						: "Incorrect, try once more. "; // if totally wrong
+
 				statusLabel.setText(
-					"Incorrect, try once more. Hint: " + correctAnswer.charAt(1)
+					hintPrefix +
+					" Hint: The second letter is '" +
+					correctAnswer.charAt(1) +
+					"', and the English word is '" +
+					words[currentWordIndex].english +
+					"'."
 				);
-				Festival.speak(
-					"Incorrect, try once more " + correctAnswer + ", " + correctAnswer,
-					Festival.Language.ENGLISH
-				);
+
 				answerField.clear();
 			} else {
 				// user has gotten it wrong twice
 				statusLabel.setText("Incorrect");
-				Festival.speak("Incorrect", Festival.Language.ENGLISH);
 				nextWord(e);
 			}
 		}

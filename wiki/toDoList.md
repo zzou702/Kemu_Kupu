@@ -42,6 +42,6 @@ Added on 18/09/2021 Discussed on 20/09/2021
         - Short variable names - Ethan
         - Add final .jar file to repo
 
-Google Doc link for proof of edits: 
+Google Doc link for proof of edits:
 
     - https://docs.google.com/document/d/1aegnmFmoExPen6VH4ZZ35DU_kPfrHIygAGg9Vwp8C8w/edit?usp=sharing
