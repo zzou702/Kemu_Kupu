@@ -52,7 +52,7 @@ public class Answer {
 		if (a.equals(b)) return Correctness.CORRECT;
 
 		// if we omit hyphens and spaces, the answer would be correct
-		if (a.replace("( |-)", "").equals(b.replace("( |-)", ""))) {
+		if (a.replaceAll("( |-)", "").equals(b.replaceAll("( |-)", ""))) {
 			return Correctness.ONLY_SYNTAX_WRONG;
 		}
 
