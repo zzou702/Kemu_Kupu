@@ -56,7 +56,7 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <Label fx:id="rewardLabel" layoutX="21.0" layoutY="31.0" prefHeight="27.0" prefWidth="500.0" text="Ka pai! You have scored ? out of 5">
+      <Label fx:id="rewardLabel" alignment="CENTER" layoutX="13.0" layoutY="33.0" prefHeight="27.0" prefWidth="500.0" text="Ka pai! You have scored ? out of 5">
          <font>
             <Font size="24.0" />
          </font>
