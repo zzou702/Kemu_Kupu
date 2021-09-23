@@ -1,10 +1,10 @@
 package application;
 
 import application.helpers.*;
+import java.text.DecimalFormat;
+import java.text.MessageFormat;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
@@ -41,7 +41,6 @@ public class Game extends MainContext {
 	public void startGame(Topics.Topic topic) throws Exception {
 		quizTitle.setText(topic.title);
 		words = topic.getRandomWords();
-		scoreLabel.setText("Kaute (Score): " + scoreCount);
 
 		this.speakCurrentWord();
 		this.refreshUI();
@@ -50,14 +49,15 @@ public class Game extends MainContext {
 	/** this method updates the UI at the start of each question */
 	private void refreshUI() {
 		countLabel.setText(
-			"Spell word " +
-			Integer.toString(currentWordIndex + 1) +
-			" of " +
-			Integer.toString(words.length) +
-			"\nUiui: " +
-			Integer.toString(currentWordIndex + 1) +
-			" ō " +
-			Integer.toString(words.length)
+			MessageFormat.format(
+				"Spell word {0} of {1}\nUiui: {0} ō {1}",
+				/* 0 */currentWordIndex + 1,
+				/* 1 */words.length
+			)
+		);
+		scoreLabel.setText(
+			// strip out any trailing zeros, e.g. `1.0` -> `1`
+			"Kaute (Score): " + (new DecimalFormat("0.#").format(scoreCount))
 		);
 
 		// we also print the answer to the console to aid debugging
@@ -76,7 +76,7 @@ public class Game extends MainContext {
 	/** called by the skip button, and also by other methods */
 	public void nextWord(ActionEvent e) {
 		// go to the next word, and reset the number of attempts for this word
-		
+
 		currentWordIndex++;
 		attemptNumber = 1;
 		answerField.clear();
@@ -88,19 +88,16 @@ public class Game extends MainContext {
 			return;
 		}
 
-		
 		// if we get to here, the game is not over.
 		// so move to the next question
 		this.speakCurrentWord();
 		this.refreshUI();
 	}
-	
+
 	public void skipWord(ActionEvent e) { // skips the current word
-		
 		// Writes encouraging message
 		statusLabel.setText("Chin up, you've got the next one!");
 		nextWord(e);
-		
 	}
 
 	/** called when you click the submit button */
@@ -125,7 +122,6 @@ public class Game extends MainContext {
 				scoreCount++;
 			}
 
-			scoreLabel.setText("Kaute (Score): " + scoreCount);
 			nextWord(e);
 		} else {
 			// user got the word wrong
