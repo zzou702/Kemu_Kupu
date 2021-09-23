@@ -3,6 +3,8 @@ package application;
 import application.helpers.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
@@ -74,6 +76,7 @@ public class Game extends MainContext {
 	/** called by the skip button, and also by other methods */
 	public void nextWord(ActionEvent e) {
 		// go to the next word, and reset the number of attempts for this word
+		
 		currentWordIndex++;
 		attemptNumber = 1;
 		answerField.clear();
@@ -84,14 +87,20 @@ public class Game extends MainContext {
 			rewardPage.setScore(scoreCount);
 			return;
 		}
-		
-		// Writes encouraging message
-		statusLabel.setText("Chin up, you've got the next one!");
+
 		
 		// if we get to here, the game is not over.
 		// so move to the next question
 		this.speakCurrentWord();
 		this.refreshUI();
+	}
+	
+	public void skipWord(ActionEvent e) { // skips the current word
+		
+		// Writes encouraging message
+		statusLabel.setText("Chin up, you've got the next one!");
+		nextWord(e);
+		
 	}
 
 	/** called when you click the submit button */

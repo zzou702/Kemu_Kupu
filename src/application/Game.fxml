@@ -78,7 +78,7 @@
       <TextField fx:id="answerField" layoutX="59.0" layoutY="108.0" onAction="#submit" prefHeight="23.0" prefWidth="258.0" />
       <Label fx:id="countLabel" alignment="CENTER" layoutX="153.0" layoutY="56.0" prefHeight="31.0" prefWidth="221.0" textAlignment="CENTER" textFill="WHITE" />
       <Label fx:id="statusLabel" alignment="CENTER" layoutX="65.0" layoutY="142.0" prefHeight="39.0" prefWidth="398.0" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
-      <Button fx:id="skipButton" layoutX="263.0" layoutY="188.0" mnemonicParsing="false" onAction="#nextWord" prefHeight="31.0" prefWidth="104.0" text="Pahemo (Skip)" />
+      <Button fx:id="skipButton" layoutX="263.0" layoutY="188.0" mnemonicParsing="false" onAction="#skipWord" prefHeight="31.0" prefWidth="104.0" text="Pahemo (Skip)" />
       <Button fx:id="submitButton" layoutX="327.0" layoutY="104.0" mnemonicParsing="false" onAction="#submit" prefHeight="31.0" prefWidth="130.0" text="Whakautu (Submit)" />
       <Button fx:id="repeatButton" layoutX="154.0" layoutY="188.0" mnemonicParsing="false" onAction="#speakCurrentWord" prefHeight="31.0" prefWidth="104.0" text="Toai (Repeat)" />
       <Label fx:id="scoreLabel" alignment="CENTER" layoutX="178.0" layoutY="283.0" prefHeight="23.0" prefWidth="171.0" />
