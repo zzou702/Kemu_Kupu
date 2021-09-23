@@ -84,7 +84,10 @@ public class Game extends MainContext {
 			rewardPage.setScore(scoreCount);
 			return;
 		}
-
+		
+		// Writes encouraging message
+		statusLabel.setText("Chin up, you've got the next one!");
+		
 		// if we get to here, the game is not over.
 		// so move to the next question
 		this.speakCurrentWord();
@@ -137,8 +140,8 @@ public class Game extends MainContext {
 
 				answerField.clear();
 			} else {
-				// user has gotten it wrong twice
-				statusLabel.setText("Incorrect");
+				// User has gotten it wrong twice. Writes encouraging message
+				statusLabel.setText("Incorrect. Chin up, you've got the next one!");
 				nextWord(e);
 			}
 		}
