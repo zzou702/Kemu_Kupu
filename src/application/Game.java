@@ -36,6 +36,27 @@ public class Game extends MainContext {
 
 	@FXML
 	private Label scoreLabel;
+	
+	/** The following 5 methods insert a vowel with a macron on button press **/
+	public void insertA(ActionEvent e) {
+		answerField.insertText(answerField.getLength(), "ā");
+	}
+	
+	public void insertE(ActionEvent e) {
+		answerField.insertText(answerField.getLength(), "ē");
+	}
+	
+	public void insertI(ActionEvent e) {
+		answerField.insertText(answerField.getLength(), "ī");
+	}
+	
+	public void insertO(ActionEvent e) {
+		answerField.insertText(answerField.getLength(), "ō");
+	}
+	
+	public void insertU(ActionEvent e) {
+		answerField.insertText(answerField.getLength(), "ū");
+	}
 
 	/** called by the topic selection page  */
 	public void startGame(Topics.Topic topic) throws Exception {
