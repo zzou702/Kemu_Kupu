@@ -25,7 +25,7 @@ Added and discussed on 16/09/2021
         - Code formatting - Ethan
         - Comments - Ethan
 
-Added on 18/09/2021 Discussed on 20/09/2021
+Added on 20/09/2021 Discussed on 18/09/2021
 
     - Design
         - Kēmu Kupu name - Zimo
@@ -48,6 +48,13 @@ Added on 23/09/2021 Discussed on 21/09/2021:
 - consider making the whole app multilingual (see `translations.md`)
 - accept double vowels instead of macrons - Kyle
 - give hints if your answer is almost right - Kyle
+- resizing and implementation of Te Reo on UI - Zimo
+
+Added on 24/09/2021 Discussed on 24/09/2021:
+
+- buttons to insert vowels with macrons into text field - Ethan
+- implemented queuing of festival words - Kyle 
+
 
 Google Doc link for proof of edits:
 
