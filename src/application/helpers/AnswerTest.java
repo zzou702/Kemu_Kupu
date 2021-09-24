@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+/** Unit tests for the Answer class */
 class AnswerTest {
 
 	@Test

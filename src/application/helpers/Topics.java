@@ -29,13 +29,16 @@ public class Topics {
 		}
 
 		public Word[] getRandomWords() throws FileNotFoundException {
+			// allWords is a temporary list which we use to pick the random words
 			ArrayList<Word> allWords = new ArrayList<>();
 			Word[] randomWords = new Word[NUM_WORDS];
 
+			// read the file contents
 			File file = new File(WORDS_DIR + fileName);
 			Scanner scanner = new Scanner(file);
 			scanner.nextLine(); // throw away the first line, it's the title
 
+			// read through every line after the title row
 			while (scanner.hasNextLine()) {
 				String[] line = scanner.nextLine().split(",");
 				allWords.add(
@@ -72,18 +75,23 @@ public class Topics {
 	}
 
 	/**
-	 * Reads all the files in the src/words directory, and returns a list of Topic classes
+	 * Reads all the files in the WORDS_DIR directory, and returns a list of Topic classes
 	 */
 	public static ArrayList<Topic> getTopics() {
-		ArrayList<Topic> list = new ArrayList<>();
+		ArrayList<Topic> topics = new ArrayList<>();
+
+		// get a list of every file in the WORDS_DIR folder
 		File dir = new File(WORDS_DIR);
 		File[] files = dir.listFiles();
+
+		// loop through every file (or subfolder) in the folder
 		for (File file : files) {
 			// someone has made a subfolder in WORDS_DIR for some reason. skip it
 			if (file.isDirectory()) continue;
 
 			String fileName = file.getName();
 			try {
+				// create a scanner to read just the first line of the file
 				Scanner scanner = new Scanner(file);
 				String[] firstLine = scanner.nextLine().split(",");
 				scanner.close();
@@ -95,12 +103,12 @@ public class Topics {
 					? (firstLine[1] + " / " + firstLine[0])
 					: firstLine[1];
 
-				list.add(new Topic(fileName, topicTitle));
-			} catch (Exception ex) {
+				topics.add(new Topic(fileName, topicTitle));
+			} catch (Exception error) {
 				// if something goes wrong, we just skip this file
-				System.out.println("Skipped invalid topic file: " + fileName);
+				System.err.println("Skipped invalid topic file: " + fileName);
 			}
 		}
-		return list;
+		return topics;
 	}
 }

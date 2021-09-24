@@ -78,8 +78,8 @@ public class Festival {
 
 				Bash.exec("festival -b " + TEMP_FILE);
 				busy = false;
-			} catch (Exception ex) {
-				ex.printStackTrace();
+			} catch (Exception error) {
+				error.printStackTrace();
 				busy = false;
 			}
 
