@@ -53,8 +53,7 @@ Added on 23/09/2021 Discussed on 21/09/2021:
 Added on 24/09/2021 Discussed on 24/09/2021:
 
 - buttons to insert vowels with macrons into text field - Ethan
-- implemented queuing of festival words - Kyle 
-
+- implemented queuing of festival words - Kyle
 
 Google Doc link for proof of edits:
 

@@ -9,18 +9,19 @@ import javafx.stage.Stage;
 
 public class Home extends MainContext {
 
-	@FXML //Declaration of widgets made in SceneBuilder
+	@FXML
 	private Label errorMsg;
 
 	@FXML
 	private Button quitButton;
 
 	/** called when you click the 'Start Game' button */
-	public void goToTopicSelection(ActionEvent e) {
-		this.navigateTo("TopicSelection.fxml", e);
+	public void goToTopicSelection(ActionEvent event) {
+		this.navigateTo("TopicSelection.fxml", event);
 	}
 
-	public void exit(ActionEvent e) { //Quits the game
+	/** called by the 'quit' button. This exits the app  */
+	public void exit(ActionEvent event) {
 		Stage stage = (Stage) quitButton.getScene().getWindow();
 		stage.close();
 	}

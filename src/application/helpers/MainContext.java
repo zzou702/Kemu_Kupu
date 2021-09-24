@@ -16,27 +16,29 @@ import javafx.stage.Stage;
 public abstract class MainContext {
 
 	/** the speed that festival will read the word at */
+	// NOTE: this is not used for A3, but will be used in the project
 	public int TTSSpeed;
 
-	public MainContext navigateTo(String page, ActionEvent e) {
+	public MainContext navigateTo(String page, ActionEvent event) {
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource(page));
 			Parent newRoot = loader.load();
 
-			MainContext newController = loader.getController(); //Creates new instance of the controller for the corresponding scene
+			// creates new instance of the controller for the corresponding scene
+			MainContext newController = loader.getController();
 
 			// copy global context values to the new controller
 			newController.TTSSpeed = this.TTSSpeed;
 
 			// initialize the scene
-			Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+			Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 			Scene newScene = new Scene(newRoot);
 			stage.setScene(newScene);
 			stage.show();
 
 			return newController;
-		} catch (Exception ex) {
-			ex.printStackTrace();
+		} catch (Exception error) {
+			error.printStackTrace();
 			return null;
 		}
 	}

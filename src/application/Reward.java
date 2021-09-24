@@ -15,12 +15,12 @@ public class Reward extends MainContext {
 		// strip out any trailing zeros, e.g. `1.0` -> `1`
 		String formattedScore = new DecimalFormat("0.#").format(score);
 
-		//two different messages
+		// two different messages
 		if (score > 3) {
 			rewardLabel.setText(
 				"Ka pai! You have scored " + formattedScore + " out of 5"
 			);
-		} else if (score <= 3) {
+		} else {
 			rewardLabel.setText(
 				"You scored " +
 				formattedScore +
@@ -30,7 +30,7 @@ public class Reward extends MainContext {
 	}
 
 	/** Switches back to home screen on button press */
-	public void goHome(ActionEvent e) {
-		this.navigateTo("Home.fxml", e);
+	public void goHome(ActionEvent event) {
+		this.navigateTo("Home.fxml", event);
 	}
 }
