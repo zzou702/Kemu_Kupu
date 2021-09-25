@@ -29,6 +29,11 @@ public class Reward extends MainContext {
 		}
 	}
 
+	/** Switches back to topic selection screen on button press */
+	public void newGame(ActionEvent event) {
+		this.navigateTo("TopicSelection.fxml", event);
+	}
+
 	/** Switches back to home screen on button press */
 	public void goHome(ActionEvent event) {
 		this.navigateTo("Home.fxml", event);

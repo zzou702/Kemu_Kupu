@@ -1,60 +1,66 @@
-Group Members: Kyle, Zimo, Ethan
+# To do list
 
-To do list:
-Added and discussed on 16/09/2021
+### Meeting 1: 16/09/2021
 
-    - Set up image on PC - Completed
-    - Change Festival to be non-blocking - Kyle, Completed
-    - Delete Stats/ClearStats functionality - Ethan, Completed
-    - Create new screen to select the topic (List view of categories), then start - Kyle, Completed
-        - Add new word lists files - Kyle, Completed
-    - Create new "reward screen" - Zimo, Completed
-    - Edit quiz view - Ethan, Completed
-        - Add "speak word again" button to quiz view - Ethan, Completed
-        - Add second letter of word as hint - Ethan, Completed
-        - Adding don't know button - Ethan, Completed
-        - Adding submit button - Ethan, Completed
-    - Edit home page:
-        - Add TTS speed settings (on home page?). With play button that reads word at speed - Scrapped
-    - Change Festival to support the custom TTS speed - Scrapped
-    - Change Festival to support the te reo voice - Kyle, Completed
-    - Documentation
-        - Update README - Kyle, Completed
-        - Add /wiki folder with todo list, etc.
-    - Final checks
-        - Code formatting - Ethan
-        - Comments - Ethan
+- [x] Set up image on PC - everyone
+- [x] Change Festival to be non-blocking - Kyle
+- [x] Delete Stats/ClearStats functionality - Ethan
+- [x] Create new screen to select the topic (List view of categories), then start - Kyle
+  - [x] Add new word lists files - Kyle
+- [x] Create new "reward screen" - Zimo
+- [x] Edit quiz view - Ethan
+  - [x] Add "speak word again" button to quiz view - Ethan
+  - [x] Add second letter of word as hint - Ethan
+  - [x] Adding don't know button - Ethan
+  - [x] Adding submit button - Ethan
+- [x] Edit home page:
+  - [x] ~~Add TTS speed settings (on home page?). With play button that reads word at speed~~ - Scrapped
+- [x] ~~Change Festival to support the custom TTS speed~~ - Scrapped, will do it for the project
+- [x] Change Festival to support the te reo voice - Kyle
+- [x] Documentation
+  - [x] Update README - Kyle
+  - [x] Add /wiki folder with todo list, etc.
+- [x] Final checks
+  - [x] Code formatting - Ethan
+  - [x] Comments - Ethan
 
-Added on 20/09/2021 Discussed on 18/09/2021
+### Meeting 2: 18/09/2021 (added on 20/09/2021)
 
-    - Design
-        - Kēmu Kupu name - Zimo
-        - css? - Zimo
-    - Error handling? - Ethan
-    - Bugs
-        - Fix error in console about “-e”- Kyle
-        - Fix bug with csv files with commas in the word (e.g. engineering.csv) - Kyle
-        - Fix bug when there are less than 5 words in the file - Kyle
-    - Refactoring
-        - Rename fxml file names to be consistent with java file names - Kyle, Completed
-    - Final checks
-        - Unused imports - Ethan
-        - Short variable names - Ethan
-        - Add final .jar file to repo
+- [x] Design
+  - [x] Kēmu Kupu name - Zimo
+  - [x] css? - Zimo
+- [x] Error handling? - Ethan
+- [x] Bugs
+  - [x] Fix error in console about “-e”- Kyle
+  - [x] Fix bug with csv files with commas in the word (e.g. engineering.csv) - Kyle
+  - [x] Fix bug when there are less than 5 words in the file - Kyle
+- [x] Refactoring
+  - [x] Rename fxml file names to be consistent with java file names - Kyle
+- [x] Final checks
+  - [x] Unused imports - Ethan
+  - [x] Short variable names - Ethan
+  - [ ] Add final .jar file to repo
 
-Added on 23/09/2021 Discussed on 21/09/2021:
+### Meeting 3: 21/09/2021 (added on 23/09/2021)
 
-- award 0.5 points if you get the answer right the second time - Ethan
-- consider making the whole app multilingual (see `translations.md`)
-- accept double vowels instead of macrons - Kyle
-- give hints if your answer is almost right - Kyle
-- resizing and implementation of Te Reo on UI - Zimo
+- [x] award 0.5 points if you get the answer right the second time - Ethan
+- [x] consider making the whole app multilingual (see `translations.md`)
+- [x] accept double vowels instead of macrons - Kyle
+- [x] give hints if your answer is almost right - Kyle
+- [x] resizing and implementation of Te Reo on UI - Zimo
 
-Added on 24/09/2021 Discussed on 24/09/2021:
+### Discussion on Discord: 24/09/2021
 
-- buttons to insert vowels with macrons into text field - Ethan
-- implemented queuing of festival words - Kyle
+- [x] buttons to insert vowels with macrons into text field - Ethan
+- [x] implemented queuing of festival words - Kyle
 
-Google Doc link for proof of edits:
+### Meeting 4: 25/09/2021
 
-    - https://docs.google.com/document/d/1aegnmFmoExPen6VH4ZZ35DU_kPfrHIygAGg9Vwp8C8w/edit?usp=sharing
+- [x] remove the one `System.out.println` statement - Kyle
+- [x] update wiki files and upload team agreement
+- [x] add "New Game" button to reward screen - Kyle
+- [ ] _we also planned the presentation in this meeting_
+
+---
+
+For proof of edits, see [the original google doc](https://docs.google.com/document/d/1aegnmFmoExPen6VH4ZZ35DU_kPfrHIygAGg9Vwp8C8w/edit?usp=sharing).

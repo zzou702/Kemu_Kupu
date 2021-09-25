@@ -80,9 +80,6 @@ public class Game extends MainContext {
 			// strip out any trailing zeros, e.g. `1.0` -> `1`
 			"Kaute (Score): " + (new DecimalFormat("0.#").format(scoreCount))
 		);
-
-		// we also print the answer to the console to aid debugging
-		System.out.println("Correct answer: " + words[currentWordIndex].teReo);
 	}
 
 	/** called by the back button */
