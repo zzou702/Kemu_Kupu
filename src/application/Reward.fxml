@@ -51,7 +51,12 @@
             </LinearGradient>
          </fill>
       </Ellipse>
-      <Button layoutX="224.0" layoutY="275.0" mnemonicParsing="false" onAction="#goHome" text="Go Home">
+      <Button layoutX="224.0" layoutY="227.0" mnemonicParsing="false" onAction="#newGame" text="New Game">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="229.0" layoutY="275.0" mnemonicParsing="false" onAction="#goHome" text="Go Home" textAlignment="CENTER">
          <font>
             <Font size="14.0" />
          </font>

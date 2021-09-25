@@ -2,7 +2,20 @@
 
 [![CI](https://github.com/SOFTENG206-2021/assignment-3-and-project-team-37/actions/workflows/ci.yml/badge.svg)](https://github.com/SOFTENG206-2021/assignment-3-and-projefct-team-37/actions/workflows/ci.yml)
 
+## Instructions to Run the project
+
+To start the `final.jar` file, run
+
+```sh
+chmod u+x final.jar
+
+java -Djdk.gtk.version=2 --module-path /home/student/javafx-sdk-11.0.2/javafx --add-modules javafx.controls,javafx.media,javafx.base,javafx.fxml -jar final.jar
+
+```
+
 ## Set up instructions
+
+> This is only if you want to edit to code
 
 - Go to `Window -> Preferences -> Java -> Build Path -> User Libraries` and ensure the user library is called `JavaFX-11`
 - Go to `Run -> Run Configurations -> Java Application -> Main -> Arguments` and set the VM Arguments to:
