@@ -5,6 +5,8 @@ import java.text.DecimalFormat;
 import java.text.MessageFormat;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
@@ -36,6 +38,9 @@ public class Game extends UIController {
 
 	@FXML
 	private Label scoreLabel;
+	
+	@FXML 
+	private Label lengthLabel;
 
 	/** The following 5 methods insert a vowel with a macron on button press **/
 	public void insertA(ActionEvent event) {
@@ -76,10 +81,27 @@ public class Game extends UIController {
 				/* 1 */words.length
 			)
 		);
+		
+		lengthLabel.setText(
+				"Word Length: " + words[currentWordIndex]
+						.teReo
+						.length()
+				);
+		
 		scoreLabel.setText(
 			// strip out any trailing zeros, e.g. `1.0` -> `1`
 			"Kaute (Score): " + (new DecimalFormat("0.#").format(scoreCount))
 		);
+	}
+	
+	public void help(ActionEvent event) {
+		Alert a = new Alert(AlertType.INFORMATION);
+		a.setContentText("Type the word into the textbox to play. "
+				+ "Click enter or the submit button to test the word. "
+				+ "The repeat button reads out the word again. "
+				+ "The skip button moves onto the next word"
+				+ "Click the macron buttons to add vowels with macrons");
+		a.show();
 	}
 
 	/** called by the back button */
@@ -129,6 +151,7 @@ public class Game extends UIController {
 		nextWord(event);
 	}
 
+
 	/** called when you click the submit button */
 	public void submit(ActionEvent event) {
 		statusLabel.setText("");
@@ -157,17 +180,20 @@ public class Game extends UIController {
 			if (attemptNumber == 1) {
 				// If user has only gotten it wrong once, read the word again and wait for answer
 				attemptNumber = 2;
-
+				
+				// Gives a hint depending on the answer
 				String hintPrefix = correctness == Answer.Correctness.ONLY_MACRONS_WRONG
 					? "Almost right! Check the macrons. "
 					: correctness == Answer.Correctness.ONLY_SYNTAX_WRONG
 						? "Almost right! Check your spaces and hyphens. "
 						: "Incorrect, try once more. "; // if totally wrong
-
+				
 				statusLabel.setText(
 					hintPrefix +
-					" Hint: The second letter is '" +
-					correctAnswer.charAt(1) +
+					" Hint: The first and last letters are '" +
+					correctAnswer.charAt(0) +
+					"' and '" + 
+					correctAnswer.charAt(correctAnswer.length()-1) +
 					"', and the English word is '" +
 					words[currentWordIndex].english +
 					"'."
@@ -176,7 +202,9 @@ public class Game extends UIController {
 				answerField.clear();
 			} else {
 				// User has gotten it wrong twice. Writes encouraging message
-				statusLabel.setText("Incorrect. Chin up, you've got the next one!");
+				statusLabel.setText("Incorrect. Chin up, you've got the next one! "
+						+ "\nThe correct spelling was: " //This line is only to be used in the practice module
+						+ correctAnswer);
 				nextWord(event);
 			}
 		}
