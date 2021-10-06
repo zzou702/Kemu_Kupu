@@ -8,7 +8,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-public class Game extends MainContext {
+public class Game extends UIController {
 
 	/** the random words for this quiz */
 	private Topics.Word[] words;
@@ -89,7 +89,11 @@ public class Game extends MainContext {
 
 	/** called by the repeat button, and also by other methods */
 	public void speakCurrentWord() {
-		Festival.speak(words[currentWordIndex].teReo, Festival.Language.TE_REO);
+		Festival.speak(
+			words[currentWordIndex].teReo,
+			Festival.Language.TE_REO,
+			this.context.getTTSSpeed()
+		);
 	}
 
 	/** goes to the next word after the user passed, failed, or skipped the previous word */
@@ -103,6 +107,12 @@ public class Game extends MainContext {
 			// we are now done
 			Reward rewardPage = (Reward) this.navigateTo("Reward.fxml", event);
 			rewardPage.setScore(scoreCount);
+
+			// save this score as a high-score if it's the best they've ever achieved
+			if (scoreCount > this.context.getHighScore()) {
+				this.context.setHighScore(scoreCount);
+			}
+
 			return;
 		}
 

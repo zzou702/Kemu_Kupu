@@ -13,28 +13,35 @@ import javafx.stage.Stage;
  *
  * It also exposes a navigateTo method which makes it easier to change to a new page.
  */
-public abstract class MainContext {
+public abstract class UIController {
 
 	/** the speed that festival will read the word at */
-	// NOTE: this is not used for A3, but will be used in the project
-	public int TTSSpeed;
+	public AppContext context;
 
-	public MainContext navigateTo(String page, ActionEvent event) {
+	/**
+	 * no-op by default, but can be overridden for classes that need a callback
+	 * like initialize() that runs after the main context has been setup, and FXML
+	 * is ready.
+	 */
+	public void onReady() {}
+
+	public UIController navigateTo(String page, ActionEvent event) {
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource(page));
 			Parent newRoot = loader.load();
 
 			// creates new instance of the controller for the corresponding scene
-			MainContext newController = loader.getController();
+			UIController newController = loader.getController();
 
-			// copy global context values to the new controller
-			newController.TTSSpeed = this.TTSSpeed;
+			// copy the instance of the AppContext to the new controller
+			newController.context = this.context;
 
 			// initialize the scene
 			Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 			Scene newScene = new Scene(newRoot);
 			stage.setScene(newScene);
 			stage.show();
+			newController.onReady();
 
 			return newController;
 		} catch (Exception error) {

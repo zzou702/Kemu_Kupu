@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.paint.Color?>
@@ -76,5 +77,8 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="29.0" layoutY="131.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="454.0" layoutY="251.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="47.0" layoutY="27.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <ComboBox fx:id="ttsSpeedDropdown" layoutX="254.0" layoutY="285.0" prefHeight="23.0" prefWidth="168.0" />
+      <Label layoutX="168.0" layoutY="289.0" text="TTS Speed:" textFill="WHITE" />
+      <Button layoutX="427.0" layoutY="285.0" mnemonicParsing="false" text="Play Sample" onAction="#playSample" />
    </children>
 </AnchorPane>

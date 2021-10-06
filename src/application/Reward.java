@@ -6,7 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-public class Reward extends MainContext {
+public class Reward extends UIController {
 
 	@FXML
 	private Label rewardLabel;
