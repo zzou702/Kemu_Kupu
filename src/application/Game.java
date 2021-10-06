@@ -94,14 +94,18 @@ public class Game extends UIController {
 		);
 	}
 	
+	// Called when help button is pressed
 	public void help(ActionEvent event) {
-		Alert a = new Alert(AlertType.INFORMATION);
-		a.setContentText("Type the word into the textbox to play. "
-				+ "Click enter or the submit button to test the word. "
-				+ "The repeat button reads out the word again. "
-				+ "The skip button moves onto the next word"
-				+ "Click the macron buttons to add vowels with macrons");
-		a.show();
+		Alert instructions = new Alert(AlertType.INFORMATION);
+		instructions.setTitle("Instructions");
+		instructions.setHeaderText(null);
+		instructions.setContentText("Type the word into the textbox to play. "
+				+ "\nClick enter or the submit button to test the word. "
+				+ "\nThe repeat button reads out the word again. "
+				+ "\nThe skip button moves onto the next word"
+				+ "\nClick the macron buttons to add vowels with macrons"
+				);
+		instructions.show();
 	}
 
 	/** called by the back button */

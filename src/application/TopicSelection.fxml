@@ -52,5 +52,6 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="497.0" layoutY="31.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="495.0" layoutY="250.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="316.0" layoutY="292.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Button layoutX="479.0" layoutY="315.0" mnemonicParsing="false" onAction="#help" text="Help" />
    </children>
 </AnchorPane>
