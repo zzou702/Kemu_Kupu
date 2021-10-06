@@ -103,5 +103,7 @@
       <Button fx:id="macronI" layoutX="244.0" layoutY="224.0" mnemonicParsing="false" onAction="#insertI" prefHeight="23.0" prefWidth="40.0" text="ī" />
       <Button fx:id="macronO" layoutX="281.0" layoutY="224.0" mnemonicParsing="false" onAction="#insertO" prefHeight="23.0" prefWidth="40.0" text="ō" />
       <Button fx:id="macronU" layoutX="320.0" layoutY="224.0" mnemonicParsing="false" onAction="#insertU" prefHeight="23.0" prefWidth="40.0" text="ū" />
+      <Button layoutX="479.0" layoutY="315.0" mnemonicParsing="false" onAction="#help" text="Help" />
+      <Label fx:id="lengthLabel" alignment="CENTER" layoutX="165.0" layoutY="89.0" prefHeight="15.0" prefWidth="185.0" text="Word length: " textFill="WHITE" />
    </children>
 </AnchorPane>

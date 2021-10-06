@@ -4,8 +4,10 @@ import application.helpers.*;
 import java.util.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.Alert.AlertType;
 
 public class TopicSelection extends UIController {
 
@@ -61,6 +63,17 @@ public class TopicSelection extends UIController {
 		} catch (Exception error) {
 			error.printStackTrace();
 		}
+	}
+	
+	//Called when help button is pressed
+	public void help(ActionEvent event) {
+		Alert instructions = new Alert(AlertType.INFORMATION);
+		instructions.setTitle("Instructions");
+		instructions.setHeaderText(null);
+		instructions.setContentText("Click a topic. "
+				+ "Then click Start to begin "
+				);
+		instructions.show();
 	}
 
 	/** called when you click the back button */
