@@ -7,7 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 
-public class TopicSelection extends MainContext {
+public class TopicSelection extends UIController {
 
 	/** the list of possible topics, populated by the initialize() method */
 	private ArrayList<Topics.Topic> topicsList;

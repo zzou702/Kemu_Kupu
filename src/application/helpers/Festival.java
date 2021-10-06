@@ -47,7 +47,7 @@ public class Festival {
 		TE_REO,
 	}
 
-	public static void speak(String phrase, Language lang) {
+	public static void speak(String phrase, Language lang, double TTSSpeed) {
 		if (busy) {
 			queue.add(new QueueItem(phrase, lang));
 			return; // do not create a new thread if one is currently active
@@ -68,9 +68,10 @@ public class Festival {
 				// this is unfortunately a two step process, we generate a .scm file with the festival
 				// instructions, then write it to disk, and then call festival
 				String scmFile = MessageFormat.format(
-					"({0})\n(SayText \"{1}\")\n",
+					"({0})\n(Parameter.set ''Duration_Stretch {1})\n(SayText \"{2}\")\n",
 					/* 0 */voice,
-					/* 1 */safePhrase
+					/* 1 */TTSSpeed,
+					/* 2 */safePhrase
 				);
 				BufferedWriter writer = new BufferedWriter(new FileWriter(TEMP_FILE));
 				writer.write(scmFile);
@@ -88,7 +89,7 @@ public class Festival {
 			if (queue.size() > 0) {
 				QueueItem nextItem = queue.get(0);
 				queue.remove(0);
-				speak(nextItem.phrase, nextItem.lang);
+				speak(nextItem.phrase, nextItem.lang, TTSSpeed);
 			}
 		};
 		Thread thread = new Thread(callback);

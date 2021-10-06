@@ -1,5 +1,6 @@
 package application;
 
+import application.helpers.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,7 +16,13 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			// we start on the Home page
-			Parent root = FXMLLoader.load(getClass().getResource("Home.fxml")); // Sets reference FXML
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("Home.fxml"));
+			Parent root = loader.load();
+
+			// this is the first controller, so we need to initialize the AppContext
+			UIController initialController = loader.getController();
+			initialController.context = new AppContext();
+
 			Scene scene = new Scene(root);
 			scene
 				.getStylesheets()
@@ -23,6 +30,7 @@ public class Main extends Application {
 			primaryStage.setScene(scene);
 			primaryStage.show();
 			primaryStage.setResizable(false); // Disables resizing of window
+			initialController.onReady();
 		} catch (Exception error) {
 			error.printStackTrace();
 		}
