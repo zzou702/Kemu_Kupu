@@ -31,13 +31,14 @@
                </stops>
             </RadialGradient>
          </fill></Rectangle>
-      <Button layoutX="179.0" layoutY="121.0" mnemonicParsing="false" onAction="#goToTopicSelection" prefHeight="49.0" prefWidth="168.0" stylesheets="@application.css" text="Tāti (Start)" />
+      <Button layoutX="180.0" layoutY="100.0" mnemonicParsing="false" onAction="#startGameModule" prefHeight="49.0" prefWidth="200.0" stylesheets="@application.css" text="Tāti kēmu (New Game)" />
+      <Button layoutX="180.0" layoutY="164.0" mnemonicParsing="false" onAction="#startPracticeModule" prefHeight="49.0" prefWidth="200.0" stylesheets="@application.css" text="Parakitihi (New Practice Quiz)" />
       <Label layoutX="145.0" layoutY="72.0" prefHeight="16.0" prefWidth="235.0" stylesheets="@application.css" text="Te reo Spelling Quiz" textAlignment="CENTER">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Button fx:id="quitButton" layoutX="179.0" layoutY="200.0" mnemonicParsing="false" onAction="#exit" prefHeight="49.0" prefWidth="168.0" stylesheets="@application.css" text="Whakamutu (Quit)" />
+      <Button fx:id="quitButton" layoutX="180.0" layoutY="225.0" mnemonicParsing="false" onAction="#exit" prefHeight="49.0" prefWidth="200.0" stylesheets="@application.css" text="Whakamutu (Quit)" />
       <Label layoutX="168.0" layoutY="19.0" stylesheets="@application.css" text="Kēmu Kupu">
          <font>
             <Font size="36.0" />
@@ -79,6 +80,6 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="47.0" layoutY="27.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <ComboBox fx:id="ttsSpeedDropdown" layoutX="254.0" layoutY="285.0" prefHeight="23.0" prefWidth="168.0" />
       <Label layoutX="168.0" layoutY="289.0" text="TTS Speed:" textFill="WHITE" />
-      <Button layoutX="427.0" layoutY="285.0" mnemonicParsing="false" text="Play Sample" onAction="#playSample" />
+      <Button layoutX="427.0" layoutY="285.0" mnemonicParsing="false" onAction="#playSample" text="Play Sample" />
    </children>
 </AnchorPane>

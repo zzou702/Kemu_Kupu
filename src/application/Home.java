@@ -62,8 +62,21 @@ public class Home extends UIController {
 	}
 
 	/** called when you click the 'Start Game' button */
-	public void goToTopicSelection(ActionEvent event) {
-		this.navigateTo("TopicSelection.fxml", event);
+	public void startGameModule(ActionEvent event) {
+		TopicSelection newPage = (TopicSelection) this.navigateTo(
+				"TopicSelection.fxml",
+				event
+			);
+		newPage.mode = Game.Mode.GAME;
+	}
+
+	/** called when you click the 'Start Practice Quiz' button */
+	public void startPracticeModule(ActionEvent event) {
+		TopicSelection newPage = (TopicSelection) this.navigateTo(
+				"TopicSelection.fxml",
+				event
+			);
+		newPage.mode = Game.Mode.PRACTICE;
 	}
 
 	/** called by the 'quit' button. This exits the app */

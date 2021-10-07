@@ -11,7 +11,12 @@ public class Reward extends UIController {
 	@FXML
 	private Label rewardLabel;
 
-	public void setScore(double score) {
+	/** called by the Game UI when it completes, to pass us these variables */
+	public void initialize(
+		double score,
+		Game.AnswerType[] answers,
+		Topics.Word[] words
+	) {
 		// strip out any trailing zeros, e.g. `1.0` -> `1`
 		String formattedScore = new DecimalFormat("0.#").format(score);
 
@@ -27,6 +32,7 @@ public class Reward extends UIController {
 				" out of 5, you can certainly do better"
 			);
 		}
+		// TODO: render a table of `answers` and `words`
 	}
 
 	/** Switches back to topic selection screen on button press */
