@@ -51,14 +51,11 @@ public class AppContext {
 			scanner.close();
 		} catch (Exception error) {
 			// if we can't read the preferences, then the default values will be used
-			error.printStackTrace(); // TODO: temp
 		}
 	}
 
 	private void updatePreferencesFile() {
 		try {
-			// TODO: make this non-blocking?
-
 			String newFile = MessageFormat.format(
 				"TTSSpeed|{0}\nhighScore|{1}\n",
 				/* 0 */TTSSpeed,
