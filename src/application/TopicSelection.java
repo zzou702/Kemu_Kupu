@@ -5,11 +5,14 @@ import java.util.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
-import javafx.scene.control.Alert.AlertType;
 
 public class TopicSelection extends UIController {
+
+	/** the current mode (practice or game) */
+	public Game.Mode mode;
 
 	/** the list of possible topics, populated by the initialize() method */
 	private ArrayList<Topics.Topic> topicsList;
@@ -59,20 +62,20 @@ public class TopicSelection extends UIController {
 			// navigate to the next page, then call the new page's startGame method
 			// to pass the chosenTopic to it.
 			Game newController = (Game) this.navigateTo("Game.fxml", event);
-			newController.startGame(chosenTopic);
+			newController.startGame(chosenTopic, mode);
 		} catch (Exception error) {
 			error.printStackTrace();
 		}
 	}
-	
+
 	//Called when help button is pressed
 	public void help(ActionEvent event) {
 		Alert instructions = new Alert(AlertType.INFORMATION);
 		instructions.setTitle("Instructions");
 		instructions.setHeaderText(null);
-		instructions.setContentText("Click a topic. "
-				+ "Then click Start to begin "
-				);
+		instructions.setContentText(
+			"Click a topic. " + "Then click Start to begin "
+		);
 		instructions.show();
 	}
 

@@ -98,11 +98,11 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="494.0" layoutY="127.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="31.0" layoutY="129.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Arc fill="#ffffffc6" layoutX="36.0" layoutY="15.0" length="270.0" radiusX="8.0" radiusY="8.0" rotate="180.0" startAngle="45.0" stroke="#00000027" strokeType="INSIDE" type="ROUND" />
-      <Button fx:id="macronA" layoutX="166.0" layoutY="224.0" mnemonicParsing="false" onAction="#insertA" prefHeight="23.0" prefWidth="40.0" text="ā" />
-      <Button fx:id="macronE" layoutX="205.0" layoutY="224.0" mnemonicParsing="false" onAction="#insertE" prefHeight="23.0" prefWidth="40.0" text="ē" />
-      <Button fx:id="macronI" layoutX="244.0" layoutY="224.0" mnemonicParsing="false" onAction="#insertI" prefHeight="23.0" prefWidth="40.0" text="ī" />
-      <Button fx:id="macronO" layoutX="281.0" layoutY="224.0" mnemonicParsing="false" onAction="#insertO" prefHeight="23.0" prefWidth="40.0" text="ō" />
-      <Button fx:id="macronU" layoutX="320.0" layoutY="224.0" mnemonicParsing="false" onAction="#insertU" prefHeight="23.0" prefWidth="40.0" text="ū" />
+      <Button userData="ā" layoutX="166.0" layoutY="224.0" mnemonicParsing="false" onAction="#insertMacron" prefHeight="23.0" prefWidth="40.0" text="ā" />
+      <Button userData="ē" layoutX="205.0" layoutY="224.0" mnemonicParsing="false" onAction="#insertMacron" prefHeight="23.0" prefWidth="40.0" text="ē" />
+      <Button userData="ī" layoutX="244.0" layoutY="224.0" mnemonicParsing="false" onAction="#insertMacron" prefHeight="23.0" prefWidth="40.0" text="ī" />
+      <Button userData="ō" layoutX="281.0" layoutY="224.0" mnemonicParsing="false" onAction="#insertMacron" prefHeight="23.0" prefWidth="40.0" text="ō" />
+      <Button userData="ū" layoutX="320.0" layoutY="224.0" mnemonicParsing="false" onAction="#insertMacron" prefHeight="23.0" prefWidth="40.0" text="ū" />
       <Button layoutX="479.0" layoutY="315.0" mnemonicParsing="false" onAction="#help" text="Help" />
       <Label fx:id="lengthLabel" alignment="CENTER" layoutX="165.0" layoutY="89.0" prefHeight="15.0" prefWidth="185.0" text="Word length: " textFill="WHITE" />
    </children>

@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class Topics {
 
 	/** the number of words per quiz */
-	private static final int NUM_WORDS = 5;
+	public static final int NUM_WORDS = 5;
 
 	/** the folder where the csv files are stored, relative to the repo root */
 	private static final String WORDS_DIR = "./src/words/";

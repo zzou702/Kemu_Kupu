@@ -5,15 +5,46 @@ import java.text.DecimalFormat;
 import java.text.MessageFormat;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
+/**
+ * This class is used for both the practice module,
+ * and the games module. The field `mode` will tell
+ * you which module this is.
+ *
+ * Key differences:
+ *  - practice mode does not affect the high-score.
+ *  - practice mode gives you a second chance at each word, games mode does not.
+ *  - practice mode shows you the correct answer after each question, games mode does't.
+ */
+
 public class Game extends UIController {
+
+	/** represnts the type of quiz that's being played (practice or game) */
+	public enum Mode {
+		PRACTICE,
+		GAME,
+	}
+
+	/** represnts the type of answer that the user provided for a question */
+	public enum AnswerType {
+		CORRECT,
+		FAULTED, // this means they got it incorrect on the first attempt, then correct. Only possible in practice mode
+		INCORRECT,
+	}
+
+	/** the current mode (practice or game) */
+	private Mode mode;
 
 	/** the random words for this quiz */
 	private Topics.Word[] words;
+
+	/** the score that the user got for each word */
+	private AnswerType answers[] = new AnswerType[Topics.NUM_WORDS];
 
 	/** the current question number, starting at 0 */
 	private int currentWordIndex = 0;
@@ -38,34 +69,28 @@ public class Game extends UIController {
 
 	@FXML
 	private Label scoreLabel;
-	
-	@FXML 
+
+	@FXML
 	private Label lengthLabel;
 
-	/** The following 5 methods insert a vowel with a macron on button press **/
-	public void insertA(ActionEvent event) {
-		answerField.insertText(answerField.getLength(), "ā");
-	}
+	/** This method inserts a vowel with a macron on button press. This method is used by 5 buttons **/
+	public void insertMacron(ActionEvent event) {
+		/** the character with the macron */
+		String character = (String) ((Node) event.getSource()).getUserData();
+		answerField.insertText(answerField.getLength(), character);
 
-	public void insertE(ActionEvent event) {
-		answerField.insertText(answerField.getLength(), "ē");
-	}
-
-	public void insertI(ActionEvent event) {
-		answerField.insertText(answerField.getLength(), "ī");
-	}
-
-	public void insertO(ActionEvent event) {
-		answerField.insertText(answerField.getLength(), "ō");
-	}
-
-	public void insertU(ActionEvent event) {
-		answerField.insertText(answerField.getLength(), "ū");
+		// move the cursor back to the textField and re-focus on it.
+		// the allows the user to resume typing immediately.
+		answerField.requestFocus();
+		answerField.positionCaret(answerField.getLength());
 	}
 
 	/** called by the topic selection page when it renders this page */
-	public void startGame(Topics.Topic topic) throws Exception {
-		quizTitle.setText(topic.title);
+	public void startGame(Topics.Topic topic, Mode mode) throws Exception {
+		this.mode = mode;
+		quizTitle.setText(
+			(mode == Mode.PRACTICE ? "Practice: " : "") + topic.title
+		);
 		words = topic.getRandomWords();
 
 		this.speakCurrentWord();
@@ -81,30 +106,29 @@ public class Game extends UIController {
 				/* 1 */words.length
 			)
 		);
-		
+
 		lengthLabel.setText(
-				"Word Length: " + words[currentWordIndex]
-						.teReo
-						.length()
-				);
-		
+			"Word Length: " + words[currentWordIndex].teReo.length()
+		);
+
 		scoreLabel.setText(
 			// strip out any trailing zeros, e.g. `1.0` -> `1`
 			"Kaute (Score): " + (new DecimalFormat("0.#").format(scoreCount))
 		);
 	}
-	
+
 	// Called when help button is pressed
 	public void help(ActionEvent event) {
 		Alert instructions = new Alert(AlertType.INFORMATION);
 		instructions.setTitle("Instructions");
 		instructions.setHeaderText(null);
-		instructions.setContentText("Type the word into the textbox to play. "
-				+ "\nClick enter or the submit button to test the word. "
-				+ "\nThe repeat button reads out the word again. "
-				+ "\nThe skip button moves onto the next word"
-				+ "\nClick the macron buttons to add vowels with macrons"
-				);
+		instructions.setContentText(
+			"Type the word into the textbox to play. " +
+			"\nClick enter or the submit button to test the word. " +
+			"\nThe repeat button reads out the word again. " +
+			"\nThe skip button moves onto the next word" +
+			"\nClick the macron buttons to add vowels with macrons"
+		);
 		instructions.show();
 	}
 
@@ -132,10 +156,11 @@ public class Game extends UIController {
 		if (currentWordIndex == words.length) {
 			// we are now done
 			Reward rewardPage = (Reward) this.navigateTo("Reward.fxml", event);
-			rewardPage.setScore(scoreCount);
+			rewardPage.initialize(scoreCount, answers, words);
 
 			// save this score as a high-score if it's the best they've ever achieved
-			if (scoreCount > this.context.getHighScore()) {
+			// but only if we're in game mode. practice mode does not count.
+			if (scoreCount > this.context.getHighScore() && mode == Mode.GAME) {
 				this.context.setHighScore(scoreCount);
 			}
 
@@ -155,7 +180,6 @@ public class Game extends UIController {
 		nextWord(event);
 	}
 
-
 	/** called when you click the submit button */
 	public void submit(ActionEvent event) {
 		statusLabel.setText("");
@@ -174,30 +198,33 @@ public class Game extends UIController {
 			// If answered correctly on second attempt, add half point. Otherwise add full point
 			if (attemptNumber == 2) {
 				scoreCount += 0.5;
+				answers[currentWordIndex] = AnswerType.FAULTED;
 			} else {
 				scoreCount++;
+				answers[currentWordIndex] = AnswerType.CORRECT;
 			}
 
 			nextWord(event);
 		} else {
 			// user got the word wrong
-			if (attemptNumber == 1) {
+			if (attemptNumber == 1 && mode == Mode.PRACTICE) {
 				// If user has only gotten it wrong once, read the word again and wait for answer
+				// we only do this in practice mode.
 				attemptNumber = 2;
-				
+
 				// Gives a hint depending on the answer
 				String hintPrefix = correctness == Answer.Correctness.ONLY_MACRONS_WRONG
 					? "Almost right! Check the macrons. "
 					: correctness == Answer.Correctness.ONLY_SYNTAX_WRONG
 						? "Almost right! Check your spaces and hyphens. "
 						: "Incorrect, try once more. "; // if totally wrong
-				
+
 				statusLabel.setText(
 					hintPrefix +
 					" Hint: The first and last letters are '" +
 					correctAnswer.charAt(0) +
-					"' and '" + 
-					correctAnswer.charAt(correctAnswer.length()-1) +
+					"' and '" +
+					correctAnswer.charAt(correctAnswer.length() - 1) +
 					"', and the English word is '" +
 					words[currentWordIndex].english +
 					"'."
@@ -205,10 +232,17 @@ public class Game extends UIController {
 
 				answerField.clear();
 			} else {
-				// User has gotten it wrong twice. Writes encouraging message
-				statusLabel.setText("Incorrect. Chin up, you've got the next one! "
-						+ "\nThe correct spelling was: " //This line is only to be used in the practice module
-						+ correctAnswer);
+				// User has gotten it wrong twice in practice mode, or once in game mode.
+				// Writes encouraging message
+				statusLabel.setText(
+					"Incorrect. Chin up, you've got the next one!" +
+					(
+						mode == Mode.PRACTICE
+							? "\nThe correct spelling was: " + correctAnswer
+							: ""
+					)
+				);
+				answers[currentWordIndex] = AnswerType.INCORRECT;
 				nextWord(event);
 			}
 		}
