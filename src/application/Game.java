@@ -3,7 +3,12 @@ package application;
 import application.helpers.*;
 import java.text.DecimalFormat;
 import java.text.MessageFormat;
+
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
@@ -11,6 +16,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
+import javafx.util.Duration;
 
 /**
  * This class is used for both the practice module,
@@ -55,6 +61,10 @@ public class Game extends UIController {
 
 	/** the current score, initially 0 **/
 	private double scoreCount = 0;
+	
+	private int startTime;
+	
+	private Timeline timeline;
 
 	@FXML
 	private Label statusLabel;
@@ -73,6 +83,9 @@ public class Game extends UIController {
 
 	@FXML
 	private Label lengthLabel;
+	
+	@FXML
+	private Label timeLabel;
 	
 	@FXML
 	private ProgressBar timeBar;
@@ -123,6 +136,22 @@ public class Game extends UIController {
 			// strip out any trailing zeros, e.g. `1.0` -> `1`
 			"Kaute (Score): " + (new DecimalFormat("0.#").format(scoreCount))
 		);
+		
+		if (timeline != null) {
+			timeline.stop();
+		}
+		
+		startTime = 0;
+		timeLabel.setText(Integer.toString(startTime));
+		timeline = new Timeline(new KeyFrame(Duration.seconds(1), (ActionEvent event) -> {
+            startTime++;
+            timeLabel.setText(String.format("%02d:%02d", (startTime % 3600) / 60, startTime % 60));
+        }));
+        timeline.setCycleCount(Timeline.INDEFINITE);
+		
+		timeline.playFromStart();
+		
+		
 	}
 
 	// Called when help button is pressed

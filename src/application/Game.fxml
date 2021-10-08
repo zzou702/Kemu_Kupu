@@ -107,5 +107,6 @@
       <Button layoutX="479.0" layoutY="315.0" mnemonicParsing="false" onAction="#help" text="Help" />
       <Label fx:id="lengthLabel" alignment="CENTER" layoutX="165.0" layoutY="89.0" prefHeight="15.0" prefWidth="185.0" text="Word length: " textFill="WHITE" />
       <ProgressBar fx:id="timeBar" layoutX="134.0" layoutY="247.0" prefHeight="20.0" prefWidth="273.0" progress="1.0" visible="false" />
+      <Label fx:id="timeLabel" layoutX="374.0" layoutY="16.0" prefHeight="15.0" prefWidth="146.0" text="Time:" textFill="WHITE" />
    </children>
 </AnchorPane>
