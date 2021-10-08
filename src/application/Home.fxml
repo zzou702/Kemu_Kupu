@@ -31,20 +31,20 @@
                </stops>
             </RadialGradient>
          </fill></Rectangle>
-      <Button layoutX="180.0" layoutY="100.0" mnemonicParsing="false" onAction="#startGameModule" prefHeight="49.0" prefWidth="200.0" stylesheets="@application.css" text="Tāti kēmu (New Game)" />
-      <Button layoutX="180.0" layoutY="164.0" mnemonicParsing="false" onAction="#startPracticeModule" prefHeight="49.0" prefWidth="200.0" stylesheets="@application.css" text="Parakitihi (New Practice Quiz)" />
-      <Label layoutX="145.0" layoutY="72.0" prefHeight="16.0" prefWidth="235.0" stylesheets="@application.css" text="Te reo Spelling Quiz" textAlignment="CENTER">
+      <Button layoutX="162.0" layoutY="104.0" mnemonicParsing="false" onAction="#startGameModule" prefHeight="50.0" prefWidth="202.0" styleClass="oval-shaped-button" stylesheets="@application.css" text="Tāti kēmu (New Game)" />
+      <Button layoutX="162.0" layoutY="165.0" mnemonicParsing="false" onAction="#startPracticeModule" prefHeight="50.0" prefWidth="202.0" styleClass="oval-shaped-button" stylesheets="@application.css" text="Parakitihi (Practice Quiz)" />
+      <Label layoutX="145.0" layoutY="72.0" prefHeight="16.0" prefWidth="235.0" stylesheets="@application.css" text="Te reo Spelling Quiz" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Button fx:id="quitButton" layoutX="180.0" layoutY="225.0" mnemonicParsing="false" onAction="#exit" prefHeight="49.0" prefWidth="200.0" stylesheets="@application.css" text="Whakamutu (Quit)" />
-      <Label layoutX="168.0" layoutY="19.0" stylesheets="@application.css" text="Kēmu Kupu">
+      <Button fx:id="quitButton" layoutX="162.0" layoutY="226.0" mnemonicParsing="false" onAction="#exit" prefHeight="50.0" prefWidth="202.0" styleClass="oval-shaped-button" stylesheets="@application.css" text="Whakamutu (Quit)" />
+      <Label layoutX="168.0" layoutY="19.0" stylesheets="@application.css" text="Kēmu Kupu" textFill="WHITE">
          <font>
             <Font size="36.0" />
          </font>
       </Label>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="154.0" layoutY="214.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="104.0" layoutY="226.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="408.0" layoutY="25.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="31.0" layoutY="214.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="74.0" layoutY="104.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
@@ -67,9 +67,9 @@
             </RadialGradient>
          </fill>
       </Ellipse>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="168.0" layoutY="106.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="90.0" layoutY="157.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Arc fill="WHITE" layoutX="136.0" layoutY="40.0" length="270.0" radiusX="30.0" radiusY="25.0" startAngle="45.0" stroke="#00000027" strokeType="INSIDE" type="ROUND" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="104.0" layoutY="168.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="67.0" layoutY="257.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="476.0" layoutY="129.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="456.0" layoutY="58.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="488.0" layoutY="186.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
@@ -78,8 +78,11 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="29.0" layoutY="131.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="454.0" layoutY="251.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="47.0" layoutY="27.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
-      <ComboBox fx:id="ttsSpeedDropdown" layoutX="254.0" layoutY="285.0" prefHeight="23.0" prefWidth="168.0" />
-      <Label layoutX="168.0" layoutY="289.0" text="TTS Speed:" textFill="WHITE" />
-      <Button layoutX="427.0" layoutY="285.0" mnemonicParsing="false" onAction="#playSample" text="Play Sample" />
+      <ComboBox fx:id="ttsSpeedDropdown" layoutX="145.0" layoutY="303.0" prefHeight="23.0" prefWidth="168.0" styleClass="combobox" stylesheets="@application.css" />
+      <Label layoutX="68.0" layoutY="308.0" text="TTS Speed:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Label>
+      <Button layoutX="321.0" layoutY="303.0" mnemonicParsing="false" onAction="#playSample" stylesheets="@application.css" text="Play Sample" />
    </children>
 </AnchorPane>
