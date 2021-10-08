@@ -64,6 +64,8 @@ public class Game extends UIController {
 	
 	private int startTime;
 	
+	private double progress;
+	
 	private Timeline timeline;
 
 	@FXML
@@ -115,6 +117,7 @@ public class Game extends UIController {
 		
 		if (mode == Mode.GAME) {
 			timeBar.setVisible(true);
+			timeLabel.setVisible(true);
 		}
 	}
 
@@ -134,23 +137,34 @@ public class Game extends UIController {
 
 		scoreLabel.setText(
 			// strip out any trailing zeros, e.g. `1.0` -> `1`
-			"Kaute (Score): " + (new DecimalFormat("0.#").format(scoreCount))
+			"Kaute (Score): " + (new DecimalFormat("0.##").format(scoreCount))
 		);
 		
-		if (timeline != null) {
-			timeline.stop();
+		// When in game mode, creates a timer, counting up once per second, while decreasing the progress bar. 
+		if (mode == Mode.GAME) {
+			
+			startTime = 0;
+			progress = 1;
+			
+			if (timeline != null) {
+				timeline.stop();
+			}
+			
+			timeLabel.setText(Integer.toString(startTime));
+			timeline = new Timeline(new KeyFrame(Duration.seconds(1), (ActionEvent event) -> {
+				
+	            startTime++;
+	            progress -= 1/60.0;
+	            timeLabel.setText(
+	            		String.format(
+	            				"%02d:%02d", (startTime % 3600) / 60, startTime % 60)
+	            		);
+	            timeBar.setProgress(progress);
+	        }));
+			
+	        timeline.setCycleCount(Timeline.INDEFINITE);
+			timeline.playFromStart();
 		}
-		
-		startTime = 0;
-		timeLabel.setText(Integer.toString(startTime));
-		timeline = new Timeline(new KeyFrame(Duration.seconds(1), (ActionEvent event) -> {
-            startTime++;
-            timeLabel.setText(String.format("%02d:%02d", (startTime % 3600) / 60, startTime % 60));
-        }));
-        timeline.setCycleCount(Timeline.INDEFINITE);
-		
-		timeline.playFromStart();
-		
 		
 	}
 
@@ -222,6 +236,7 @@ public class Game extends UIController {
 		statusLabel.setText("");
 		String usersAnswer = answerField.getText(); // Gets the value in the text field
 		String correctAnswer = words[currentWordIndex].teReo;
+		double userTime = timeBar.getProgress();
 
 		Answer.Correctness correctness = Answer.checkAnswer(
 			usersAnswer,
@@ -238,6 +253,19 @@ public class Game extends UIController {
 				answers[currentWordIndex] = AnswerType.FAULTED;
 			} else {
 				scoreCount++;
+				if (mode == Mode.GAME) {
+					
+					if (userTime >= 0.75) {
+						scoreCount++;
+					} else if (userTime >= 0.5 && userTime < 0.75) {
+						scoreCount += 0.75;
+					} else if (userTime >= 0.25 && userTime < 0.5) {
+						scoreCount += 0.5;
+					} else if (userTime >= 0 && userTime < 0.25) {
+						scoreCount += 0.25;
+					}
+				}
+				
 				answers[currentWordIndex] = AnswerType.CORRECT;
 			}
 
