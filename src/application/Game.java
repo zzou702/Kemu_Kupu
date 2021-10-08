@@ -9,6 +9,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
 
 /**
@@ -72,6 +73,9 @@ public class Game extends UIController {
 
 	@FXML
 	private Label lengthLabel;
+	
+	@FXML
+	private ProgressBar timeBar;
 
 	/** This method inserts a vowel with a macron on button press. This method is used by 5 buttons **/
 	public void insertMacron(ActionEvent event) {
@@ -95,6 +99,10 @@ public class Game extends UIController {
 
 		this.speakCurrentWord();
 		this.refreshUI();
+		
+		if (mode == Mode.GAME) {
+			timeBar.setVisible(true);
+		}
 	}
 
 	/** this method updates the UI at the start of each question */
