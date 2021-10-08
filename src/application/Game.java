@@ -159,7 +159,7 @@ public class Game extends UIController {
 	            		String.format(
 	            				"%02d:%02d", (startTime % 3600) / 60, startTime % 60)
 	            		);
-	            timeBar.setProgress(progress);
+	            timeBar.setProgress(1 - startTime/60.0);
 	        }));
 			
 	        timeline.setCycleCount(Timeline.INDEFINITE);
