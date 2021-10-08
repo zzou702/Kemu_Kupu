@@ -39,7 +39,7 @@
 - [x] Final checks
   - [x] Unused imports - Ethan
   - [x] Short variable names - Ethan
-  - [ ] Add final .jar file to repo
+  - [x] Add final .jar file to repo
 
 ### Meeting 3: 21/09/2021 (added on 23/09/2021)
 
@@ -59,7 +59,44 @@
 - [x] remove the one `System.out.println` statement - Kyle
 - [x] update wiki files and upload team agreement
 - [x] add "New Game" button to reward screen - Kyle
-- [ ] _we also planned the presentation in this meeting_
+- [x] _we also planned the presentation in this meeting_
+
+### Meeting 5: 28/09/2021
+
+- [x] _continued planning the presentation_
+
+### Meeting 6: 29/09/2021
+
+- [x] _continued planning the presentation_
+
+### Meeting 7: 30/09/2021
+
+- [x] _continued planning the presentation_
+
+### Meeting 8: 5/10/2021
+
+- [x] Sh file to start jar file - Kyle
+- [ ] Update topic selection page - Zimo
+  - [ ] Show image/icon for each topic - Zimo
+  - [ ] Design - Zimo
+  - [ ] buttons? - Zimo
+- [x] Smaller things: - Ethan
+  - [x] Help button - using a popup? - Ethan
+  - [x] Show more letters than just the second letter - Ethan
+  - [x] Show correct spelling if user gets the word wrong - Ethan
+  - [x] Show how many letters are in each word - Ethan
+- [x] TTS speed ~~OR edit csv files~~ - Kyle
+- [x] Convert current game into ‘practice module’ - Kyle
+  - [x] Create games module - Kyle
+- [x] Keep track of the answers the user provided - Kyle
+- [x] persistent high score - Kyle
+- [ ] Create a time-based scoring system - Progress bar? - Ethan
+- [ ] Update reward screen - Zimo
+  - [ ] More images/stuff - Zimo
+  - [ ] Show which words were correct/incorrect/faulted - Zimo
+- [ ] Make everything multilingual
+- [ ] User manual
+- [ ] add new final jar for Assignment 4a
 
 ---
 

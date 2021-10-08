@@ -24,13 +24,13 @@ import javafx.scene.control.TextField;
 
 public class Game extends UIController {
 
-	/** represnts the type of quiz that's being played (practice or game) */
+	/** represents the type of quiz that's being played (practice or game) */
 	public enum Mode {
 		PRACTICE,
 		GAME,
 	}
 
-	/** represnts the type of answer that the user provided for a question */
+	/** represents the type of answer that the user provided for a question */
 	public enum AnswerType {
 		CORRECT,
 		FAULTED, // this means they got it incorrect on the first attempt, then correct. Only possible in practice mode
