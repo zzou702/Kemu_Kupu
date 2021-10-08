@@ -51,12 +51,7 @@
             </LinearGradient>
          </fill>
       </Ellipse>
-      <Button layoutX="225.0" layoutY="259.0" mnemonicParsing="false" onAction="#newGame" text="New Game">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Button>
-      <Button layoutX="225.0" layoutY="299.0" mnemonicParsing="false" onAction="#goHome" prefHeight="26.0" prefWidth="89.0" text="Go Home" textAlignment="CENTER">
+      <Button layoutX="219.0" layoutY="257.0" mnemonicParsing="false" onAction="#newGame" stylesheets="@application.css" text="New Game">
          <font>
             <Font size="14.0" />
          </font>
@@ -98,5 +93,6 @@
       <Circle fill="WHITE" layoutX="449.0" layoutY="125.0" radius="16.0" stroke="TRANSPARENT" strokeType="INSIDE" />
       <Arc fill="#ffffff83" layoutX="504.0" layoutY="14.0" length="270.0" radiusX="9.0" radiusY="8.0" startAngle="45.0" stroke="#ffffff26" strokeType="INSIDE" type="ROUND" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff8a" height="4.0" layoutX="519.0" layoutY="12.0" stroke="#ffffff07" strokeType="INSIDE" width="4.0" />
+      <Button layoutX="219.0" layoutY="300.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="89.0" stylesheets="@application.css" text="Go Home" />
    </children>
 </AnchorPane>
