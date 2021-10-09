@@ -21,15 +21,15 @@ public class Reward extends UIController {
 		String formattedScore = new DecimalFormat("0.#").format(score);
 
 		// two different messages
-		if (score > 3) {
+		if (score > 7) {
 			rewardLabel.setText(
-				"Ka pai! You have scored " + formattedScore + " out of 5"
+				"Ka pai! You have scored " + formattedScore + " out of 10"
 			);
 		} else {
 			rewardLabel.setText(
 				"You scored " +
 				formattedScore +
-				" out of 5, you can certainly do better"
+				" out of 10, you'll do better next time!"
 			);
 		}
 		// TODO: render a table of `answers` and `words`

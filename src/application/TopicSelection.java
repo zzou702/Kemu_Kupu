@@ -8,6 +8,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class TopicSelection extends UIController {
 
@@ -22,6 +24,9 @@ public class TopicSelection extends UIController {
 
 	@FXML
 	private Button startButton;
+	
+	@FXML
+	private ImageView topicDisplay;
 
 	@FXML
 	private void initialize() {
@@ -42,7 +47,7 @@ public class TopicSelection extends UIController {
 				.getSelectionModel()
 				.selectedItemProperty()
 				.addListener((observable, oldValue, newValue) ->
-					startButton.setDisable(false)
+					displayImage()
 				);
 		} catch (Exception error) {
 			error.printStackTrace();
@@ -66,6 +71,25 @@ public class TopicSelection extends UIController {
 		} catch (Exception error) {
 			error.printStackTrace();
 		}
+	}
+	
+	// Called when user chooses the different topics
+	public void displayImage() {
+		startButton.setDisable(false);
+		
+		int hoveredTopicIndex = topicListView
+				.getSelectionModel()
+				.getSelectedIndex();
+		String topicName = topicsList.get(hoveredTopicIndex).getFileName();
+		
+		// Changes the image to match the corresponding topic
+		Image topicImage = new Image(getClass().getResource(
+				"../images/" + topicName.substring(0, topicName.length()-4) + ".jpg"
+				).toString(), true
+				);
+		
+		topicDisplay.setImage(topicImage);
+		
 	}
 
 	//Called when help button is pressed
