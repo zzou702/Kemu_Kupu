@@ -96,4 +96,8 @@ public class Festival {
 		thread.setDaemon(true);
 		thread.start();
 	}
+
+	public static void emptyQueue() {
+		queue.clear();
+	}
 }

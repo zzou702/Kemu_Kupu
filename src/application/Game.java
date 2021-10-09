@@ -1,18 +1,12 @@
 package application;
 
 import application.helpers.*;
-import java.text.DecimalFormat;
 import java.text.MessageFormat;
-
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
@@ -42,6 +36,8 @@ public class Game extends UIController {
 		CORRECT,
 		FAULTED, // this means they got it incorrect on the first attempt, then correct. Only possible in practice mode
 		INCORRECT,
+		SKIPPED,
+		TOO_SLOW, // this means they didn't answer within the time limit
 	}
 
 	/** the current mode (practice or game) */
@@ -61,11 +57,13 @@ public class Game extends UIController {
 
 	/** the current score, initially 0 **/
 	private double scoreCount = 0;
-	
-	private int startTime;
-	
-	private double progress;
-	
+
+	/** the number of seconds since the current question began */
+	private int clock;
+
+	/** the maximum number of seconds allowed per question */
+	private static int TIME_LIMIT = 20; // TODO: 120
+
 	private Timeline timeline;
 
 	@FXML
@@ -85,10 +83,10 @@ public class Game extends UIController {
 
 	@FXML
 	private Label lengthLabel;
-	
+
 	@FXML
 	private Label timeLabel;
-	
+
 	@FXML
 	private ProgressBar timeBar;
 
@@ -107,14 +105,12 @@ public class Game extends UIController {
 	/** called by the topic selection page when it renders this page */
 	public void startGame(Topics.Topic topic, Mode mode) throws Exception {
 		this.mode = mode;
-		quizTitle.setText(
-			(mode == Mode.PRACTICE ? "Practice: " : "") + topic.title
-		);
+		quizTitle.setText(topic.title);
 		words = topic.getRandomWords();
 
 		this.speakCurrentWord();
 		this.refreshUI();
-		
+
 		if (mode == Mode.GAME) {
 			timeBar.setVisible(true);
 			timeLabel.setVisible(true);
@@ -131,56 +127,48 @@ public class Game extends UIController {
 			)
 		);
 
+		int wordLength = words[currentWordIndex].teReo.length();
 		lengthLabel.setText(
-			"Word Length: " + words[currentWordIndex].teReo.length()
+			MessageFormat.format("{0} pūriki / Word Length: {0}", wordLength)
 		);
 
-		scoreLabel.setText(
-			// strip out any trailing zeros, e.g. `1.0` -> `1`
-			"Kaute (Score): " + (new DecimalFormat("0.##").format(scoreCount))
-		);
-		
-		// When in game mode, creates a timer, counting up once per second, while decreasing the progress bar. 
+		scoreLabel.setText("Kaute (Score): " + Format.formatScore(scoreCount));
+
+		// When in game mode, creates a timer, counting up once per second, while decreasing the progress bar.
 		if (mode == Mode.GAME) {
-			
-			startTime = 0;
-			progress = 1;
-			
+			clock = 0;
+
 			if (timeline != null) {
 				timeline.stop();
 			}
-			
-			timeLabel.setText(Integer.toString(startTime));
-			timeline = new Timeline(new KeyFrame(Duration.seconds(1), (ActionEvent event) -> {
-				
-	            startTime++;
-	            progress -= 1/60.0;
-	            timeLabel.setText(
-	            		String.format(
-	            				"%02d:%02d", (startTime % 3600) / 60, startTime % 60)
-	            		);
-	            timeBar.setProgress(1 - startTime/60.0);
-	        }));
-			
-	        timeline.setCycleCount(Timeline.INDEFINITE);
+
+			timeLabel.setText(Format.formatAsTime(TIME_LIMIT));
+			timeline =
+				new Timeline(
+					new KeyFrame(
+						Duration.seconds(1),
+						(ActionEvent event) -> {
+							clock++;
+							timeLabel.setText(Format.formatAsTime(TIME_LIMIT - clock));
+							timeBar.setProgress(1 - (double) clock / TIME_LIMIT);
+							if (clock == TIME_LIMIT) {
+								// stop, time is up. The question will be marked as wrong
+								timeline.stop();
+								statusLabel.setText("Tō pōturi hoki! / Too slow!");
+								nextWord(AnswerType.TOO_SLOW);
+							}
+						}
+					)
+				);
+
+			timeline.setCycleCount(Timeline.INDEFINITE);
 			timeline.playFromStart();
 		}
-		
 	}
 
 	// Called when help button is pressed
 	public void help(ActionEvent event) {
-		Alert instructions = new Alert(AlertType.INFORMATION);
-		instructions.setTitle("Instructions");
-		instructions.setHeaderText(null);
-		instructions.setContentText(
-			"Type the word into the textbox to play. " +
-			"\nClick enter or the submit button to test the word. " +
-			"\nThe repeat button reads out the word again. " +
-			"\nThe skip button moves onto the next word" +
-			"\nClick the macron buttons to add vowels with macrons"
-		);
-		instructions.show();
+		Help.showPopup(Help.Category.GAME);
 	}
 
 	/** called by the back button */
@@ -197,8 +185,16 @@ public class Game extends UIController {
 		);
 	}
 
-	/** goes to the next word after the user passed, failed, or skipped the previous word */
-	public void nextWord(ActionEvent event) {
+	/**
+	 * goes to the next word after the user passed, failed, or skipped the previous word
+	 * You must supply an argument which is the AnswerType of the last question.
+	 */
+	public void nextWord(AnswerType lastAnswer) {
+		answers[currentWordIndex] = lastAnswer;
+
+		// remove any queued words from the Festival queue immediately
+		Festival.emptyQueue();
+
 		currentWordIndex++;
 		attemptNumber = 1; // reset the number of attempts, since this is a new word
 		answerField.clear();
@@ -206,7 +202,7 @@ public class Game extends UIController {
 		// check if we just completed the final word in the quiz
 		if (currentWordIndex == words.length) {
 			// we are now done
-			Reward rewardPage = (Reward) this.navigateTo("Reward.fxml", event);
+			Reward rewardPage = (Reward) this.navigateTo("Reward.fxml", statusLabel);
 			rewardPage.initialize(scoreCount, answers, words);
 
 			// save this score as a high-score if it's the best they've ever achieved
@@ -224,11 +220,11 @@ public class Game extends UIController {
 		this.refreshUI();
 	}
 
-	/** called by the skip button */
+	/** called by the skip button and when the time runs out (in game mode) */
 	public void skipWord(ActionEvent event) {
 		// Writes encouraging message
 		statusLabel.setText("Chin up, you've got the next one!");
-		nextWord(event);
+		nextWord(AnswerType.SKIPPED);
 	}
 
 	/** called when you click the submit button */
@@ -245,16 +241,15 @@ public class Game extends UIController {
 
 		if (correctness == Answer.Correctness.CORRECT) {
 			// Answer is completely correct
-			statusLabel.setText("Correct!");
+			statusLabel.setText("Tika! (Correct!)");
 
 			// If answered correctly on second attempt, add half point. Otherwise add full point
 			if (attemptNumber == 2) {
 				scoreCount += 0.5;
-				answers[currentWordIndex] = AnswerType.FAULTED;
+				nextWord(AnswerType.FAULTED);
 			} else {
 				scoreCount++;
 				if (mode == Mode.GAME) {
-					
 					if (userTime >= 0.75) {
 						scoreCount++;
 					} else if (userTime >= 0.5 && userTime < 0.75) {
@@ -265,11 +260,8 @@ public class Game extends UIController {
 						scoreCount += 0.25;
 					}
 				}
-				
-				answers[currentWordIndex] = AnswerType.CORRECT;
+				nextWord(AnswerType.CORRECT);
 			}
-
-			nextWord(event);
 		} else {
 			// user got the word wrong
 			if (attemptNumber == 1 && mode == Mode.PRACTICE) {
@@ -307,8 +299,7 @@ public class Game extends UIController {
 							: ""
 					)
 				);
-				answers[currentWordIndex] = AnswerType.INCORRECT;
-				nextWord(event);
+				nextWord(AnswerType.INCORRECT);
 			}
 		}
 	}

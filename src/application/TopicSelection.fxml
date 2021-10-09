@@ -39,7 +39,7 @@
             <Font name="Arimo" size="24.0" />
          </font>
       </Label>
-      <Button fx:id="backButton" layoutX="338.0" layoutY="267.0" mnemonicParsing="false" onAction="#goBack" prefHeight="37.0" prefWidth="126.0" text="Whakahoki (Back)" />
+      <Button fx:id="backButton" layoutX="338.0" layoutY="267.0" mnemonicParsing="false" onAction="#goBack" prefHeight="37.0" prefWidth="126.0" text="Hoki (Back)" />
       <Label layoutX="499.0" layoutY="80.0" text="Kupu" textFill="#ffffffc6">
          <font>
             <Font size="14.0" />
@@ -54,11 +54,7 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="497.0" layoutY="31.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="495.0" layoutY="250.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="316.0" layoutY="292.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
-      <Button layoutX="479.0" layoutY="315.0" mnemonicParsing="false" onAction="#help" text="Help" />
-      <ImageView fx:id="topicDisplay" fitHeight="137.0" fitWidth="176.0" layoutX="326.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/months.jpg" />
-         </image>
-      </ImageView>
+      <Button layoutX="479.0" layoutY="315.0" mnemonicParsing="false" onAction="#help" text="Āwhina / Help" visible="false" />
+      <ImageView fx:id="topicDisplay" fitHeight="137.0" fitWidth="176.0" layoutX="326.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true" visible="false" />
    </children>
 </AnchorPane>

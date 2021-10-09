@@ -78,8 +78,8 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="29.0" layoutY="131.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="454.0" layoutY="251.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="47.0" layoutY="27.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
-      <ComboBox fx:id="ttsSpeedDropdown" layoutX="254.0" layoutY="285.0" prefHeight="23.0" prefWidth="168.0" />
-      <Label layoutX="168.0" layoutY="289.0" text="TTS Speed:" textFill="WHITE" />
-      <Button layoutX="427.0" layoutY="285.0" mnemonicParsing="false" onAction="#playSample" text="Play Sample" />
+      <ComboBox fx:id="ttsSpeedDropdown" layoutX="247.0" layoutY="292.0" prefHeight="23.0" prefWidth="168.0" />
+      <Label layoutX="141.0" layoutY="289.0" text="Kupu tere:&#10;Speaking speed:" textAlignment="RIGHT" textFill="WHITE" />
+      <Button layoutX="420.0" layoutY="285.0" mnemonicParsing="false" onAction="#playSample" text="Kupu Tīpako&#10;(Play Sample)" textAlignment="CENTER" />
    </children>
 </AnchorPane>

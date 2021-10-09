@@ -24,11 +24,14 @@ Potential translations for all the UI components in the app
 | Play Sample                 | kupu tīpako                  |
 | TTS Speed                   | kupu tere                    |
 | Fast                        | hohoro                       |
-| Normal                      |                              |
+| Normal                      | māori                        |
 | Slow                        | pōturi                       |
 | Very Slow                   | puku pōturi                  |
 | Help                        | āwhina                       |
 | Instructions                | āwhina                       |
+| Time                        | tāima                        |
+| Too Slow                    | Tō pōturi hoki               |
+| Word length: {n}            | {n} pūriki                   |
 | (topic select help text)    |                              |
 | (game page help text)       |                              |
 | Chin up, you've got the...  |                              |

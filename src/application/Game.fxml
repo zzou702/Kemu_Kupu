@@ -104,9 +104,9 @@
       <Button layoutX="244.0" layoutY="224.0" mnemonicParsing="false" onAction="#insertMacron" prefHeight="23.0" prefWidth="40.0" text="ī" userData="ī" />
       <Button layoutX="281.0" layoutY="224.0" mnemonicParsing="false" onAction="#insertMacron" prefHeight="23.0" prefWidth="40.0" text="ō" userData="ō" />
       <Button layoutX="320.0" layoutY="224.0" mnemonicParsing="false" onAction="#insertMacron" prefHeight="23.0" prefWidth="40.0" text="ū" userData="ū" />
-      <Button layoutX="479.0" layoutY="315.0" mnemonicParsing="false" onAction="#help" text="Help" />
+      <Button layoutX="479.0" layoutY="315.0" mnemonicParsing="false" onAction="#help" text="Āwhina / Help" visible="false" />
       <Label fx:id="lengthLabel" alignment="CENTER" layoutX="165.0" layoutY="89.0" prefHeight="15.0" prefWidth="185.0" text="Word length: " textFill="WHITE" />
       <ProgressBar fx:id="timeBar" layoutX="134.0" layoutY="247.0" prefHeight="20.0" prefWidth="273.0" progress="1.0" visible="false" />
-      <Label fx:id="timeLabel" layoutX="423.0" layoutY="250.0" prefHeight="15.0" prefWidth="146.0" text="Time:" textFill="WHITE" visible="false" />
+      <Label fx:id="timeLabel" layoutX="423.0" layoutY="250.0" prefHeight="15.0" prefWidth="146.0" text="Tāima (time):" textFill="WHITE" visible="false" />
    </children>
 </AnchorPane>

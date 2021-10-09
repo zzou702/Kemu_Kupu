@@ -25,7 +25,13 @@ public abstract class UIController {
 	 */
 	public void onReady() {}
 
+	// we provide two overloads for convenience. You can either supply an event or a node
+	// this is required so that we can get a reference to the current stage.
 	public UIController navigateTo(String page, ActionEvent event) {
+		return navigateTo(page, (Node) event.getSource());
+	}
+
+	public UIController navigateTo(String page, Node node) {
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource(page));
 			Parent newRoot = loader.load();
@@ -37,7 +43,7 @@ public abstract class UIController {
 			newController.context = this.context;
 
 			// initialize the scene
-			Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+			Stage stage = (Stage) node.getScene().getWindow();
 			Scene newScene = new Scene(newRoot);
 			stage.setScene(newScene);
 			stage.show();
