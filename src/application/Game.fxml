@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.paint.Color?>
@@ -98,12 +99,14 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="494.0" layoutY="127.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="31.0" layoutY="129.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Arc fill="#ffffffc6" layoutX="36.0" layoutY="15.0" length="270.0" radiusX="8.0" radiusY="8.0" rotate="180.0" startAngle="45.0" stroke="#00000027" strokeType="INSIDE" type="ROUND" />
-      <Button userData="ā" layoutX="166.0" layoutY="224.0" mnemonicParsing="false" onAction="#insertMacron" prefHeight="23.0" prefWidth="40.0" text="ā" />
-      <Button userData="ē" layoutX="205.0" layoutY="224.0" mnemonicParsing="false" onAction="#insertMacron" prefHeight="23.0" prefWidth="40.0" text="ē" />
-      <Button userData="ī" layoutX="244.0" layoutY="224.0" mnemonicParsing="false" onAction="#insertMacron" prefHeight="23.0" prefWidth="40.0" text="ī" />
-      <Button userData="ō" layoutX="281.0" layoutY="224.0" mnemonicParsing="false" onAction="#insertMacron" prefHeight="23.0" prefWidth="40.0" text="ō" />
-      <Button userData="ū" layoutX="320.0" layoutY="224.0" mnemonicParsing="false" onAction="#insertMacron" prefHeight="23.0" prefWidth="40.0" text="ū" />
+      <Button layoutX="166.0" layoutY="224.0" mnemonicParsing="false" onAction="#insertMacron" prefHeight="23.0" prefWidth="40.0" text="ā" userData="ā" />
+      <Button layoutX="205.0" layoutY="224.0" mnemonicParsing="false" onAction="#insertMacron" prefHeight="23.0" prefWidth="40.0" text="ē" userData="ē" />
+      <Button layoutX="244.0" layoutY="224.0" mnemonicParsing="false" onAction="#insertMacron" prefHeight="23.0" prefWidth="40.0" text="ī" userData="ī" />
+      <Button layoutX="281.0" layoutY="224.0" mnemonicParsing="false" onAction="#insertMacron" prefHeight="23.0" prefWidth="40.0" text="ō" userData="ō" />
+      <Button layoutX="320.0" layoutY="224.0" mnemonicParsing="false" onAction="#insertMacron" prefHeight="23.0" prefWidth="40.0" text="ū" userData="ū" />
       <Button layoutX="479.0" layoutY="315.0" mnemonicParsing="false" onAction="#help" text="Help" />
       <Label fx:id="lengthLabel" alignment="CENTER" layoutX="165.0" layoutY="89.0" prefHeight="15.0" prefWidth="185.0" text="Word length: " textFill="WHITE" />
+      <ProgressBar fx:id="timeBar" layoutX="134.0" layoutY="247.0" prefHeight="20.0" prefWidth="273.0" progress="1.0" visible="false" />
+      <Label fx:id="timeLabel" layoutX="423.0" layoutY="250.0" prefHeight="15.0" prefWidth="146.0" text="Time:" textFill="WHITE" visible="false" />
    </children>
 </AnchorPane>

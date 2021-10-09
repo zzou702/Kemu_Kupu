@@ -3,13 +3,20 @@ package application;
 import application.helpers.*;
 import java.text.DecimalFormat;
 import java.text.MessageFormat;
+
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
+import javafx.util.Duration;
 
 /**
  * This class is used for both the practice module,
@@ -54,6 +61,12 @@ public class Game extends UIController {
 
 	/** the current score, initially 0 **/
 	private double scoreCount = 0;
+	
+	private int startTime;
+	
+	private double progress;
+	
+	private Timeline timeline;
 
 	@FXML
 	private Label statusLabel;
@@ -72,6 +85,12 @@ public class Game extends UIController {
 
 	@FXML
 	private Label lengthLabel;
+	
+	@FXML
+	private Label timeLabel;
+	
+	@FXML
+	private ProgressBar timeBar;
 
 	/** This method inserts a vowel with a macron on button press. This method is used by 5 buttons **/
 	public void insertMacron(ActionEvent event) {
@@ -95,6 +114,11 @@ public class Game extends UIController {
 
 		this.speakCurrentWord();
 		this.refreshUI();
+		
+		if (mode == Mode.GAME) {
+			timeBar.setVisible(true);
+			timeLabel.setVisible(true);
+		}
 	}
 
 	/** this method updates the UI at the start of each question */
@@ -113,8 +137,35 @@ public class Game extends UIController {
 
 		scoreLabel.setText(
 			// strip out any trailing zeros, e.g. `1.0` -> `1`
-			"Kaute (Score): " + (new DecimalFormat("0.#").format(scoreCount))
+			"Kaute (Score): " + (new DecimalFormat("0.##").format(scoreCount))
 		);
+		
+		// When in game mode, creates a timer, counting up once per second, while decreasing the progress bar. 
+		if (mode == Mode.GAME) {
+			
+			startTime = 0;
+			progress = 1;
+			
+			if (timeline != null) {
+				timeline.stop();
+			}
+			
+			timeLabel.setText(Integer.toString(startTime));
+			timeline = new Timeline(new KeyFrame(Duration.seconds(1), (ActionEvent event) -> {
+				
+	            startTime++;
+	            progress -= 1/60.0;
+	            timeLabel.setText(
+	            		String.format(
+	            				"%02d:%02d", (startTime % 3600) / 60, startTime % 60)
+	            		);
+	            timeBar.setProgress(1 - startTime/60.0);
+	        }));
+			
+	        timeline.setCycleCount(Timeline.INDEFINITE);
+			timeline.playFromStart();
+		}
+		
 	}
 
 	// Called when help button is pressed
@@ -185,6 +236,7 @@ public class Game extends UIController {
 		statusLabel.setText("");
 		String usersAnswer = answerField.getText(); // Gets the value in the text field
 		String correctAnswer = words[currentWordIndex].teReo;
+		double userTime = timeBar.getProgress();
 
 		Answer.Correctness correctness = Answer.checkAnswer(
 			usersAnswer,
@@ -201,6 +253,19 @@ public class Game extends UIController {
 				answers[currentWordIndex] = AnswerType.FAULTED;
 			} else {
 				scoreCount++;
+				if (mode == Mode.GAME) {
+					
+					if (userTime >= 0.75) {
+						scoreCount++;
+					} else if (userTime >= 0.5 && userTime < 0.75) {
+						scoreCount += 0.75;
+					} else if (userTime >= 0.25 && userTime < 0.5) {
+						scoreCount += 0.5;
+					} else if (userTime >= 0 && userTime < 0.25) {
+						scoreCount += 0.25;
+					}
+				}
+				
 				answers[currentWordIndex] = AnswerType.CORRECT;
 			}
 
