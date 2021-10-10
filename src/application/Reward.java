@@ -92,7 +92,7 @@ public class Reward extends UIController {
 				formattedScore +
 				" out of " +
 				totalPossiblePoints +
-				", you'll do better next time!"
+				", \n you'll do better next time!"
 			);
 		}
 
