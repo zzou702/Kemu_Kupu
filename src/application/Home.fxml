@@ -12,9 +12,9 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="340.0" prefWidth="525.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Home">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Home">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="340.0" stroke="BLACK" strokeType="INSIDE" width="525.0">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="720.0" stroke="BLACK" strokeType="INSIDE" width="1280.0">
          <fill>
             <RadialGradient centerX="0.2640449438202247" centerY="0.125" radius="0.4523809523809524">
                <stops>
@@ -31,25 +31,30 @@
                </stops>
             </RadialGradient>
          </fill></Rectangle>
-      <Button layoutX="180.0" layoutY="100.0" mnemonicParsing="false" onAction="#startGameModule" prefHeight="49.0" prefWidth="200.0" styleClass="oval-shaped-button" stylesheets="@application.css" text="Tāti kēmu (New Game)" />
-      <Button layoutX="180.0" layoutY="164.0" mnemonicParsing="false" onAction="#startPracticeModule" prefHeight="49.0" prefWidth="200.0" styleClass="oval-shaped-button" stylesheets="@application.css" text="Parakitihi (New Practice Quiz)" />
-      <Label layoutX="145.0" layoutY="72.0" prefHeight="16.0" prefWidth="235.0" stylesheets="@application.css" text="Te reo Spelling Quiz" textAlignment="CENTER" textFill="WHITE">
+      <Button layoutX="115.0" layoutY="267.0" mnemonicParsing="false" onAction="#startGameModule" prefHeight="150.0" prefWidth="400.0" styleClass="oval-shaped-button" stylesheets="@application.css" text="Tāti kēmu (New Game)">
          <font>
-            <Font size="18.0" />
+            <Font name="Open Sans Extrabold Italic" size="24.0" />
+         </font></Button>
+      <Button layoutX="758.0" layoutY="267.0" mnemonicParsing="false" onAction="#startPracticeModule" prefHeight="150.0" prefWidth="400.0" styleClass="oval-shaped-button" stylesheets="@application.css" text="Parakitihi (New Practice Quiz)">
+         <font>
+            <Font name="Open Sans Extrabold Italic" size="24.0" />
+         </font></Button>
+      <Label layoutX="523.0" layoutY="96.0" prefHeight="16.0" prefWidth="235.0" stylesheets="@application.css" text="Te reo Spelling Quiz" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Raleway Bold" size="18.0" />
          </font>
       </Label>
-      <Button fx:id="quitButton" layoutX="180.0" layoutY="225.0" mnemonicParsing="false" onAction="#exit" prefHeight="49.0" prefWidth="200.0" styleClass="oval-shaped-button" stylesheets="@application.css" text="Whakamutu (Quit)" />
-      <Label layoutX="168.0" layoutY="19.0" stylesheets="@application.css" text="Kēmu Kupu" textFill="WHITE">
+      <Label layoutX="521.0" layoutY="31.0" stylesheets="@application.css" text="Kēmu Kupu" textFill="WHITE">
          <font>
-            <Font size="36.0" />
+            <Font name="Raleway ExtraBold" size="42.0" />
          </font>
       </Label>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="154.0" layoutY="214.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="408.0" layoutY="25.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="31.0" layoutY="214.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="74.0" layoutY="104.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="386.0" layoutY="224.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
-      <Ellipse layoutX="263.0" layoutY="365.0" radiusX="394.0" radiusY="80.0" stroke="#00000069" strokeType="INSIDE">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="212.0" layoutY="44.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="1126.0" layoutY="172.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="772.0" layoutY="192.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="875.0" layoutY="77.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Ellipse layoutX="640.0" layoutY="738.0" radiusX="1280.0" radiusY="200.0" stroke="#00000069" strokeType="INSIDE">
          <fill>
             <RadialGradient centerX="0.47752808988764045" centerY="0.5192307692307693" radius="0.5476190476190477">
                <stops>
@@ -68,18 +73,28 @@
          </fill>
       </Ellipse>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="168.0" layoutY="106.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
-      <Arc fill="WHITE" layoutX="136.0" layoutY="40.0" length="270.0" radiusX="30.0" radiusY="25.0" startAngle="45.0" stroke="#00000027" strokeType="INSIDE" type="ROUND" />
+      <Arc fill="WHITE" layoutX="377.0" layoutY="94.0" length="270.0" radiusX="80.0" radiusY="70.0" startAngle="45.0" stroke="#00000027" strokeType="INSIDE" type="ROUND" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="104.0" layoutY="168.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="476.0" layoutY="129.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="456.0" layoutY="58.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="1033.0" layoutY="81.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="488.0" layoutY="186.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="422.0" layoutY="160.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="16.0" layoutY="68.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="1126.0" layoutY="29.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="972.0" layoutY="188.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="29.0" layoutY="131.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="454.0" layoutY="251.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="603.0" layoutY="241.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="47.0" layoutY="27.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
-      <ComboBox fx:id="ttsSpeedDropdown" layoutX="247.0" layoutY="292.0" prefHeight="23.0" prefWidth="168.0" styleClass="combobox" stylesheets="@application.css" />
-      <Label layoutX="141.0" layoutY="289.0" text="Kupu tere:&#10;Speaking speed:" textAlignment="RIGHT" textFill="WHITE" />
-      <Button layoutX="420.0" layoutY="285.0" mnemonicParsing="false" onAction="#playSample" stylesheets="@application.css" text="Kupu Tīpako&#10;(Play Sample)" textAlignment="CENTER" />
+      <ComboBox fx:id="ttsSpeedDropdown" layoutX="882.0" layoutY="613.0" prefHeight="49.0" prefWidth="181.0" styleClass="combobox" stylesheets="@application.css" />
+      <Label layoutX="711.0" layoutY="613.0" prefHeight="50.0" prefWidth="164.0" text="Kupu tere:&#10;Speaking speed:" textAlignment="RIGHT" textFill="WHITE">
+         <font>
+            <Font name="Raleway Regular" size="20.0" />
+         </font></Label>
+      <Button layoutX="1076.0" layoutY="599.0" mnemonicParsing="false" onAction="#playSample" prefHeight="77.0" prefWidth="164.0" stylesheets="@application.css" text="Kupu Tīpako&#10;(Play Sample)" textAlignment="CENTER">
+         <font>
+            <Font name="Raleway Regular" size="20.0" />
+         </font></Button>
+      <Button fx:id="quitButton" layoutX="515.0" layoutY="417.0" mnemonicParsing="false" onAction="#exit" prefHeight="100.0" prefWidth="250.0" styleClass="oval-shaped-button" stylesheets="@application.css" text="Whakamutu (Quit)">
+         <font>
+            <Font name="Open Sans Extrabold" size="19.0" />
+         </font></Button>
    </children>
 </AnchorPane>

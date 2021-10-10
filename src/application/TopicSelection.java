@@ -3,12 +3,15 @@ package application;
 import application.helpers.*;
 import java.net.URL;
 import java.util.*;
+
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.shape.Rectangle;
 
 public class TopicSelection extends UIController {
 
@@ -26,6 +29,9 @@ public class TopicSelection extends UIController {
 
 	@FXML
 	private ImageView topicDisplay;
+	
+	@FXML
+	private Rectangle imageBackground;
 
 	@FXML
 	private void initialize() {
@@ -89,9 +95,11 @@ public class TopicSelection extends UIController {
 		// check that an image exists for this topic. If not, show no image
 		if (path == null) {
 			topicDisplay.setVisible(false);
+			imageBackground.setVisible(false);
 		} else {
 			topicDisplay.setVisible(true);
 			topicDisplay.setImage(new Image(path.toString(), true));
+			imageBackground.setVisible(true);
 		}
 	}
 
