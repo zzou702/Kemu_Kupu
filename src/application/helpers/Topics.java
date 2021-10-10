@@ -60,10 +60,6 @@ public class Topics {
 
 			return randomWords;
 		}
-		
-		public String getFileName() {
-			return fileName;
-		}
 	}
 
 	/** Represents a word, in two languages */

@@ -1,11 +1,10 @@
 package application;
 
 import application.helpers.*;
+import java.net.URL;
 import java.util.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
@@ -24,7 +23,7 @@ public class TopicSelection extends UIController {
 
 	@FXML
 	private Button startButton;
-	
+
 	@FXML
 	private ImageView topicDisplay;
 
@@ -42,27 +41,27 @@ public class TopicSelection extends UIController {
 			}
 			topicListView.getItems().addAll(topicTitleList);
 
-			// as soon as any topic is selected, enable the startButton
+			// register the `onSelect` callback
 			topicListView
 				.getSelectionModel()
 				.selectedItemProperty()
-				.addListener((observable, oldValue, newValue) ->
-					displayImage()
-				);
+				.addListener((observable, oldValue, newValue) -> onSelect());
 		} catch (Exception error) {
 			error.printStackTrace();
 		}
 	}
 
+	private Topics.Topic getSelection() {
+		// because the start button is disabled if nothing is selected, we know this is
+		// always a valid index
+		int chosenTopicIndex = topicListView.getSelectionModel().getSelectedIndex();
+		return topicsList.get(chosenTopicIndex);
+	}
+
 	/** called when you click the start button */
 	public void startGame(ActionEvent event) {
 		try {
-			// because the start button is disabled if nothing is selected, we know this is
-			// always a valid index
-			int chosenTopicIndex = topicListView
-				.getSelectionModel()
-				.getSelectedIndex();
-			Topics.Topic chosenTopic = topicsList.get(chosenTopicIndex);
+			Topics.Topic chosenTopic = getSelection();
 
 			// navigate to the next page, then call the new page's startGame method
 			// to pass the chosenTopic to it.
@@ -72,35 +71,33 @@ public class TopicSelection extends UIController {
 			error.printStackTrace();
 		}
 	}
-	
-	// Called when user chooses the different topics
-	public void displayImage() {
+
+	/** Called when user chooses the different topics */
+	public void onSelect() {
+		// as soon as any topic is selected, enable the startButton
 		startButton.setDisable(false);
-		
-		int hoveredTopicIndex = topicListView
-				.getSelectionModel()
-				.getSelectedIndex();
-		String topicName = topicsList.get(hoveredTopicIndex).getFileName();
-		
+
+		String topicName = getSelection().fileName;
+
 		// Changes the image to match the corresponding topic
-		Image topicImage = new Image(getClass().getResource(
-				"../images/" + topicName.substring(0, topicName.length()-4) + ".jpg"
-				).toString(), true
-				);
-		
-		topicDisplay.setImage(topicImage);
-		
+		URL path = getClass()
+			.getResource(
+				// replace .csv with .jpg
+				"../images/" + topicName.substring(0, topicName.length() - 4) + ".jpg"
+			);
+
+		// check that an image exists for this topic. If not, show no image
+		if (path == null) {
+			topicDisplay.setVisible(false);
+		} else {
+			topicDisplay.setVisible(true);
+			topicDisplay.setImage(new Image(path.toString(), true));
+		}
 	}
 
 	//Called when help button is pressed
 	public void help(ActionEvent event) {
-		Alert instructions = new Alert(AlertType.INFORMATION);
-		instructions.setTitle("Instructions");
-		instructions.setHeaderText(null);
-		instructions.setContentText(
-			"Click a topic. " + "Then click Start to begin "
-		);
-		instructions.show();
+		Help.showPopup(Help.Category.TOPIC_SLECTION);
 	}
 
 	/** called when you click the back button */

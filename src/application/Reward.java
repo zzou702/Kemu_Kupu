@@ -1,7 +1,6 @@
 package application;
 
 import application.helpers.*;
-import java.text.DecimalFormat;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -17,8 +16,7 @@ public class Reward extends UIController {
 		Game.AnswerType[] answers,
 		Topics.Word[] words
 	) {
-		// strip out any trailing zeros, e.g. `1.0` -> `1`
-		String formattedScore = new DecimalFormat("0.#").format(score);
+		String formattedScore = Format.formatScore(score);
 
 		// two different messages
 		if (score > 7) {

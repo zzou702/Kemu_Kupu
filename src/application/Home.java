@@ -14,10 +14,10 @@ public class Home extends UIController {
 
 	/** these are the names and values for the TTS Speed ComboBox */
 	private static final ObservableList<String> ttsOptionNames = FXCollections.observableArrayList(
-		"Fast",
-		"Normal",
-		"Slow",
-		"Very Slow"
+		"Hohoro / Fast",
+		"Māori / Normal",
+		"Pōturi / Slow",
+		"Puku Pōturi / Very Slow"
 	);
 	private static final double[] ttsOptionValues = new double[] {
 		0.5,
