@@ -52,12 +52,12 @@
             </LinearGradient>
          </fill>
       </Ellipse>
-      <Button layoutX="166.0" layoutY="259.0" mnemonicParsing="false" onAction="#newGame" prefHeight="26.0" prefWidth="209.0" text="Tāti kēmu (New Game)">
+      <Button layoutX="166.0" layoutY="259.0" mnemonicParsing="false" onAction="#newGame" prefHeight="26.0" prefWidth="209.0" stylesheets="@application.css" text="Tāti kēmu (New Game)">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button layoutX="167.0" layoutY="299.0" mnemonicParsing="false" onAction="#goHome" prefHeight="26.0" prefWidth="209.0" text="Haere ki te kāinga (Go Home)" textAlignment="CENTER">
+      <Button layoutX="167.0" layoutY="299.0" mnemonicParsing="false" onAction="#goHome" prefHeight="26.0" prefWidth="209.0" text="Haere ki te kāinga (Go Home)" textAlignment="CENTER" stylesheets="@application.css">
          <font>
             <Font size="14.0" />
          </font>
