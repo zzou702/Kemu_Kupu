@@ -1,8 +1,18 @@
-.root {
-	-fx-background-color: #003366;
-}
-
 .label {
 	-fx-alignment: center;
 	-fx-text-fill: "white";
+}
+
+.oval-shaped-button {
+	-fx-shape: "M 150 300 Q 150 200 350 200 Q 550 200 550 300 Q	 550 400 350 400 C 350 400 150 400 150 300 ";
+
+	-fx-background-color: #ffffff;
+}
+
+.button {
+	-fx-background-color: #ffffff;
+}
+
+.combobox {
+	-fx-background-color: #ffffff;
 }
