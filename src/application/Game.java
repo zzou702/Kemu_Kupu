@@ -149,7 +149,9 @@ public class Game extends UIController {
 						Duration.seconds(1),
 						(ActionEvent event) -> {
 							clock++;
-							timeLabel.setText("Tāima (time): " + Format.formatAsTime(TIME_LIMIT - clock));
+							timeLabel.setText(
+								"Tāima (time): " + Format.formatAsTime(TIME_LIMIT - clock)
+							);
 							timeBar.setProgress(1 - (double) clock / TIME_LIMIT);
 							if (clock == TIME_LIMIT) {
 								// stop, time is up. The question will be marked as wrong

@@ -3,8 +3,6 @@ package application;
 import application.helpers.*;
 import java.net.URL;
 import java.util.*;
-
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -29,7 +27,7 @@ public class TopicSelection extends UIController {
 
 	@FXML
 	private ImageView topicDisplay;
-	
+
 	@FXML
 	private Rectangle imageBackground;
 
@@ -87,9 +85,10 @@ public class TopicSelection extends UIController {
 
 		// Changes the image to match the corresponding topic
 		URL path = getClass()
+			.getClassLoader()
 			.getResource(
 				// replace .csv with .jpg
-				"../images/" + topicName.substring(0, topicName.length() - 4) + ".jpg"
+				"images/" + topicName.substring(0, topicName.length() - 4) + ".jpg"
 			);
 
 		// check that an image exists for this topic. If not, show no image

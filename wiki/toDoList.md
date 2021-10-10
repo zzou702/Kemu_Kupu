@@ -75,11 +75,11 @@
 
 ### Meeting 8: 5/10/2021
 
-- [x] Sh file to start jar file - Kyle
+- [x] bash file to start jar file - Kyle
 - [ ] Update topic selection page - Zimo
-  - [ ] Show image/icon for each topic - Zimo
-  - [ ] Design - Zimo
-  - [ ] buttons? - Zimo
+  - [x] Show image/icon for each topic - Ethan
+- [ ] Design - Zimo
+  - [x] buttons - Zimo
 - [x] Smaller things: - Ethan
   - [x] Help button - using a popup? - Ethan
   - [x] Show more letters than just the second letter - Ethan
@@ -90,13 +90,15 @@
   - [x] Create games module - Kyle
 - [x] Keep track of the answers the user provided - Kyle
 - [x] persistent high score - Kyle
-- [ ] Create a time-based scoring system - Progress bar? - Ethan
+- [x] Create a time-based scoring system and Progress bar - Ethan
+  - [x] Set a time limit for questions in game mode
 - [ ] Update reward screen - Zimo
   - [ ] More images/stuff - Zimo
-  - [ ] Show which words were correct/incorrect/faulted - Zimo
-- [ ] Make everything multilingual
+  - [x] Show which words were correct/incorrect/faulted/skipped - Kyle
+- [x] Make everything multilingual
+- [x] enlarge the whole app - Ethan
 - [ ] User manual
-- [ ] add new final jar for Assignment 4a
+- [x] add new final jar for Assignment 4a
 
 ---
 
