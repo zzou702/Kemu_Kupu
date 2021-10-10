@@ -44,7 +44,7 @@
             <Font name="Raleway Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="521.0" layoutY="31.0" stylesheets="@application.css" text="Kēmu Kupu" textFill="WHITE">
+      <Label layoutX="521.0" layoutY="44.0" stylesheets="@application.css" text="Kēmu Kupu" textFill="WHITE">
          <font>
             <Font name="Raleway ExtraBold" size="42.0" />
          </font>
@@ -73,9 +73,9 @@
          </fill>
       </Ellipse>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="168.0" layoutY="106.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
-      <Arc fill="WHITE" layoutX="377.0" layoutY="94.0" length="270.0" radiusX="80.0" radiusY="70.0" startAngle="45.0" stroke="#00000027" strokeType="INSIDE" type="ROUND" />
+      <Arc fill="WHITE" layoutX="458.0" layoutY="77.0" length="270.0" radiusX="80.0" radiusY="70.0" startAngle="45.0" stroke="#00000027" strokeType="INSIDE" type="ROUND" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="104.0" layoutY="168.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="476.0" layoutY="129.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="463.0" layoutY="162.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="1033.0" layoutY="81.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="488.0" layoutY="186.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="1126.0" layoutY="29.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
@@ -83,8 +83,8 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="29.0" layoutY="131.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="603.0" layoutY="241.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="47.0" layoutY="27.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
-      <ComboBox fx:id="ttsSpeedDropdown" layoutX="882.0" layoutY="613.0" prefHeight="49.0" prefWidth="181.0" styleClass="combobox" stylesheets="@application.css" />
-      <Label layoutX="711.0" layoutY="613.0" prefHeight="50.0" prefWidth="164.0" text="Kupu tere:&#10;Speaking speed:" textAlignment="RIGHT" textFill="WHITE">
+      <ComboBox fx:id="ttsSpeedDropdown" layoutX="804.0" layoutY="613.0" prefHeight="49.0" prefWidth="259.0" styleClass="combobox" stylesheets="@application.css" />
+      <Label layoutX="640.0" layoutY="613.0" prefHeight="50.0" prefWidth="164.0" text="Kupu tere:&#10;Speaking speed:" textAlignment="RIGHT" textFill="WHITE">
          <font>
             <Font name="Raleway Regular" size="20.0" />
          </font></Label>
