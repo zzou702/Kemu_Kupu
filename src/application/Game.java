@@ -177,6 +177,7 @@ public class Game extends UIController {
 	public void skipWord(ActionEvent event) {
 		// Writes encouraging message
 		statusLabel.setText("Chin up, you've got the next one!");
+		answers[currentWordIndex] = AnswerType.INCORRECT;
 		nextWord(event);
 	}
 

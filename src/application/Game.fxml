@@ -74,13 +74,13 @@
             <Font name="Arimo" size="22.0" />
          </font>
       </Label>
-      <Button layoutX="240.0" layoutY="310.0" mnemonicParsing="false" onAction="#switchHome" text="Back" />
+      <Button layoutX="240.0" layoutY="310.0" mnemonicParsing="false" onAction="#switchHome" stylesheets="@application.css" text="Back" />
       <TextField fx:id="answerField" layoutX="111.0" layoutY="108.0" onAction="#submit" prefHeight="23.0" prefWidth="258.0" />
       <Label fx:id="countLabel" alignment="CENTER" layoutX="153.0" layoutY="56.0" prefHeight="31.0" prefWidth="221.0" textAlignment="CENTER" textFill="WHITE" />
       <Label fx:id="statusLabel" alignment="CENTER" layoutX="65.0" layoutY="142.0" prefHeight="39.0" prefWidth="398.0" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
-      <Button fx:id="skipButton" layoutX="270.0" layoutY="188.0" mnemonicParsing="false" onAction="#skipWord" prefHeight="31.0" prefWidth="104.0" text="Pahemo (Skip)" />
-      <Button fx:id="submitButton" layoutX="374.0" layoutY="104.0" mnemonicParsing="false" onAction="#submit" prefHeight="31.0" prefWidth="130.0" text="Whakautu (Submit)" />
-      <Button fx:id="repeatButton" layoutX="154.0" layoutY="188.0" mnemonicParsing="false" onAction="#speakCurrentWord" prefHeight="31.0" prefWidth="104.0" text="Toai (Repeat)" />
+      <Button fx:id="skipButton" layoutX="270.0" layoutY="188.0" mnemonicParsing="false" onAction="#skipWord" prefHeight="31.0" prefWidth="104.0" stylesheets="@application.css" text="Pahemo (Skip)" />
+      <Button fx:id="submitButton" layoutX="374.0" layoutY="104.0" mnemonicParsing="false" onAction="#submit" prefHeight="31.0" prefWidth="130.0" stylesheets="@application.css" text="Whakautu (Submit)" />
+      <Button fx:id="repeatButton" layoutX="154.0" layoutY="188.0" mnemonicParsing="false" onAction="#speakCurrentWord" prefHeight="31.0" prefWidth="104.0" stylesheets="@application.css" text="Toai (Repeat)" />
       <Label fx:id="scoreLabel" alignment="CENTER" layoutX="178.0" layoutY="283.0" prefHeight="23.0" prefWidth="171.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="202.0" layoutY="88.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="200.0" layoutY="32.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
@@ -95,15 +95,15 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="464.0" layoutY="85.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="418.0" layoutY="56.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="129.0" layoutY="70.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="494.0" layoutY="127.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="509.0" layoutY="127.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="31.0" layoutY="129.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Arc fill="#ffffffc6" layoutX="36.0" layoutY="15.0" length="270.0" radiusX="8.0" radiusY="8.0" rotate="180.0" startAngle="45.0" stroke="#00000027" strokeType="INSIDE" type="ROUND" />
-      <Button userData="ā" layoutX="166.0" layoutY="224.0" mnemonicParsing="false" onAction="#insertMacron" prefHeight="23.0" prefWidth="40.0" text="ā" />
-      <Button userData="ē" layoutX="205.0" layoutY="224.0" mnemonicParsing="false" onAction="#insertMacron" prefHeight="23.0" prefWidth="40.0" text="ē" />
-      <Button userData="ī" layoutX="244.0" layoutY="224.0" mnemonicParsing="false" onAction="#insertMacron" prefHeight="23.0" prefWidth="40.0" text="ī" />
-      <Button userData="ō" layoutX="281.0" layoutY="224.0" mnemonicParsing="false" onAction="#insertMacron" prefHeight="23.0" prefWidth="40.0" text="ō" />
-      <Button userData="ū" layoutX="320.0" layoutY="224.0" mnemonicParsing="false" onAction="#insertMacron" prefHeight="23.0" prefWidth="40.0" text="ū" />
-      <Button layoutX="479.0" layoutY="315.0" mnemonicParsing="false" onAction="#help" text="Help" />
+      <Button layoutX="166.0" layoutY="224.0" mnemonicParsing="false" onAction="#insertMacron" prefHeight="23.0" prefWidth="40.0" stylesheets="@application.css" text="ā" userData="ā" />
+      <Button layoutX="205.0" layoutY="224.0" mnemonicParsing="false" onAction="#insertMacron" prefHeight="23.0" prefWidth="40.0" stylesheets="@application.css" text="ē" userData="ē" />
+      <Button layoutX="244.0" layoutY="224.0" mnemonicParsing="false" onAction="#insertMacron" prefHeight="23.0" prefWidth="40.0" stylesheets="@application.css" text="ī" userData="ī" />
+      <Button layoutX="281.0" layoutY="224.0" mnemonicParsing="false" onAction="#insertMacron" prefHeight="23.0" prefWidth="40.0" stylesheets="@application.css" text="ō" userData="ō" />
+      <Button layoutX="320.0" layoutY="224.0" mnemonicParsing="false" onAction="#insertMacron" prefHeight="23.0" prefWidth="40.0" stylesheets="@application.css" text="ū" userData="ū" />
+      <Button layoutX="479.0" layoutY="315.0" mnemonicParsing="false" onAction="#help" stylesheets="@application.css" text="Help" />
       <Label fx:id="lengthLabel" alignment="CENTER" layoutX="165.0" layoutY="89.0" prefHeight="15.0" prefWidth="185.0" text="Word length: " textFill="WHITE" />
    </children>
 </AnchorPane>
