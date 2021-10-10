@@ -7,7 +7,7 @@
 To start the `final.jar` file, run
 
 ```sh
-. start.sh
+chmod u+x start.sh && . ./start.sh
 ```
 
 # Set-up Instructions
