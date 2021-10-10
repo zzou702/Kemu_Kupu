@@ -2,6 +2,8 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.paint.LinearGradient?>
@@ -61,7 +63,7 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <Label fx:id="rewardLabel" alignment="CENTER" layoutX="13.0" layoutY="33.0" prefHeight="83.0" prefWidth="500.0" text="Ka pai! You have scored ? out of 5" textAlignment="CENTER" wrapText="true">
+      <Label fx:id="rewardLabel" alignment="CENTER" layoutX="13.0" layoutY="5.0" prefHeight="83.0" prefWidth="500.0" text="Ka pai! You have scored ? out of 5" textAlignment="CENTER" wrapText="true">
          <font>
             <Font size="24.0" />
          </font>
@@ -98,5 +100,6 @@
       <Circle fill="WHITE" layoutX="449.0" layoutY="125.0" radius="16.0" stroke="TRANSPARENT" strokeType="INSIDE" />
       <Arc fill="#ffffff83" layoutX="504.0" layoutY="14.0" length="270.0" radiusX="9.0" radiusY="8.0" startAngle="45.0" stroke="#ffffff26" strokeType="INSIDE" type="ROUND" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff8a" height="4.0" layoutX="519.0" layoutY="12.0" stroke="#ffffff07" strokeType="INSIDE" width="4.0" />
+      <TableView fx:id="tableView" layoutX="26.0" layoutY="94.0" prefHeight="144.0" prefWidth="475.0" />
    </children>
 </AnchorPane>
