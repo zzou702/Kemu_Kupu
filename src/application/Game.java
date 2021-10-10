@@ -62,7 +62,7 @@ public class Game extends UIController {
 	private int clock;
 
 	/** the maximum number of seconds allowed per question */
-	private static int TIME_LIMIT = 20; // TODO: 120
+	private static int TIME_LIMIT = 120;
 
 	private Timeline timeline;
 
@@ -203,7 +203,7 @@ public class Game extends UIController {
 		if (currentWordIndex == words.length) {
 			// we are now done
 			Reward rewardPage = (Reward) this.navigateTo("Reward.fxml", statusLabel);
-			rewardPage.initialize(scoreCount, answers, words);
+			rewardPage.initialize(scoreCount, answers, words, mode);
 
 			// save this score as a high-score if it's the best they've ever achieved
 			// but only if we're in game mode. practice mode does not count.
@@ -223,7 +223,7 @@ public class Game extends UIController {
 	/** called by the skip button and when the time runs out (in game mode) */
 	public void skipWord(ActionEvent event) {
 		// Writes encouraging message
-		statusLabel.setText("Chin up, you've got the next one!");
+		statusLabel.setText("Auare ake / Chin up, you've got the next one!");
 		nextWord(AnswerType.SKIPPED);
 	}
 
@@ -249,6 +249,8 @@ public class Game extends UIController {
 				nextWord(AnswerType.FAULTED);
 			} else {
 				scoreCount++;
+				// in game mode, you get a bonus point depending on how long you took.
+				// for example, if >75% of the time is remaining, you get the entire bonus point
 				if (mode == Mode.GAME) {
 					if (userTime >= 0.75) {
 						scoreCount++;
@@ -271,20 +273,20 @@ public class Game extends UIController {
 
 				// Gives a hint depending on the answer
 				String hintPrefix = correctness == Answer.Correctness.ONLY_MACRONS_WRONG
-					? "Almost right! Check the macrons. "
+					? "Hē, hihira te tohutō / Almost right! Check the macrons."
 					: correctness == Answer.Correctness.ONLY_SYNTAX_WRONG
-						? "Almost right! Check your spaces and hyphens. "
-						: "Incorrect, try once more. "; // if totally wrong
+						? "Hē, hihira te tohuwehe / Almost right! Check your spaces and hyphens."
+						: "Hē, tēnā anō / Incorrect, try once more."; // if totally wrong
 
 				statusLabel.setText(
-					hintPrefix +
-					" Hint: The first and last letters are '" +
-					correctAnswer.charAt(0) +
-					"' and '" +
-					correctAnswer.charAt(correctAnswer.length() - 1) +
-					"', and the English word is '" +
-					words[currentWordIndex].english +
-					"'."
+					MessageFormat.format(
+						"{0}\nReta tuatahi: ''{1}'', reta i tērā: ''{2}'' / The first and last letters are ''{1}'' and ''{2}''\n" +
+						"The English word is ''{3}''.",
+						/* 0 */hintPrefix,
+						/* 1 */correctAnswer.charAt(0),
+						/* 2 */correctAnswer.charAt(correctAnswer.length() - 1),
+						/* 3 */words[currentWordIndex].english
+					)
 				);
 
 				answerField.clear();
@@ -292,7 +294,7 @@ public class Game extends UIController {
 				// User has gotten it wrong twice in practice mode, or once in game mode.
 				// Writes encouraging message
 				statusLabel.setText(
-					"Incorrect. Chin up, you've got the next one!" +
+					"Hē, auare ake (Incorrect. Chin up, you've got the next one!)" +
 					(
 						mode == Mode.PRACTICE
 							? "\nThe correct spelling was: " + correctAnswer

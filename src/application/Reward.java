@@ -17,18 +17,21 @@ public class Reward extends UIController {
 	@FXML
 	private TableView<AnswerTableModel> tableView;
 
+	/** whether the game was a practice or real quiz */
+	private Game.Mode gameMode;
+
 	private String readableAnswerType(Game.AnswerType answerType) {
 		switch (answerType) {
 			case CORRECT:
-				return "✓ Correct";
+				return "✓ Tika / Correct";
 			case FAULTED:
-				return "✓ Faulted";
+				return "✓ Hāwhe kaute / Faulted";
 			case INCORRECT:
-				return "✖ Incorrect";
+				return "✖ Hē / Incorrect";
 			case SKIPPED:
-				return "✖ Skipped";
+				return "✖ Pahemo / Skipped";
 			case TOO_SLOW:
-				return "✖ Too Slow";
+				return "✖ Tō pōturi hoki / Too Slow";
 			default:
 				return ""; // will never happen
 		}
@@ -46,7 +49,7 @@ public class Reward extends UIController {
 		tableView.getColumns().add(col2);
 
 		TableColumn<AnswerTableModel, String> col3 = new TableColumn<>(
-			"Your Answer"
+			"Putanga / Outcome"
 		);
 		col3.setCellValueFactory(new PropertyValueFactory<>("status"));
 		tableView.getColumns().add(col3);
@@ -68,20 +71,28 @@ public class Reward extends UIController {
 	public void initialize(
 		double score,
 		Game.AnswerType[] answers,
-		Topics.Word[] words
+		Topics.Word[] words,
+		Game.Mode gameMode
 	) {
 		String formattedScore = Format.formatScore(score);
+		int totalPossiblePoints = gameMode == Game.Mode.GAME ? 10 : 5;
+		this.gameMode = gameMode;
 
 		// two different messages
 		if (score > 7) {
 			rewardLabel.setText(
-				"Ka pai! You have scored " + formattedScore + " out of 10"
+				"Ka pai! You have scored " +
+				formattedScore +
+				" out of " +
+				totalPossiblePoints
 			);
 		} else {
 			rewardLabel.setText(
-				"You scored " +
+				"Auare ake! You scored " +
 				formattedScore +
-				" out of 10, you'll do better next time!"
+				" out of " +
+				totalPossiblePoints +
+				", you'll do better next time!"
 			);
 		}
 
@@ -90,7 +101,11 @@ public class Reward extends UIController {
 
 	/** Switches back to topic selection screen on button press */
 	public void newGame(ActionEvent event) {
-		this.navigateTo("TopicSelection.fxml", event);
+		TopicSelection newPage = (TopicSelection) this.navigateTo(
+				"TopicSelection.fxml",
+				event
+			);
+		newPage.mode = gameMode; // start the new game in the same mode as the current game
 	}
 
 	/** Switches back to home screen on button press */

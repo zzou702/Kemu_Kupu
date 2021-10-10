@@ -17,6 +17,9 @@ Potential translations for all the UI components in the app
 | Skip                        | pahemo                       |
 | Score: {n}                  | kaute: {n}                   |
 | Correct                     | tika                         |
+| Incorrect                   | hē                           |
+| Faulted                     | hāwhe kaute                  |
+| Skipped                     | pahemo                       |
 | Incorrect, try once more    | hē, tēnā anō                 |
 | Almost there, check macrons | tēnā anō: hihira te tohutō   |
 | Almost there, check hyphens | tēnā anō: hihira te tohuwehe |
@@ -30,11 +33,13 @@ Potential translations for all the UI components in the app
 | Help                        | āwhina                       |
 | Instructions                | āwhina                       |
 | Time                        | tāima                        |
+| Outcome                     | putanga                      |
 | Too Slow                    | Tō pōturi hoki               |
 | Word length: {n}            | {n} pūriki                   |
 | (topic select help text)    |                              |
 | (game page help text)       |                              |
-| Chin up, you've got the...  |                              |
+| Better luck next time       | auare ake                    |
+| Chin up, you've got the...  | auare ake                    |
 | The correct spelling was... | whakahoki: {word}            |
 | Hint: the first and last... | [1]                          |
 
