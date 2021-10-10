@@ -2,18 +2,15 @@
 
 [![CI](https://github.com/SOFTENG206-2021/assignment-3-and-project-team-37/actions/workflows/ci.yml/badge.svg)](https://github.com/SOFTENG206-2021/assignment-3-and-projefct-team-37/actions/workflows/ci.yml)
 
-## Instructions to Run the project
+# Instructions to run the project
 
 To start the `final.jar` file, run
 
 ```sh
 . start.sh
-# or
-java -Djdk.gtk.version=2 --module-path /home/student/javafx-sdk-11.0.2/javafx --add-modules javafx.controls,javafx.media,javafx.base,javafx.fxml -jar final.jar
-
 ```
 
-## Set up instructions
+# Set-up Instructions
 
 > This is only if you want to edit to code
 
@@ -31,6 +28,8 @@ in eclipse: file -> export -> java -> JAR file -> next -> [check box on left nex
 
 </details>
 
+# Development Documentation
+
 ## Format of the word lists
 
 The files under `src/words/*` are csv files. The first row is the name of the topic. All subsequent rows are the words. Example:
@@ -41,3 +40,24 @@ word1TeReo,word1English
 word2TeReo,word2English
 ...
 ```
+
+If you want to show an icon or image on the Topic Selection page, create a file in `src/images` with the same name as the word list file, expcet `.jpg` instead of `.csv`
+
+## Project architecture
+
+This project uses JavaFX, built with SceneBuilder.
+
+**Key info about java:**
+
+- The entry point is `Main.java`.
+- Every controller has a layout file with a similar file name (e.g. `Game.fxml` & `Game.java`)
+- Every controller extends a abstract class called `UIController`, which provides methods like `navigateTo(pageName)`
+- Every controller has access to a global context, via `this.context`. This gives you access to settings like TTS Speed
+
+**Key info about the project:**
+
+- We use Test-driven development (TDD) for some code. Unit tests are stored alongside the code files, e.g. `Answer.java` & `AnswerTest.java`
+- Every commit and pull-request you make is tested by GitHub CI. This does two things:
+  1. Checks the formatting of the code, using [prettier](https://prettier.io).
+  2. Runs all unit tests, using JUnit.
+- If files are not formatted correctly, or any unit tests fail, the commit is marked with ❌ in the GitHub UI. Commits that pass all checks have a ✅
