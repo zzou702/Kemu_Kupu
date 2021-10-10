@@ -142,14 +142,14 @@ public class Game extends UIController {
 				timeline.stop();
 			}
 
-			timeLabel.setText(Format.formatAsTime(TIME_LIMIT));
+			timeLabel.setText("Tāima (time): " + Format.formatAsTime(TIME_LIMIT));
 			timeline =
 				new Timeline(
 					new KeyFrame(
 						Duration.seconds(1),
 						(ActionEvent event) -> {
 							clock++;
-							timeLabel.setText(Format.formatAsTime(TIME_LIMIT - clock));
+							timeLabel.setText("Tāima (time): " + Format.formatAsTime(TIME_LIMIT - clock));
 							timeBar.setProgress(1 - (double) clock / TIME_LIMIT);
 							if (clock == TIME_LIMIT) {
 								// stop, time is up. The question will be marked as wrong
@@ -280,7 +280,7 @@ public class Game extends UIController {
 
 				statusLabel.setText(
 					MessageFormat.format(
-						"{0}\nReta tuatahi: ''{1}'', reta i tērā: ''{2}'' / The first and last letters are ''{1}'' and ''{2}''\n" +
+						"{0}\nReta tuatahi: ''{1}'' \n reta i tērā: ''{2}'' \n The first and last letters are ''{1}'' and ''{2}''\n" +
 						"The English word is ''{3}''.",
 						/* 0 */hintPrefix,
 						/* 1 */correctAnswer.charAt(0),
