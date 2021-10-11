@@ -13,6 +13,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Ellipse?>
 <?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.shape.SVGPath?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Game">
@@ -35,7 +36,7 @@
             </LinearGradient>
          </fill>
       </Rectangle>
-      <Circle layoutX="640.0" layoutY="601.0" radius="38.0" stroke="#00000027" strokeType="INSIDE">
+      <Circle layoutX="640.0" layoutY="601.0" radius="56.0" stroke="#00000027" strokeType="INSIDE">
          <fill>
             <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
                <stops>
@@ -72,12 +73,12 @@
       </Ellipse>
       <Label fx:id="quizTitle" alignment="CENTER" layoutX="320.0" layoutY="32.0" prefHeight="39.0" prefWidth="640.0" text="Spelling Quiz" textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
-            <Font name="Raleway Medium" size="30.0" />
+            <Font name="Open Sans Extrabold" size="30.0" />
          </font>
       </Label>
-      <Button layoutX="591.0" layoutY="658.0" mnemonicParsing="false" onAction="#switchHome" stylesheets="@application.css" text="Hoki (Back)">
+      <Button layoutX="591.0" layoutY="658.0" mnemonicParsing="false" onAction="#switchHome" styleClass="white-button" stylesheets="@application.css" text="Hoki (Back)">
          <font>
-            <Font name="Raleway Medium" size="15.0" />
+            <Font name="Open Sans Extrabold" size="15.0" />
          </font></Button>
       <TextField fx:id="answerField" layoutX="391.0" layoutY="238.0" onAction="#submit" prefHeight="90.0" prefWidth="500.0">
          <font>
@@ -85,33 +86,33 @@
          </font></TextField>
       <Label fx:id="countLabel" alignment="CENTER" layoutX="529.0" layoutY="100.0" prefHeight="54.0" prefWidth="222.0" textAlignment="CENTER" textFill="WHITE">
          <font>
-            <Font name="Raleway Medium" size="15.0" />
+            <Font name="Open Sans Extrabold Italic" size="15.0" />
          </font></Label>
       <Label fx:id="statusLabel" alignment="CENTER" layoutX="382.0" layoutY="380.0" prefHeight="119.0" prefWidth="516.0" textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
             <Font name="Raleway Medium" size="15.0" />
          </font></Label>
-      <Button fx:id="skipButton" layoutX="255.0" layoutY="238.0" mnemonicParsing="false" onAction="#skipWord" prefHeight="40.0" prefWidth="130.0" stylesheets="@application.css" text="Pahemo (Skip)">
+      <Button fx:id="skipButton" layoutX="255.0" layoutY="238.0" mnemonicParsing="false" onAction="#skipWord" prefHeight="40.0" prefWidth="130.0" styleClass="white-button" stylesheets="@application.css" text="Pahemo (Skip)">
          <font>
-            <Font name="Raleway Medium" size="14.0" />
+            <Font name="Open Sans Extrabold" size="14.0" />
          </font></Button>
-      <Button fx:id="submitButton" alignment="CENTER" layoutX="897.0" layoutY="238.0" mnemonicParsing="false" onAction="#submit" prefHeight="90.0" prefWidth="130.0" stylesheets="@application.css" text="Whakautu (Submit)" textAlignment="CENTER" wrapText="true">
+      <Button fx:id="submitButton" alignment="CENTER" layoutX="897.0" layoutY="238.0" mnemonicParsing="false" onAction="#submit" prefHeight="90.0" prefWidth="130.0" styleClass="white-button" stylesheets="@application.css" text="Whakautu (Submit)" textAlignment="CENTER" wrapText="true">
          <font>
-            <Font name="Raleway Medium" size="15.0" />
+            <Font name="Open Sans Extrabold" size="15.0" />
          </font></Button>
-      <Button fx:id="repeatButton" layoutX="255.0" layoutY="287.0" mnemonicParsing="false" onAction="#speakCurrentWord" prefHeight="40.0" prefWidth="130.0" stylesheets="@application.css" text="Toai (Repeat)">
+      <Button fx:id="repeatButton" layoutX="255.0" layoutY="287.0" mnemonicParsing="false" onAction="#speakCurrentWord" prefHeight="40.0" prefWidth="130.0" styleClass="white-button" stylesheets="@application.css" text="Toai (Repeat)">
          <font>
-            <Font name="Raleway Medium" size="14.0" />
+            <Font name="Open Sans Extrabold" size="14.0" />
          </font></Button>
       <Label fx:id="scoreLabel" alignment="CENTER_RIGHT" layoutX="1086.0" layoutY="21.0" prefHeight="23.0" prefWidth="171.0" textAlignment="RIGHT" textFill="WHITE">
          <font>
             <Font name="Raleway Medium" size="16.0" />
          </font></Label>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="202.0" layoutY="88.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="200.0" layoutY="32.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="1076.0" layoutY="70.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="13.0" layoutY="92.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="24.0" layoutY="12.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="65.0" layoutY="90.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="161.0" layoutY="325.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="336.0" layoutY="88.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="174.0" layoutY="15.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="484.0" layoutY="19.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
@@ -122,36 +123,61 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="129.0" layoutY="70.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="494.0" layoutY="127.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="31.0" layoutY="129.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="820.0" layoutY="80.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="960.0" layoutY="86.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="1107.0" layoutY="316.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="34.0" layoutY="22.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="905.0" layoutY="152.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="1192.0" layoutY="186.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="1086.0" layoutY="207.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="1204.0" layoutY="34.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="1053.0" layoutY="164.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="1206.0" layoutY="297.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="838.0" layoutY="34.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="1134.0" layoutY="123.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="99.0" layoutY="188.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="984.0" layoutY="36.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="63.0" layoutY="295.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Arc fill="#ffffffc6" layoutX="36.0" layoutY="15.0" length="270.0" radiusX="8.0" radiusY="8.0" rotate="180.0" startAngle="45.0" stroke="#00000027" strokeType="INSIDE" type="ROUND" />
-      <Button layoutX="391.0" layoutY="337.0" mnemonicParsing="false" onAction="#insertMacron" prefHeight="23.0" prefWidth="100.0" stylesheets="@application.css" text="ā" userData="ā">
+      <Button layoutX="391.0" layoutY="337.0" mnemonicParsing="false" onAction="#insertMacron" prefHeight="23.0" prefWidth="100.0" styleClass="white-button" stylesheets="@application.css" text="ā" userData="ā">
          <font>
             <Font name="Raleway Medium" size="15.0" />
          </font></Button>
-      <Button layoutX="491.0" layoutY="337.0" mnemonicParsing="false" onAction="#insertMacron" prefHeight="23.0" prefWidth="100.0" stylesheets="@application.css" text="ē" userData="ē">
+      <Button layoutX="491.0" layoutY="337.0" mnemonicParsing="false" onAction="#insertMacron" prefHeight="23.0" prefWidth="100.0" styleClass="white-button" stylesheets="@application.css" text="ē" userData="ē">
          <font>
             <Font name="Raleway Medium" size="15.0" />
          </font></Button>
-      <Button layoutX="591.0" layoutY="337.0" mnemonicParsing="false" onAction="#insertMacron" prefHeight="23.0" prefWidth="100.0" stylesheets="@application.css" text="ī" userData="ī">
+      <Button layoutX="591.0" layoutY="337.0" mnemonicParsing="false" onAction="#insertMacron" prefHeight="23.0" prefWidth="100.0" styleClass="white-button" stylesheets="@application.css" text="ī" userData="ī">
          <font>
             <Font name="Raleway Medium" size="15.0" />
          </font></Button>
-      <Button layoutX="690.0" layoutY="337.0" mnemonicParsing="false" onAction="#insertMacron" prefHeight="23.0" prefWidth="100.0" stylesheets="@application.css" text="ō" userData="ō">
+      <Button layoutX="690.0" layoutY="337.0" mnemonicParsing="false" onAction="#insertMacron" prefHeight="23.0" prefWidth="100.0" styleClass="white-button" stylesheets="@application.css" text="ō" userData="ō">
          <font>
             <Font name="Raleway Medium" size="15.0" />
          </font></Button>
-      <Button layoutX="790.0" layoutY="337.0" mnemonicParsing="false" onAction="#insertMacron" prefHeight="23.0" prefWidth="100.0" stylesheets="@application.css" text="ū" userData="ū">
+      <Button layoutX="790.0" layoutY="337.0" mnemonicParsing="false" onAction="#insertMacron" prefHeight="23.0" prefWidth="100.0" styleClass="white-button" stylesheets="@application.css" text="ū" userData="ū">
          <font>
             <Font name="Raleway Medium" size="15.0" />
          </font></Button>
       <Button layoutX="1181.0" layoutY="695.0" mnemonicParsing="false" onAction="#help" stylesheets="@application.css" text="Āwhina / Help" visible="false" />
       <Label fx:id="lengthLabel" alignment="CENTER" layoutX="449.0" layoutY="178.0" prefHeight="19.0" prefWidth="384.0" text="Word length: " textFill="WHITE">
          <font>
-            <Font name="Raleway Medium" size="15.0" />
+            <Font name="Open Sans Extrabold" size="15.0" />
          </font></Label>
       <ProgressBar fx:id="timeBar" layoutX="960.0" layoutY="45.0" prefHeight="54.0" prefWidth="297.0" progress="1.0" visible="false" />
       <Label fx:id="timeLabel" layoutX="962.0" layoutY="22.0" prefHeight="15.0" prefWidth="146.0" text="Tāima (time):" textFill="WHITE" visible="false">
          <font>
             <Font name="Raleway Medium" size="16.0" />
          </font></Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="101.0" layoutY="438.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="233.0" layoutY="195.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <SVGPath content="M 150 300 Q 200 300 200 200 Q 200 300 250 300 Q 200 300 200 400 C 200 300 150 300 150 300 " fill="#ffffffad" layoutX="981.0" layoutY="-148.0" scaleX="0.1" scaleY="0.1" />
+      <SVGPath content="M 150 300 Q 200 300 200 200 Q 200 300 250 300 Q 200 300 200 400 C 200 300 150 300 150 300 " fill="#ffffffaf" layoutX="-108.0" layoutY="-167.0" scaleX="0.15" scaleY="0.15" />
+      <SVGPath content="M 150 300 Q 200 300 200 200 Q 200 300 250 300 Q 200 300 200 400 C 200 300 150 300 150 300 " fill="WHITE" layoutX="114.0" layoutY="-249.0" scaleX="0.1" scaleY="0.1" />
+      <SVGPath content="M 150 300 Q 200 300 200 200 Q 200 300 250 300 Q 200 300 200 400 C 200 300 150 300 150 300 " fill="#ffffffa5" layoutX="962.0" layoutY="80.0" scaleX="0.16" scaleY="0.16" />
+      <SVGPath content="M 150 300 Q 200 300 200 200 Q 200 300 250 300 Q 200 300 200 400 C 200 300 150 300 150 300 " fill="#ffffff70" layoutX="-35.0" layoutY="152.0" scaleX="0.11" scaleY="0.11" />
+      <SVGPath content="M 150 300 Q 200 300 200 200 Q 200 300 250 300 Q 200 300 200 400 C 200 300 150 300 150 300 " fill="#ffffffc4" layoutX="725.0" layoutY="-175.0" scaleX="0.1" scaleY="0.1" />
+      <SVGPath content="M 150 300 Q 200 300 200 200 Q 200 300 250 300 Q 200 300 200 400 C 200 300 150 300 150 300 " fill="#ffffffab" layoutX="103.0" layoutY="-103.0" scaleX="0.1" scaleY="0.1" />
+      <SVGPath content="M 150 300 Q 200 300 200 200 Q 200 300 250 300 Q 200 300 200 400 C 200 300 150 300 150 300 " fill="#ffffff77" layoutX="807.0" layoutY="223.0" scaleX="0.1" scaleY="0.1" />
    </children>
 </AnchorPane>
