@@ -10,13 +10,14 @@
 <?import javafx.scene.shape.Arc?>
 <?import javafx.scene.shape.Ellipse?>
 <?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.shape.SVGPath?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Home">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="720.0" stroke="BLACK" strokeType="INSIDE" width="1280.0">
          <fill>
-            <RadialGradient centerX="0.2640449438202247" centerY="0.125" radius="0.4523809523809524">
+            <RadialGradient centerX="0.297752808988764" centerY="0.125" radius="0.6428571428571429">
                <stops>
                   <Stop>
                      <color>
@@ -44,7 +45,7 @@
             <Font name="Raleway Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="521.0" layoutY="44.0" stylesheets="@application.css" text="Kēmu Kupu" textFill="WHITE">
+      <Label layoutX="521.0" layoutY="44.0" styleClass="text-font" stylesheets="@application.css" text="Kēmu Kupu" textFill="WHITE">
          <font>
             <Font name="Raleway ExtraBold" size="42.0" />
          </font>
@@ -96,5 +97,18 @@
          <font>
             <Font name="Open Sans Extrabold" size="19.0" />
          </font></Button>
+      <SVGPath content="M 150 300 Q 200 300 200 200 Q 200 300 250 300 Q 200 300 200 400 C 200 300 150 300 150 300 " fill="WHITE" layoutX="863.0" layoutY="-243.0" scaleX="0.25" scaleY="0.25" />
+      <SVGPath content="M 150 300 Q 200 300 200 200 Q 200 300 250 300 Q 200 300 200 400 C 200 300 150 300 150 300 " fill="WHITE" layoutX="-92.0" layoutY="-243.0" scaleX="0.2" scaleY="0.2" />
+      <SVGPath content="M 150 300 Q 200 300 200 200 Q 200 300 250 300 Q 200 300 200 400 C 200 300 150 300 150 300 " fill="WHITE" layoutX="734.0" layoutY="-153.0" scaleX="0.1" scaleY="0.1" />
+      <SVGPath content="M 150 300 Q 200 300 200 200 Q 200 300 250 300 Q 200 300 200 400 C 200 300 150 300 150 300 " fill="WHITE" layoutX="231.0" layoutY="-82.0" scaleX="0.15" scaleY="0.15" />
+      <SVGPath content="M 150 300 Q 200 300 200 200 Q 200 300 250 300 Q 200 300 200 400 C 200 300 150 300 150 300 " fill="WHITE" layoutX="-8.0" layoutY="-110.0" scaleX="0.1" scaleY="0.1" />
+      <SVGPath content="M 150 300 Q 200 300 200 200 Q 200 300 250 300 Q 200 300 200 400 C 200 300 150 300 150 300 " fill="WHITE" layoutX="1002.0" layoutY="136.0" scaleX="0.1" scaleY="0.1" />
+      <SVGPath content="M 150 300 Q 200 300 200 200 Q 200 300 250 300 Q 200 300 200 400 C 200 300 150 300 150 300 " fill="WHITE" layoutX="92.0" layoutY="161.0" scaleX="0.15" scaleY="0.15" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="835.0" layoutY="444.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="671.0" layoutY="338.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="45.0" layoutY="292.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="113.0" layoutY="474.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="993.0" layoutY="486.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="353.0" layoutY="506.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
    </children>
 </AnchorPane>

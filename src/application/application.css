@@ -4,15 +4,41 @@
 }
 
 .oval-shaped-button {
-	-fx-shape: "M 150 300 Q 150 200 350 200 Q 550 200 550 300 Q	 550 400 350 400 C 350 400 150 400 150 300 ";
+	-fx-shape: "M 150 300 Q 150 200 350 200 Q 550 200 550 
+	300 Q 550 400 350 400 C 350 400 150 400 150 300 ";
 
 	-fx-background-color: #ffffff;
 }
 
-.button {
+.cloud-shaped-button{
+	-fx-shape: "m 3 8 C 2 8 1 7 2 6 C 2 5 3 4 4 5 C 4 4 6 4 6 5 C 7 4 9 
+	6 8 7 C 8 7 8 8 7 8 C 7 9 5 9 5 8 C 5 9 3 9 3 8";
 	-fx-background-color: #ffffff;
 }
+
+.leaf-shaped-button{
+	-fx-shape: "m 2 7 C 4 9 6 11 8 11 C 8 20 26 14 31 8 C 
+	25 7 8 1 8 9 L 8 9 c -2 1 -3 -1 -5 -3";
+	-fx-background-color: 
+	#03AC13,
+	linear-gradient(#CEFB02, #578018);
+	
+}
+
+
+.white-button {
+	-fx-background-color: #ffffff;
+}
+
 
 .combobox {
 	-fx-background-color: #ffffff;
 }
+
+.tableview{
+	-fx-background-insets: 0;
+	-fx-background-color: #ffffff;
+	-fx-border-color: transparent -fx-box-border transparent transparent;
+	-fx-text-fill: "black";
+}
+

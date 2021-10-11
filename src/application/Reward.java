@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.shape.SVGPath;
 
 public class Reward extends UIController {
 
@@ -16,6 +17,9 @@ public class Reward extends UIController {
 
 	@FXML
 	private TableView<AnswerTableModel> tableView;
+	
+	@FXML
+	private SVGPath cloudSVG;
 
 	/** whether the game was a practice or real quiz */
 	private Game.Mode gameMode;
@@ -97,8 +101,22 @@ public class Reward extends UIController {
 		}
 
 		populateTable(answers, words);
+		
+		tableView.setVisible(false);
+		cloudSVG.setVisible(false);
 	}
 
+	/** Toggles the statistics of the game */
+	public void toggleStats(ActionEvent event) {
+		if (tableView.isVisible()) {
+			tableView.setVisible(false);
+			cloudSVG.setVisible(false);
+		}else {
+			tableView.setVisible(true);
+			cloudSVG.setVisible(true);
+		}
+	}
+	
 	/** Switches back to topic selection screen on button press */
 	public void newGame(ActionEvent event) {
 		TopicSelection newPage = (TopicSelection) this.navigateTo(
