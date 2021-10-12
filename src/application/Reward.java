@@ -13,7 +13,7 @@ import javafx.scene.shape.SVGPath;
 public class Reward extends UIController {
 
 	@FXML
-	private Label rewardLabel;
+	private Label rewardLabel, highScoreLabel;
 
 	@FXML
 	private TableView<AnswerTableModel> tableView;
@@ -99,6 +99,15 @@ public class Reward extends UIController {
 				", \n you'll do better next time!"
 			);
 		}
+		
+		//Does not display high score in practice
+		if (gameMode == Game.Mode.GAME) {
+			highScoreLabel.setVisible(true);
+			highScoreLabel.setText(
+					"High Score: " + this.context.getHighScore()
+					);
+		}
+		
 
 		populateTable(answers, words);
 		
