@@ -99,15 +99,12 @@ public class Reward extends UIController {
 				", \n you'll do better next time!"
 			);
 		}
-		
+
 		//Does not display high score in practice
 		if (gameMode == Game.Mode.GAME) {
 			highScoreLabel.setVisible(true);
-			highScoreLabel.setText(
-					"High Score: " + this.context.getHighScore()
-					);
+			highScoreLabel.setText("High Score: " + this.context.getHighScore());
 		}
-		
 
 		populateTable(answers, words);
 

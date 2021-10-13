@@ -16,6 +16,7 @@ Potential translations for all the UI components in the app
 | Repeat Word                 | toai                         |
 | Skip                        | pahemo                       |
 | Score: {n}                  | kaute: {n}                   |
+| High Score: {n}             | tino kaute: {n}              |
 | Correct                     | tika                         |
 | Incorrect                   | hē                           |
 | Faulted                     | hāwhe kaute                  |
@@ -31,7 +32,7 @@ Potential translations for all the UI components in the app
 | Slow                        | pōturi                       |
 | Very Slow                   | puku pōturi                  |
 | Help                        | āwhina                       |
-| Instructions                | āwhina                       |
+| Instructions / Help         | āwhina                       |
 | Time                        | tāima                        |
 | Outcome                     | putanga                      |
 | Too Slow                    | Tō pōturi hoki               |
@@ -44,3 +45,5 @@ Potential translations for all the UI components in the app
 | Hint: the first and last... | [1]                          |
 
 1. reta tuatahi: {c}, reta i tērā: {c}
+
+See `src/applications/helpers/Help.java` for the translated help messages
