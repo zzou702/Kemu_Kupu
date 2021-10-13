@@ -30,7 +30,7 @@ public class Home extends UIController {
 	private Label errorMsg;
 
 	@FXML
-	private Button quitButton;
+	private Button quitButton, sampleButton;
 
 	@FXML
 	private ComboBox<String> ttsSpeedDropdown;
@@ -63,6 +63,7 @@ public class Home extends UIController {
 
 	/** called when you click the 'Start Game' button */
 	public void startGameModule(ActionEvent event) {
+		Festival.emptyQueue();
 		TopicSelection newPage = (TopicSelection) this.navigateTo(
 				"TopicSelection.fxml",
 				event
@@ -72,6 +73,7 @@ public class Home extends UIController {
 
 	/** called when you click the 'Start Practice Quiz' button */
 	public void startPracticeModule(ActionEvent event) {
+		Festival.emptyQueue();
 		TopicSelection newPage = (TopicSelection) this.navigateTo(
 				"TopicSelection.fxml",
 				event

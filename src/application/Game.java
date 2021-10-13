@@ -179,9 +179,19 @@ public class Game extends UIController {
 	public void help(ActionEvent event) {
 		Help.showPopup(Help.Category.GAME);
 	}
+	
+	//Stops the countdown when exiting to different scene.
+	private void stopCountdown() {
+		if (mode == Mode.GAME) {
+			timeline.stop();
+		}
+		Festival.emptyQueue();
+	}
 
 	/** called by the back button */
 	public void switchHome(ActionEvent event) {
+		stopCountdown();
+
 		this.navigateTo("Home.fxml", event);
 	}
 
@@ -211,6 +221,8 @@ public class Game extends UIController {
 		// check if we just completed the final word in the quiz
 		if (currentWordIndex == words.length) {
 			// we are now done
+			stopCountdown();
+			
 			Reward rewardPage = (Reward) this.navigateTo("Reward.fxml", statusLabel);
 			rewardPage.initialize(scoreCount, answers, words, mode);
 
