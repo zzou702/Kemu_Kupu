@@ -7,6 +7,7 @@ import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
@@ -89,6 +90,9 @@ public class Game extends UIController {
 
 	@FXML
 	private ProgressBar timeBar;
+	
+	@FXML
+	private Button backButton, repeatButton;
 
 	/** This method inserts a vowel with a macron on button press. This method is used by 5 buttons **/
 	public void insertMacron(ActionEvent event) {
@@ -202,6 +206,23 @@ public class Game extends UIController {
 			Festival.Language.TE_REO,
 			this.context.getTTSSpeed()
 		);
+		
+		Runnable callback = () -> {
+			try {
+				while (Festival.getStatus()) {
+					backButton.setDisable(true);
+					repeatButton.setDisable(true);
+				}
+
+				backButton.setDisable(false);
+				repeatButton.setDisable(false);
+			} catch (Exception error) {
+				error.printStackTrace();
+			}
+		};
+		Thread sampleThread = new Thread(callback);
+		sampleThread.setDaemon(true);
+		sampleThread.start();
 	}
 
 	/**
