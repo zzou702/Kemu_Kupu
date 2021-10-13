@@ -53,6 +53,7 @@ public class Answer {
 
 		// if we omit hyphens and spaces, the answer would be correct
 		if (a.replaceAll("( |-)", "").equals(b.replaceAll("( |-)", ""))) {
+			// "( |-)" means find " " and "-". based on https://stackoverflow.com/a/10827900/5470183
 			return Correctness.ONLY_SYNTAX_WRONG;
 		}
 
