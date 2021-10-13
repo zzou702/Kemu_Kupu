@@ -52,7 +52,7 @@
          </font>
       </Label>
       <Arc fill="#ffffffc6" layoutX="1223.0" layoutY="193.0" length="270.0" radiusX="14.0" radiusY="13.0" startAngle="45.0" stroke="#00000027" strokeType="INSIDE" type="ROUND" />
-      <Button layoutX="479.0" layoutY="315.0" mnemonicParsing="false" onAction="#help" stylesheets="@application.css" text="Āwhina / Help" visible="false" />
+      <Button layoutX="1181.0" layoutY="695.0" mnemonicParsing="false" onAction="#help" styleClass="white-button" stylesheets="@application.css" text="Āwhina / Help" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="618.0" layoutY="139.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="1181.0" layoutY="452.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="555.0" layoutY="27.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
