@@ -95,7 +95,7 @@ public class Home extends UIController {
 				this.context.getTTSSpeed()
 				);
 		
-		//Creates disables the button in a separate thread while festival is speaking
+		// Disables the button in a separate thread while festival is speaking
 		Runnable callback = () -> {
 			try {
 				while (Festival.getStatus()) {

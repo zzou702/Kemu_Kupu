@@ -207,6 +207,7 @@ public class Game extends UIController {
 			this.context.getTTSSpeed()
 		);
 		
+		// Disables buttons while festival is speaking in a separate thread
 		Runnable callback = () -> {
 			try {
 				while (Festival.getStatus()) {
@@ -220,9 +221,9 @@ public class Game extends UIController {
 				error.printStackTrace();
 			}
 		};
-		Thread sampleThread = new Thread(callback);
-		sampleThread.setDaemon(true);
-		sampleThread.start();
+		Thread gameThread = new Thread(callback);
+		gameThread.setDaemon(true);
+		gameThread.start();
 	}
 
 	/**
