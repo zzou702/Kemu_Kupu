@@ -71,11 +71,6 @@
             </RadialGradient>
          </fill>
       </Ellipse>
-      <Label fx:id="quizTitle" alignment="CENTER" layoutX="320.0" layoutY="32.0" prefHeight="39.0" prefWidth="640.0" text="Spelling Quiz" textAlignment="CENTER" textFill="WHITE" wrapText="true">
-         <font>
-            <Font name="Open Sans Extrabold" size="30.0" />
-         </font>
-      </Label>
       <Button layoutX="591.0" layoutY="658.0" mnemonicParsing="false" onAction="#switchHome" styleClass="white-button" stylesheets="@application.css" text="Hoki (Back)">
          <font>
             <Font name="Open Sans Extrabold" size="15.0" />
@@ -138,6 +133,11 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="99.0" layoutY="188.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="984.0" layoutY="36.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="63.0" layoutY="295.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Label fx:id="quizTitle" alignment="CENTER" layoutX="326.0" layoutY="42.0" prefHeight="42.0" prefWidth="631.0" text="Spelling Quiz" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="Open Sans Extrabold" size="26.0" />
+         </font>
+      </Label>
       <Arc fill="#ffffffc6" layoutX="36.0" layoutY="15.0" length="270.0" radiusX="8.0" radiusY="8.0" rotate="180.0" startAngle="45.0" stroke="#00000027" strokeType="INSIDE" type="ROUND" />
       <Button layoutX="391.0" layoutY="337.0" mnemonicParsing="false" onAction="#insertMacron" prefHeight="23.0" prefWidth="100.0" styleClass="white-button" stylesheets="@application.css" text="ā" userData="ā">
          <font>
@@ -164,7 +164,7 @@
          <font>
             <Font name="Open Sans Extrabold" size="29.0" />
          </font></Label>
-      <ProgressBar fx:id="timeBar" layoutX="960.0" layoutY="45.0" prefHeight="54.0" prefWidth="297.0" progress="1.0" visible="false" />
+      <ProgressBar fx:id="timeBar" layoutX="960.0" layoutY="45.0" prefHeight="54.0" prefWidth="297.0" progress="1.0" />
       <Label fx:id="timeLabel" layoutX="962.0" layoutY="22.0" prefHeight="15.0" prefWidth="146.0" text="Tāima (time):" textFill="WHITE" visible="false">
          <font>
             <Font name="Raleway Medium" size="16.0" />
@@ -173,7 +173,7 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="233.0" layoutY="195.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <SVGPath content="M 150 300 Q 200 300 200 200 Q 200 300 250 300 Q 200 300 200 400 C 200 300 150 300 150 300 " fill="#ffffffad" layoutX="981.0" layoutY="-148.0" scaleX="0.1" scaleY="0.1" />
       <SVGPath content="M 150 300 Q 200 300 200 200 Q 200 300 250 300 Q 200 300 200 400 C 200 300 150 300 150 300 " fill="#ffffffaf" layoutX="-108.0" layoutY="-167.0" scaleX="0.15" scaleY="0.15" />
-      <SVGPath content="M 150 300 Q 200 300 200 200 Q 200 300 250 300 Q 200 300 200 400 C 200 300 150 300 150 300 " fill="WHITE" layoutX="114.0" layoutY="-249.0" scaleX="0.1" scaleY="0.1" />
+      <SVGPath content="M 150 300 Q 200 300 200 200 Q 200 300 250 300 Q 200 300 200 400 C 200 300 150 300 150 300 " fill="WHITE" layoutX="108.0" layoutY="-237.0" scaleX="0.1" scaleY="0.1" />
       <SVGPath content="M 150 300 Q 200 300 200 200 Q 200 300 250 300 Q 200 300 200 400 C 200 300 150 300 150 300 " fill="#ffffffa5" layoutX="962.0" layoutY="80.0" scaleX="0.16" scaleY="0.16" />
       <SVGPath content="M 150 300 Q 200 300 200 200 Q 200 300 250 300 Q 200 300 200 400 C 200 300 150 300 150 300 " fill="#ffffff70" layoutX="-35.0" layoutY="152.0" scaleX="0.11" scaleY="0.11" />
       <SVGPath content="M 150 300 Q 200 300 200 200 Q 200 300 250 300 Q 200 300 200 400 C 200 300 150 300 150 300 " fill="#ffffffc4" layoutX="725.0" layoutY="-175.0" scaleX="0.1" scaleY="0.1" />
