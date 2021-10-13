@@ -1,6 +1,7 @@
 # Assignment 3, Group 37
 
-[![CI](https://github.com/SOFTENG206-2021/assignment-3-and-project-team-37/actions/workflows/ci.yml/badge.svg)](https://github.com/SOFTENG206-2021/assignment-3-and-projefct-team-37/actions/workflows/ci.yml)
+[![Formatting](https://github.com/SOFTENG206-2021/assignment-3-and-project-team-37/actions/workflows/lint.yml/badge.svg)](https://github.com/SOFTENG206-2021/assignment-3-and-projefct-team-37/actions/workflows/lint.yml)
+[![Unit Tests](https://github.com/SOFTENG206-2021/assignment-3-and-project-team-37/actions/workflows/test.yml/badge.svg)](https://github.com/SOFTENG206-2021/assignment-3-and-projefct-team-37/actions/workflows/test.yml)
 
 # Instructions to run the project
 
