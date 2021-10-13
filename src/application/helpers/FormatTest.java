@@ -28,4 +28,22 @@ class FormatTest {
 		assertEquals(Format.formatAsTime(3600), "00:00");
 		assertEquals(Format.formatAsTime(3601), "00:01");
 	}
+
+	@Test
+	void testUnderscoreWithNoLetters() {
+		assertEquals(Format.getUnderscoreHint("Whānau", false), "_ _ _ _ _ _");
+		assertEquals(
+			Format.getUnderscoreHint("Te Ika-a-māui", false),
+			"_ _   _ _ _ - _ - _ _ _ _"
+		);
+	}
+
+	@Test
+	void testUnderscoreWithLetters() {
+		assertEquals(Format.getUnderscoreHint("Whānau", true), "W _ _ _ _ u");
+		assertEquals(
+			Format.getUnderscoreHint("Te Ika-a-māui", true),
+			"T _   _ _ _ - _ - _ _ _ i"
+		);
+	}
 }

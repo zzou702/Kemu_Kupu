@@ -17,7 +17,7 @@ public class Reward extends UIController {
 
 	@FXML
 	private TableView<AnswerTableModel> tableView;
-	
+
 	@FXML
 	private SVGPath cloudSVG;
 
@@ -101,7 +101,7 @@ public class Reward extends UIController {
 		}
 
 		populateTable(answers, words);
-		
+
 		tableView.setVisible(false);
 		cloudSVG.setVisible(false);
 	}
@@ -111,12 +111,12 @@ public class Reward extends UIController {
 		if (tableView.isVisible()) {
 			tableView.setVisible(false);
 			cloudSVG.setVisible(false);
-		}else {
+		} else {
 			tableView.setVisible(true);
 			cloudSVG.setVisible(true);
 		}
 	}
-	
+
 	/** Switches back to topic selection screen on button press */
 	public void newGame(ActionEvent event) {
 		TopicSelection newPage = (TopicSelection) this.navigateTo(

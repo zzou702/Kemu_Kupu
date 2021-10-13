@@ -82,7 +82,7 @@ public class Game extends UIController {
 	private Label scoreLabel;
 
 	@FXML
-	private Label lengthLabel;
+	private Label underscoreHintLabel;
 
 	@FXML
 	private Label timeLabel;
@@ -117,6 +117,16 @@ public class Game extends UIController {
 		}
 	}
 
+	/** the "underscore hint" is the text that says "P _ _ _ a   _ _ "  */
+	private void updateUnderscoreHint() {
+		underscoreHintLabel.setText(
+			Format.getUnderscoreHint(
+				words[currentWordIndex].teReo,
+				attemptNumber == 2
+			)
+		);
+	}
+
 	/** this method updates the UI at the start of each question */
 	private void refreshUI() {
 		countLabel.setText(
@@ -127,10 +137,7 @@ public class Game extends UIController {
 			)
 		);
 
-		int wordLength = words[currentWordIndex].teReo.length();
-		lengthLabel.setText(
-			MessageFormat.format("{0} pūriki / Word Length: {0}", wordLength)
-		);
+		updateUnderscoreHint();
 
 		scoreLabel.setText("Kaute (Score): " + Format.formatScore(scoreCount));
 
@@ -266,6 +273,7 @@ public class Game extends UIController {
 				}
 				nextWord(AnswerType.CORRECT);
 			}
+			FX.flashElement(answerField, FX.State.SUCCESS);
 		} else {
 			// user got the word wrong
 			if (attemptNumber == 1 && mode == Mode.PRACTICE) {
@@ -282,14 +290,13 @@ public class Game extends UIController {
 
 				statusLabel.setText(
 					MessageFormat.format(
-						"{0}\nReta tuatahi: ''{1}'' \n reta i tērā: ''{2}'' \n The first and last letters are ''{1}'' and ''{2}''\n" +
-						"The English word is ''{3}''.",
+						"{0}\nThe English word is ''{1}''.",
 						/* 0 */hintPrefix,
-						/* 1 */correctAnswer.charAt(0),
-						/* 2 */correctAnswer.charAt(correctAnswer.length() - 1),
-						/* 3 */words[currentWordIndex].english
+						/* 1 */words[currentWordIndex].english
 					)
 				);
+				updateUnderscoreHint();
+				FX.flashElement(answerField, FX.State.WARNING);
 
 				answerField.clear();
 			} else {
@@ -304,6 +311,7 @@ public class Game extends UIController {
 					)
 				);
 				nextWord(AnswerType.INCORRECT);
+				FX.flashElement(answerField, FX.State.DANGER);
 			}
 		}
 	}

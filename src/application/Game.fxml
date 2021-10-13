@@ -80,7 +80,7 @@
          <font>
             <Font name="Open Sans Extrabold" size="15.0" />
          </font></Button>
-      <TextField fx:id="answerField" layoutX="391.0" layoutY="238.0" onAction="#submit" prefHeight="90.0" prefWidth="500.0">
+      <TextField fx:id="answerField" layoutX="391.0" layoutY="238.0" onAction="#submit" prefHeight="90.0" prefWidth="500.0" styleClass="flashable" stylesheets="@application.css">
          <font>
             <Font name="Raleway Regular" size="20.0" />
          </font></TextField>
@@ -160,9 +160,9 @@
             <Font name="Raleway Medium" size="15.0" />
          </font></Button>
       <Button layoutX="1181.0" layoutY="695.0" mnemonicParsing="false" onAction="#help" stylesheets="@application.css" text="Āwhina / Help" visible="false" />
-      <Label fx:id="lengthLabel" alignment="CENTER" layoutX="449.0" layoutY="178.0" prefHeight="19.0" prefWidth="384.0" text="Word length: " textFill="WHITE">
+      <Label fx:id="underscoreHintLabel" alignment="CENTER" layoutX="258.0" layoutY="178.0" prefHeight="41.0" prefWidth="774.0" text="P _ _ _ _ a" textFill="WHITE">
          <font>
-            <Font name="Open Sans Extrabold" size="15.0" />
+            <Font name="Open Sans Extrabold" size="29.0" />
          </font></Label>
       <ProgressBar fx:id="timeBar" layoutX="960.0" layoutY="45.0" prefHeight="54.0" prefWidth="297.0" progress="1.0" visible="false" />
       <Label fx:id="timeLabel" layoutX="962.0" layoutY="22.0" prefHeight="15.0" prefWidth="146.0" text="Tāima (time):" textFill="WHITE" visible="false">
