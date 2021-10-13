@@ -90,9 +90,25 @@ public class Home extends UIController {
 	/** called by the 'Play Sample' button next to the TTS Speed selection */
 	public void playSample() {
 		Festival.speak(
-			"Kia Ora",
-			Festival.Language.TE_REO,
-			this.context.getTTSSpeed()
-		);
+				"Kia Ora",
+				Festival.Language.TE_REO,
+				this.context.getTTSSpeed()
+				);
+		
+		//Creates disables the button in a separate thread while festival is speaking
+		Runnable callback = () -> {
+			try {
+				while (Festival.getStatus()) {
+					sampleButton.setDisable(true);
+				}
+
+				sampleButton.setDisable(false);
+			} catch (Exception error) {
+				error.printStackTrace();
+			}
+		};
+		Thread sampleThread = new Thread(callback);
+		sampleThread.setDaemon(true);
+		sampleThread.start();
 	}
 }
