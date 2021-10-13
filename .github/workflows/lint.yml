@@ -1,9 +1,9 @@
-name: CI
+name: Formatting
 
 on: [push]
 
 jobs:
-  build:
+  lint:
     runs-on: ubuntu-latest
 
     steps:
@@ -25,8 +25,3 @@ jobs:
 
       - name: ✏️ Lint
         run: npm run lint-ci
-
-      - name: 🧪 Run unit tests
-        run: |
-          javac -cp bin:lib/junit-platform-console-standalone-1.8.1.jar -d bin  src/application/helpers/Answer* src/application/helpers/Format*
-          java -jar lib/junit-platform-console-standalone-1.8.1.jar -cp bin --scan-classpath
