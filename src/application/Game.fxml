@@ -139,23 +139,23 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="984.0" layoutY="36.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="63.0" layoutY="295.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Arc fill="#ffffffc6" layoutX="36.0" layoutY="15.0" length="270.0" radiusX="8.0" radiusY="8.0" rotate="180.0" startAngle="45.0" stroke="#00000027" strokeType="INSIDE" type="ROUND" />
-      <Button layoutX="391.0" layoutY="337.0" mnemonicParsing="false" onAction="#insertMacron" prefHeight="23.0" prefWidth="100.0" styleClass="white-button" stylesheets="@application.css" text="ā" userData="ā">
+      <Button layoutX="396.0" layoutY="337.0" mnemonicParsing="false" onAction="#insertMacron" prefHeight="23.0" prefWidth="90.0" styleClass="white-button" stylesheets="@application.css" text="ā" userData="ā">
          <font>
             <Font name="Raleway Medium" size="15.0" />
          </font></Button>
-      <Button layoutX="491.0" layoutY="337.0" mnemonicParsing="false" onAction="#insertMacron" prefHeight="23.0" prefWidth="100.0" styleClass="white-button" stylesheets="@application.css" text="ē" userData="ē">
+      <Button layoutX="496.0" layoutY="337.0" mnemonicParsing="false" onAction="#insertMacron" prefHeight="23.0" prefWidth="90.0" styleClass="white-button" stylesheets="@application.css" text="ē" userData="ē">
          <font>
             <Font name="Raleway Medium" size="15.0" />
          </font></Button>
-      <Button layoutX="591.0" layoutY="337.0" mnemonicParsing="false" onAction="#insertMacron" prefHeight="23.0" prefWidth="100.0" styleClass="white-button" stylesheets="@application.css" text="ī" userData="ī">
+      <Button layoutX="596.0" layoutY="337.0" mnemonicParsing="false" onAction="#insertMacron" prefHeight="23.0" prefWidth="90.0" styleClass="white-button" stylesheets="@application.css" text="ī" userData="ī">
          <font>
             <Font name="Raleway Medium" size="15.0" />
          </font></Button>
-      <Button layoutX="690.0" layoutY="337.0" mnemonicParsing="false" onAction="#insertMacron" prefHeight="23.0" prefWidth="100.0" styleClass="white-button" stylesheets="@application.css" text="ō" userData="ō">
+      <Button layoutX="696.0" layoutY="337.0" mnemonicParsing="false" onAction="#insertMacron" prefHeight="23.0" prefWidth="90.0" styleClass="white-button" stylesheets="@application.css" text="ō" userData="ō">
          <font>
             <Font name="Raleway Medium" size="15.0" />
          </font></Button>
-      <Button layoutX="790.0" layoutY="337.0" mnemonicParsing="false" onAction="#insertMacron" prefHeight="23.0" prefWidth="100.0" styleClass="white-button" stylesheets="@application.css" text="ū" userData="ū">
+      <Button layoutX="796.0" layoutY="337.0" mnemonicParsing="false" onAction="#insertMacron" prefHeight="23.0" prefWidth="90.0" styleClass="white-button" stylesheets="@application.css" text="ū" userData="ū">
          <font>
             <Font name="Raleway Medium" size="15.0" />
          </font></Button>
