@@ -175,7 +175,7 @@ public class Game extends UIController {
 
 	/** called by the back button */
 	public void switchHome(ActionEvent event) {
-		this.navigateTo("Home.fxml", event);
+		this.navigateTo("Home.fxml", event, Transition.BACKWARDS);
 	}
 
 	/** called by the repeat button, and also by other methods */
@@ -204,7 +204,11 @@ public class Game extends UIController {
 		// check if we just completed the final word in the quiz
 		if (currentWordIndex == words.length) {
 			// we are now done
-			Reward rewardPage = (Reward) this.navigateTo("Reward.fxml", statusLabel);
+			Reward rewardPage = (Reward) this.navigateTo(
+					"Reward.fxml",
+					statusLabel,
+					Transition.FORWARDS
+				);
 			rewardPage.initialize(scoreCount, answers, words, mode);
 
 			// save this score as a high-score if it's the best they've ever achieved

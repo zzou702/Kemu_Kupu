@@ -65,7 +65,7 @@ public class Home extends UIController {
 	public void startGameModule(ActionEvent event) {
 		TopicSelection newPage = (TopicSelection) this.navigateTo(
 				"TopicSelection.fxml",
-				event
+				event, Transition.FORWARDS
 			);
 		newPage.mode = Game.Mode.GAME;
 	}
@@ -74,7 +74,7 @@ public class Home extends UIController {
 	public void startPracticeModule(ActionEvent event) {
 		TopicSelection newPage = (TopicSelection) this.navigateTo(
 				"TopicSelection.fxml",
-				event
+				event, Transition.FORWARDS
 			);
 		newPage.mode = Game.Mode.PRACTICE;
 	}

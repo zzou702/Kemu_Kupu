@@ -1,11 +1,14 @@
 package application.helpers;
 
+import javafx.animation.Interpolator;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
+import javafx.scene.layout.Pane;
+import javafx.util.Duration;
 
 /**
  * Every Controller extends this class. This means you can access global variables
@@ -14,6 +17,11 @@ import javafx.stage.Stage;
  * It also exposes a navigateTo method which makes it easier to change to a new page.
  */
 public abstract class UIController {
+
+	public enum Transition {
+		FORWARDS,
+		BACKWARDS,
+	}
 
 	/** the speed that festival will read the word at */
 	public AppContext context;
@@ -27,14 +35,24 @@ public abstract class UIController {
 
 	// we provide two overloads for convenience. You can either supply an event or a node
 	// this is required so that we can get a reference to the current stage.
-	public UIController navigateTo(String page, ActionEvent event) {
-		return navigateTo(page, (Node) event.getSource());
+	public UIController navigateTo(
+		String page,
+		ActionEvent event,
+		Transition transition
+	) {
+		return navigateTo(page, (Node) event.getSource(), transition);
 	}
 
-	public UIController navigateTo(String page, Node node) {
+	public UIController navigateTo(
+		String page,
+		Node node,
+		Transition transition
+	) {
 		try {
+			Pane oldRoot = (Pane) node.getScene().getRoot();
+
 			FXMLLoader loader = new FXMLLoader(getClass().getResource(page));
-			Parent newRoot = loader.load();
+			Pane newRoot = loader.load();
 
 			// creates new instance of the controller for the corresponding scene
 			UIController newController = loader.getController();
@@ -42,11 +60,24 @@ public abstract class UIController {
 			// copy the instance of the AppContext to the new controller
 			newController.context = this.context;
 
-			// initialize the scene
-			Stage stage = (Stage) node.getScene().getWindow();
-			Scene newScene = new Scene(newRoot);
-			stage.setScene(newScene);
-			stage.show();
+			int direction = transition == Transition.FORWARDS ? 1 : -1;
+
+			// initialize the scene to start off-screen
+			newRoot.translateXProperty().set(direction * oldRoot.getWidth());
+			oldRoot.getChildren().add(newRoot);
+
+			// animate the new scene in
+			Timeline timeline = new Timeline();
+			KeyValue kv = new KeyValue(
+				newRoot.translateXProperty(),
+				0,
+				Interpolator.LINEAR
+			);
+			KeyFrame kf = new KeyFrame(Duration.seconds(0.3), kv);
+			timeline.getKeyFrames().add(kf);
+			// when the animation is finished, destroy the old root
+			timeline.setOnFinished(event -> oldRoot.getChildren().remove(oldRoot));
+			timeline.play();
 			newController.onReady();
 
 			return newController;

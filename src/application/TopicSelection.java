@@ -69,7 +69,11 @@ public class TopicSelection extends UIController {
 
 			// navigate to the next page, then call the new page's startGame method
 			// to pass the chosenTopic to it.
-			Game newController = (Game) this.navigateTo("Game.fxml", event);
+			Game newController = (Game) this.navigateTo(
+					"Game.fxml",
+					event,
+					Transition.FORWARDS
+				);
 			newController.startGame(chosenTopic, mode);
 		} catch (Exception error) {
 			error.printStackTrace();
@@ -109,6 +113,6 @@ public class TopicSelection extends UIController {
 
 	/** called when you click the back button */
 	public void goBack(ActionEvent event) {
-		this.navigateTo("Home.fxml", event);
+		this.navigateTo("Home.fxml", event, Transition.BACKWARDS);
 	}
 }

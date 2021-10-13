@@ -121,13 +121,13 @@ public class Reward extends UIController {
 	public void newGame(ActionEvent event) {
 		TopicSelection newPage = (TopicSelection) this.navigateTo(
 				"TopicSelection.fxml",
-				event
+				event, Transition.FORWARDS
 			);
 		newPage.mode = gameMode; // start the new game in the same mode as the current game
 	}
 
 	/** Switches back to home screen on button press */
 	public void goHome(ActionEvent event) {
-		this.navigateTo("Home.fxml", event);
+		this.navigateTo("Home.fxml", event, Transition.BACKWARDS);
 	}
 }
