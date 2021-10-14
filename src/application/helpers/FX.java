@@ -80,7 +80,7 @@ public class FX {
 		return sceneTransitionIn;
 	}
 
-	/** extra overload for convinience which uses the default fade time */
+	/** extra overload for convenience which uses the default fade time */
 	public static FadeTransition fadeIn(Node pane) {
 		return fadeIn(pane, DEFAULT_FADE_TIME);
 	}
