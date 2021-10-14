@@ -81,7 +81,7 @@
          </font></TextField>
       <Label fx:id="countLabel" alignment="CENTER" layoutX="529.0" layoutY="100.0" prefHeight="54.0" prefWidth="222.0" textAlignment="CENTER" textFill="WHITE">
          <font>
-            <Font name="Open Sans Extrabold Italic" size="15.0" />
+            <Font name="Open Sans Extrabold Italic" size="19.0" />
          </font></Label>
       <Label fx:id="statusLabel" alignment="CENTER" layoutX="382.0" layoutY="380.0" prefHeight="119.0" prefWidth="516.0" textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
@@ -93,7 +93,7 @@
          </font></Button>
       <Button fx:id="submitButton" alignment="CENTER" layoutX="897.0" layoutY="238.0" mnemonicParsing="false" onAction="#submit" prefHeight="90.0" prefWidth="130.0" styleClass="green-button" stylesheets="@application.css" text="Whakautu (Submit)" textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
-            <Font name="Open Sans Extrabold" size="15.0" />
+            <Font name="Open Sans Extrabold" size="19.0" />
          </font></Button>
       <Button fx:id="repeatButton" layoutX="255.0" layoutY="287.0" mnemonicParsing="false" onAction="#speakCurrentWord" prefHeight="40.0" prefWidth="130.0" styleClass="white-button" stylesheets="@application.css" text="Toai (Repeat)">
          <font>
@@ -159,7 +159,10 @@
          <font>
             <Font name="Raleway Medium" size="15.0" />
          </font></Button>
-      <Button layoutX="1181.0" layoutY="695.0" mnemonicParsing="false" onAction="#help" styleClass="white-button" stylesheets="@application.css" text="Āwhina / Help" />
+      <Button layoutX="1167.0" layoutY="694.0" mnemonicParsing="false" onAction="#help" styleClass="white-button" stylesheets="@application.css" text="Āwhina / Help">
+         <font>
+            <Font name="Open Sans Extrabold" size="13.0" />
+         </font></Button>
       <Label fx:id="underscoreHintLabel" alignment="CENTER" layoutX="258.0" layoutY="178.0" prefHeight="41.0" prefWidth="774.0" text="P _ _ _ _ a" textFill="WHITE">
          <font>
             <Font name="Open Sans Extrabold" size="29.0" />
