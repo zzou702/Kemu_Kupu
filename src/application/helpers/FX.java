@@ -5,11 +5,12 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.css.PseudoClass;
 import javafx.scene.Node;
-import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 
+/** static helpers for animations and other special effects */
 public class FX {
 
+	/** we use the sucess/warning/danger/info paradigm for alerts */
 	public enum State {
 		SUCCESS,
 		WARNING,
@@ -18,6 +19,9 @@ public class FX {
 
 	/** flash this many times */
 	public static final int FLASH_COUNTS = 2;
+
+	/** in milliseconds */
+	public static final int DEFAULT_FADE_TIME = 500;
 
 	/**
 	 * flashes the background colour of an element.
@@ -48,9 +52,9 @@ public class FX {
 	 * Methods to fade in and out transition when switching scenes
 	 * Heavily based off: https://www.youtube.com/watch?v=rMQrXSYHl8w
 	 */
-	public static FadeTransition fadeOut(AnchorPane pane) {
+	public static FadeTransition fadeOut(Node pane, int duration) {
 		FadeTransition sceneTransitionOut = new FadeTransition();
-		sceneTransitionOut.setDuration(Duration.millis(500));
+		sceneTransitionOut.setDuration(Duration.millis(duration));
 		sceneTransitionOut.setNode(pane);
 		sceneTransitionOut.setFromValue(1);
 		sceneTransitionOut.setToValue(0);
@@ -59,15 +63,25 @@ public class FX {
 		return sceneTransitionOut;
 	}
 
-	public static FadeTransition fadeIn(AnchorPane pane) {
+	/** extra overload for convinience which uses the default fade time */
+	public static FadeTransition fadeOut(Node pane) {
+		return fadeOut(pane, DEFAULT_FADE_TIME);
+	}
+
+	public static FadeTransition fadeIn(Node pane, int duration) {
 		pane.setOpacity(0);
 		FadeTransition sceneTransitionIn = new FadeTransition();
-		sceneTransitionIn.setDuration(Duration.millis(750));
+		sceneTransitionIn.setDuration(Duration.millis(duration));
 		sceneTransitionIn.setNode(pane);
 		sceneTransitionIn.setFromValue(0);
 		sceneTransitionIn.setToValue(1);
 		sceneTransitionIn.play();
 
 		return sceneTransitionIn;
+	}
+
+	/** extra overload for convinience which uses the default fade time */
+	public static FadeTransition fadeIn(Node pane) {
+		return fadeIn(pane, DEFAULT_FADE_TIME);
 	}
 }

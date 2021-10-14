@@ -2,16 +2,24 @@ package application;
 
 import application.helpers.*;
 import application.models.*;
+import java.net.URL;
+import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.SVGPath;
 
 public class Reward extends UIController {
+
+	// milliseconds
+	private static final int FIREWORKS_HOLD_DURATION = 2500;
+	private static final int FIREWORKS_FADE_DURATION = 1000;
 
 	@FXML
 	private Label rewardLabel, highScoreLabel, messageLabel;
@@ -24,6 +32,9 @@ public class Reward extends UIController {
 
 	@FXML
 	private AnchorPane rewardPane;
+
+	@FXML
+	private ImageView fireworks;
 
 	/** whether the game was a practice or real quiz */
 	private Game.Mode gameMode;
@@ -83,6 +94,8 @@ public class Reward extends UIController {
 		Game.Mode gameMode
 	) {
 		FX.fadeIn(rewardPane);
+		this.triggerFireworks(); // runs in an async thread so we call this first
+
 		String formattedScore = Format.formatScore(score);
 		int totalPossiblePoints = gameMode == Game.Mode.GAME ? 10 : 5;
 		this.gameMode = gameMode;
@@ -150,5 +163,30 @@ public class Reward extends UIController {
 			.setOnFinished(e -> {
 				this.navigateTo("Home.fxml", event);
 			});
+	}
+
+	private void triggerFireworks() {
+		new Thread(() -> {
+			try {
+				URL path = getClass()
+					.getClassLoader()
+					.getResource("images/fireworks.gif");
+				fireworks.setImage(new Image(path.toString(), true));
+				fireworks.setVisible(true);
+
+				// wait for the gif to finish, then hide it
+				// this is acceptable since it's in an async thread
+				Thread.sleep(FIREWORKS_HOLD_DURATION);
+
+				FadeTransition fireworksFade = FX.fadeOut(
+					fireworks,
+					FIREWORKS_FADE_DURATION
+				);
+				fireworksFade.setOnFinished(e -> fireworks.setVisible(false));
+			} catch (Exception error) {
+				error.printStackTrace();
+			}
+		})
+			.start();
 	}
 }
