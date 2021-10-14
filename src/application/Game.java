@@ -92,7 +92,7 @@ public class Game extends UIController {
 	private ProgressBar timeBar;
 
 	@FXML
-	private Button backButton, repeatButton;
+	private Button backButton, repeatButton, submitButton;
 
 	/** This method inserts a vowel with a macron on button press. This method is used by 5 buttons **/
 	public void insertMacron(ActionEvent event) {
@@ -356,10 +356,16 @@ public class Game extends UIController {
 						/* 1 */words[currentWordIndex].english
 					)
 				);
+				
+				//Displays two letter hint.
 				updateUnderscoreHint(AnswerType.FAULTED);
-				FX.flashElement(answerField, FX.State.WARNING);
-
 				answerField.clear();
+				
+				//Disables submit button and flashes the status
+				submitButton.setDisable(true);
+				FX.flashElement(answerField, FX.State.WARNING).setOnFinished(e -> submitButton.setDisable(false));
+
+				
 			} else {
 				// User has gotten it wrong twice in practice mode, or once in game mode.
 				// Writes encouraging message
@@ -371,8 +377,21 @@ public class Game extends UIController {
 							: ""
 					)
 				);
-				updateUnderscoreHint(AnswerType.INCORRECT);
-				FX.flashElement(answerField, FX.State.DANGER).setOnFinished(e -> nextWord(AnswerType.INCORRECT));
+				
+				//Displays correct spelling of word.
+				if (mode == Mode.PRACTICE) {
+					updateUnderscoreHint(AnswerType.INCORRECT);
+				}
+				
+				//Disables submit button and flashes the status
+				submitButton.setDisable(true);
+				
+				FX.flashElement(answerField, FX.State.DANGER)
+					.setOnFinished(e -> {
+						submitButton.setDisable(false);
+						nextWord(AnswerType.INCORRECT);
+					}
+				);
 				
 			}
 		}
