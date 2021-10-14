@@ -11,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 
 /**
@@ -93,6 +94,9 @@ public class Game extends UIController {
 
 	@FXML
 	private Button backButton, repeatButton, submitButton;
+	
+	@FXML
+	private AnchorPane gamePane;
 
 	/** This method inserts a vowel with a macron on button press. This method is used by 5 buttons **/
 	public void insertMacron(ActionEvent event) {
@@ -108,6 +112,7 @@ public class Game extends UIController {
 
 	/** called by the topic selection page when it renders this page */
 	public void startGame(Topics.Topic topic, Mode mode) throws Exception {
+		FX.fadeIn(gamePane);
 		this.mode = mode;
 		quizTitle.setText(topic.title);
 		words = topic.getRandomWords();
@@ -222,8 +227,11 @@ public class Game extends UIController {
 	/** called by the back button */
 	public void switchHome(ActionEvent event) {
 		stopCountdown();
+		FX.fadeOut(gamePane).setOnFinished(e -> {
+			this.navigateTo("Home.fxml", event);
+		});
 
-		this.navigateTo("Home.fxml", event);
+		
 	}
 
 	/** called by the repeat button, and also by other methods */
@@ -272,8 +280,10 @@ public class Game extends UIController {
 			// we are now done
 			stopCountdown();
 
-			Reward rewardPage = (Reward) this.navigateTo("Reward.fxml", statusLabel);
-			rewardPage.initialize(scoreCount, answers, words, mode);
+			FX.fadeOut(gamePane).setOnFinished(e -> {
+				Reward rewardPage = (Reward) this.navigateTo("Reward.fxml", statusLabel);
+				rewardPage.initialize(scoreCount, answers, words, mode);
+			});
 
 			// save this score as a high-score if it's the best they've ever achieved
 			// but only if we're in game mode. practice mode does not count.

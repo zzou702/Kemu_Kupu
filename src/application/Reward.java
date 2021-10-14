@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.SVGPath;
 
 public class Reward extends UIController {
@@ -20,6 +21,9 @@ public class Reward extends UIController {
 
 	@FXML
 	private SVGPath cloudSVG;
+	
+	@FXML
+	private AnchorPane rewardPane;
 
 	/** whether the game was a practice or real quiz */
 	private Game.Mode gameMode;
@@ -78,6 +82,7 @@ public class Reward extends UIController {
 		Topics.Word[] words,
 		Game.Mode gameMode
 	) {
+		FX.fadeIn(rewardPane);
 		String formattedScore = Format.formatScore(score);
 		int totalPossiblePoints = gameMode == Game.Mode.GAME ? 10 : 5;
 		this.gameMode = gameMode;
@@ -127,15 +132,20 @@ public class Reward extends UIController {
 
 	/** Switches back to topic selection screen on button press */
 	public void newGame(ActionEvent event) {
-		TopicSelection newPage = (TopicSelection) this.navigateTo(
-				"TopicSelection.fxml",
-				event
-			);
-		newPage.mode = gameMode; // start the new game in the same mode as the current game
+		FX.fadeOut(rewardPane).setOnFinished(e -> {
+			TopicSelection newPage = (TopicSelection) this.navigateTo(
+					"TopicSelection.fxml",
+					event
+				);
+			newPage.mode = gameMode; // start the new game in the same mode as the current game
+		});
+		
 	}
 
 	/** Switches back to home screen on button press */
 	public void goHome(ActionEvent event) {
-		this.navigateTo("Home.fxml", event);
+		FX.fadeOut(rewardPane).setOnFinished(e -> {
+			this.navigateTo("Home.fxml", event);
+		});	
 	}
 }
