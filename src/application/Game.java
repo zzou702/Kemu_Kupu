@@ -121,7 +121,7 @@ public class Game extends UIController {
 		}
 	}
 
-	/** the "underscore hint" is the text that says "P _ _ _ a   _ _ "  */
+	/** the "underscore hint" is the text that says "P _ _ _ a   _ _ " or the correct spelling of the word  */
 	private void updateUnderscoreHint(AnswerType type) {
 		switch(type) {
 			case FAULTED:
@@ -146,7 +146,7 @@ public class Game extends UIController {
 				underscoreHintLabel.setText(
 						Format.getUnderscoreHint(
 							words[currentWordIndex].teReo,
-							attemptNumber == 2,
+							false,
 							false
 						)
 					);

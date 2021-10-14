@@ -43,6 +43,7 @@ public class Format {
 		}
 		
 		if (includeAllLetters) {
+			// add back all letters
 			for (int i = 0; i < withUnderscore.length(); i += 2) {
 				withUnderscore.setCharAt(i, word.charAt(i/2));
 			}
