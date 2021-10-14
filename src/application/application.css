@@ -94,6 +94,7 @@
 
 .combobox {
 	-fx-background-color: #ffffff;
+	-fx-font-size : 15pt;
 }
 
 .tableview {
@@ -114,3 +115,5 @@
 .flashable:flash_danger {
 	-fx-background-color: #e98580;
 }
+
+

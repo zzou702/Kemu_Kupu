@@ -84,8 +84,8 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="29.0" layoutY="131.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="603.0" layoutY="241.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="47.0" layoutY="27.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
-      <ComboBox fx:id="ttsSpeedDropdown" layoutX="804.0" layoutY="613.0" prefHeight="49.0" prefWidth="259.0" styleClass="combobox" stylesheets="@application.css" />
-      <Label layoutX="640.0" layoutY="613.0" prefHeight="50.0" prefWidth="164.0" text="Kupu tere:&#10;Speaking speed:" textAlignment="RIGHT" textFill="WHITE">
+      <ComboBox fx:id="ttsSpeedDropdown" layoutX="865.0" layoutY="599.0" prefHeight="77.0" prefWidth="197.0" styleClass="combobox" stylesheets="@application.css" />
+      <Label layoutX="701.0" layoutY="613.0" prefHeight="50.0" prefWidth="164.0" text="Kupu tere:&#10;Speaking speed:" textAlignment="RIGHT" textFill="WHITE">
          <font>
             <Font name="Raleway Regular" size="20.0" />
          </font></Label>
