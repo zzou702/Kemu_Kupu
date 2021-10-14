@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class Home extends UIController {
@@ -34,10 +35,16 @@ public class Home extends UIController {
 
 	@FXML
 	private ComboBox<String> ttsSpeedDropdown;
+	
+	@FXML
+	private AnchorPane homePane;
+	
+	
 
 	@Override
 	public void onReady() {
 		try {
+			FX.fadeIn(homePane);
 			// add the options to the TTSSpeed ComboBox
 			ttsSpeedDropdown.setItems(ttsOptionNames);
 
@@ -64,21 +71,26 @@ public class Home extends UIController {
 	/** called when you click the 'Start Game' button */
 	public void startGameModule(ActionEvent event) {
 		Festival.emptyQueue();
-		TopicSelection newPage = (TopicSelection) this.navigateTo(
-				"TopicSelection.fxml",
-				event
-			);
-		newPage.mode = Game.Mode.GAME;
+		FX.fadeOut(homePane).setOnFinished(e -> {
+			TopicSelection newPage = (TopicSelection) this.navigateTo(
+					"TopicSelection.fxml",
+					event
+				);
+			newPage.mode = Game.Mode.GAME;
+		});
+		
 	}
 
 	/** called when you click the 'Start Practice Quiz' button */
 	public void startPracticeModule(ActionEvent event) {
 		Festival.emptyQueue();
-		TopicSelection newPage = (TopicSelection) this.navigateTo(
-				"TopicSelection.fxml",
-				event
-			);
-		newPage.mode = Game.Mode.PRACTICE;
+		FX.fadeOut(homePane).setOnFinished(e -> {
+			TopicSelection newPage = (TopicSelection) this.navigateTo(
+					"TopicSelection.fxml",
+					event
+				);
+			newPage.mode = Game.Mode.PRACTICE;
+		});
 	}
 
 	/** called by the 'quit' button. This exits the app */

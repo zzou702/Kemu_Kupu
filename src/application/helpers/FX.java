@@ -1,9 +1,11 @@
 package application.helpers;
 
+import javafx.animation.FadeTransition;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.css.PseudoClass;
 import javafx.scene.Node;
+import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 
 public class FX {
@@ -40,5 +42,32 @@ public class FX {
 		flasher.play();
 		
 		return flasher;
+	}
+	
+	/**
+	 * Methods to fade in and out transition when switching scenes
+	 * Heavily based off: https://www.youtube.com/watch?v=rMQrXSYHl8w
+	 */
+	public static FadeTransition fadeOut(AnchorPane pane) {
+		FadeTransition sceneTransitionOut = new FadeTransition();
+		sceneTransitionOut.setDuration(Duration.millis(500));
+		sceneTransitionOut.setNode(pane);
+		sceneTransitionOut.setFromValue(1);
+		sceneTransitionOut.setToValue(0);
+		sceneTransitionOut.play();
+	
+		return sceneTransitionOut;
+	}
+	
+	public static FadeTransition fadeIn(AnchorPane pane) {
+		pane.setOpacity(0);
+		FadeTransition sceneTransitionIn = new FadeTransition();
+		sceneTransitionIn.setDuration(Duration.millis(750));
+		sceneTransitionIn.setNode(pane);
+		sceneTransitionIn.setFromValue(0);
+		sceneTransitionIn.setToValue(1);
+		sceneTransitionIn.play();
+		
+		return sceneTransitionIn;
 	}
 }
