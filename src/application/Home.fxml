@@ -32,13 +32,13 @@
                </stops>
             </RadialGradient>
          </fill></Rectangle>
-      <Button layoutX="115.0" layoutY="235.0" mnemonicParsing="false" onAction="#startGameModule" prefHeight="182.0" prefWidth="452.0" styleClass="cloud-shaped-button" stylesheets="@application.css" text="Tāti kēmu (New Game)">
+      <Button layoutX="115.0" layoutY="235.0" mnemonicParsing="false" onAction="#startGameModule" prefHeight="182.0" prefWidth="452.0" styleClass="cloud-shaped-button" stylesheets="@application.css" text="Tāti kēmu&#10;(New Game)" textAlignment="CENTER">
          <font>
-            <Font name="Open Sans Extrabold Italic" size="24.0" />
+            <Font name="Open Sans Extrabold Italic" size="28.0" />
          </font></Button>
-      <Button layoutX="706.0" layoutY="235.0" mnemonicParsing="false" onAction="#startPracticeModule" prefHeight="182.0" prefWidth="452.0" styleClass="cloud-shaped-button" stylesheets="@application.css" text="Parakitihi (New Practice Quiz)">
+      <Button layoutX="706.0" layoutY="235.0" mnemonicParsing="false" onAction="#startPracticeModule" prefHeight="182.0" prefWidth="452.0" styleClass="cloud-shaped-button" stylesheets="@application.css" text="Parakitihi&#10;(New Practice Quiz)" textAlignment="CENTER">
          <font>
-            <Font name="Open Sans Extrabold Italic" size="24.0" />
+            <Font name="Open Sans Extrabold Italic" size="28.0" />
          </font></Button>
       <Label layoutX="523.0" layoutY="96.0" prefHeight="16.0" prefWidth="235.0" stylesheets="@application.css" text="Te reo Spelling Quiz" textAlignment="CENTER" textFill="WHITE">
          <font>
@@ -84,8 +84,8 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="29.0" layoutY="131.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="603.0" layoutY="241.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="47.0" layoutY="27.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
-      <ComboBox fx:id="ttsSpeedDropdown" layoutX="804.0" layoutY="613.0" prefHeight="49.0" prefWidth="259.0" styleClass="combobox" stylesheets="@application.css" />
-      <Label layoutX="640.0" layoutY="613.0" prefHeight="50.0" prefWidth="164.0" text="Kupu tere:&#10;Speaking speed:" textAlignment="RIGHT" textFill="WHITE">
+      <ComboBox fx:id="ttsSpeedDropdown" layoutX="865.0" layoutY="599.0" prefHeight="77.0" prefWidth="197.0" styleClass="combobox" stylesheets="@application.css" />
+      <Label layoutX="701.0" layoutY="613.0" prefHeight="50.0" prefWidth="164.0" text="Kupu tere:&#10;Speaking speed:" textAlignment="RIGHT" textFill="WHITE">
          <font>
             <Font name="Raleway Regular" size="20.0" />
          </font></Label>
@@ -93,9 +93,9 @@
          <font>
             <Font name="Raleway Regular" size="20.0" />
          </font></Button>
-      <Button fx:id="quitButton" layoutX="499.0" layoutY="398.0" mnemonicParsing="false" onAction="#exit" prefHeight="126.0" prefWidth="284.0" styleClass="cloud-shaped-button" stylesheets="@application.css" text="Whakamutu (Quit)">
+      <Button fx:id="quitButton" layoutX="499.0" layoutY="398.0" mnemonicParsing="false" onAction="#exit" prefHeight="126.0" prefWidth="284.0" styleClass="cloud-shaped-button" stylesheets="@application.css" text="Whakamutu&#10;(Quit)" textAlignment="CENTER">
          <font>
-            <Font name="Open Sans Extrabold" size="19.0" />
+            <Font name="Open Sans Extrabold" size="23.0" />
          </font></Button>
       <SVGPath content="M 150 300 Q 200 300 200 200 Q 200 300 250 300 Q 200 300 200 400 C 200 300 150 300 150 300 " fill="WHITE" layoutX="863.0" layoutY="-243.0" scaleX="0.25" scaleY="0.25" />
       <SVGPath content="M 150 300 Q 200 300 200 200 Q 200 300 250 300 Q 200 300 200 400 C 200 300 150 300 150 300 " fill="WHITE" layoutX="-92.0" layoutY="-243.0" scaleX="0.2" scaleY="0.2" />
