@@ -63,7 +63,7 @@ public class FX {
 		return sceneTransitionOut;
 	}
 
-	/** extra overload for convinience which uses the default fade time */
+	/** extra overload for convenience which uses the default fade time */
 	public static FadeTransition fadeOut(Node pane) {
 		return fadeOut(pane, DEFAULT_FADE_TIME);
 	}
