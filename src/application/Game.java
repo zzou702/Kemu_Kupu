@@ -90,7 +90,7 @@ public class Game extends UIController {
 
 	@FXML
 	private ProgressBar timeBar;
-	
+
 	@FXML
 	private Button backButton, repeatButton;
 
@@ -183,7 +183,7 @@ public class Game extends UIController {
 	public void help(ActionEvent event) {
 		Help.showPopup(Help.Category.GAME);
 	}
-	
+
 	//Stops the countdown when exiting to different scene.
 	private void stopCountdown() {
 		if (mode == Mode.GAME) {
@@ -206,7 +206,7 @@ public class Game extends UIController {
 			Festival.Language.TE_REO,
 			this.context.getTTSSpeed()
 		);
-		
+
 		// Disables buttons while festival is speaking in a separate thread
 		Runnable callback = () -> {
 			try {
@@ -244,7 +244,7 @@ public class Game extends UIController {
 		if (currentWordIndex == words.length) {
 			// we are now done
 			stopCountdown();
-			
+
 			Reward rewardPage = (Reward) this.navigateTo("Reward.fxml", statusLabel);
 			rewardPage.initialize(scoreCount, answers, words, mode);
 

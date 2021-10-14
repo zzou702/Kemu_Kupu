@@ -13,7 +13,7 @@ import javafx.scene.shape.SVGPath;
 public class Reward extends UIController {
 
 	@FXML
-	private Label rewardLabel, highScoreLabel;
+	private Label rewardLabel, highScoreLabel, messageLabel;
 
 	@FXML
 	private TableView<AnswerTableModel> tableView;
@@ -99,6 +99,8 @@ public class Reward extends UIController {
 				", \n you'll do better next time!"
 			);
 		}
+
+		messageLabel.setText("Click any cloud to view/close your statistics");
 
 		//Does not display high score in practice
 		if (gameMode == Game.Mode.GAME) {

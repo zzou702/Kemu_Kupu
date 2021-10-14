@@ -3,6 +3,10 @@
 	-fx-text-fill: "white";
 }
 
+.button {
+	-fx-cursor: hand;
+}
+
 .oval-shaped-button {
 	-fx-shape: "M 150 300 Q 150 200 350 200 Q 550 200 550
 	300 Q 550 400 350 400 C 350 400 150 400 150 300 ";
@@ -16,14 +20,76 @@
 	-fx-background-color: #ffffff;
 }
 
+.cloud-shaped-button:hover {
+	-fx-scale-x: 1.1;
+	-fx-scale-y: 1.1;
+}
+
+.cloud-shaped-button:pressed {
+	-fx-rotate: 9;
+}
+
 .leaf-shaped-button {
-	-fx-shape: "m 2 7 C 4 9 6 11 8 11 C 8 20 26 14 31 8 C
-	25 7 8 1 8 9 L 8 9 c -2 1 -3 -1 -5 -3";
+	-fx-shape: "m 5 13 C 7 10 8 11 8 11 C 9 20 25 14
+	28 9 C 22 9 9 1 8 9 L 8 9 c 0 0 -2 0 -3 2";
 	-fx-background-color: #03ac13, linear-gradient(#cefb02, #578018);
+}
+
+.reverse-leaf-shaped-button {
+	-fx-shape: "m -3 -9 C -5 -9 -5 -10 -7 -11 C -11 -20 -27 -16 -33 -8 C -29
+	-9 -11 -1 -7 -9 L -7 -9 c 2 0 3 2 4 2";
+	-fx-background-color: #03ac13, linear-gradient(#cefb02, #578018);
+}
+
+.leaf-shaped-button:hover {
+	-fx-scale-x: 1.05;
+	-fx-scale-y: 1.05;
+}
+
+.reverse-leaf-shaped-button:hover {
+	-fx-scale-x: 1.05;
+	-fx-scale-y: 1.05;
 }
 
 .white-button {
 	-fx-background-color: #ffffff;
+}
+
+.white-button:hover {
+	-fx-background-color: #dddddd;
+}
+
+.white-button:pressed {
+	-fx-scale-x: 0.9;
+	-fx-scale-y: 0.9;
+}
+
+.green-button {
+	-fx-background-color: #03ac13, linear-gradient(#aef359, #02810f);
+}
+
+.green-button:hover {
+	-fx-background-color: #03ac13, linear-gradient(#03c04a, #466d1d);
+}
+
+.green-button:pressed {
+	-fx-scale-x: 0.9;
+	-fx-scale-y: 0.9;
+}
+
+.green-cloud-button {
+	-fx-background-color: #03ac13, linear-gradient(#aef359, #02810f);
+	-fx-shape: "m 3 8 C 2 8 1 7 2 6 C 2 5 3 4 4 5 C 4 4 6 4 6 5 C 7 4 9
+	6 8 7 C 8 7 8 8 7 8 C 7 9 5 9 5 8 C 5 9 3 9 3 8";
+}
+
+.green-cloud-button:hover {
+	-fx-scale-x: 1.1;
+	-fx-scale-y: 1.1;
+}
+
+.green-cloud-button:pressed {
+	-fx-rotate: 9;
 }
 
 .combobox {

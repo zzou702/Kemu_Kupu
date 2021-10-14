@@ -100,8 +100,8 @@ public class Festival {
 	public static void emptyQueue() {
 		queue.clear();
 	}
-	
-	public static boolean getStatus(){
+
+	public static boolean getStatus() {
 		return busy;
 	}
 }
