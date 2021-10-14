@@ -21,7 +21,7 @@ public class FX {
 	 * flashes the background colour of an element.
 	 * For this to work, the element must have the class `.flashable`
 	 */
-	public static void flashElement(Node element, State state) {
+	public static Timeline flashElement(Node element, State state) {
 		// based on https://stackoverflow.com/a/32168257/5470183
 		PseudoClass flashHighlight = PseudoClass.getPseudoClass(
 			"flash_" + state.name().toLowerCase()
@@ -38,5 +38,7 @@ public class FX {
 		);
 		flasher.setCycleCount(FLASH_COUNTS);
 		flasher.play();
+		
+		return flasher;
 	}
 }

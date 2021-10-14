@@ -122,13 +122,39 @@ public class Game extends UIController {
 	}
 
 	/** the "underscore hint" is the text that says "P _ _ _ a   _ _ "  */
-	private void updateUnderscoreHint() {
-		underscoreHintLabel.setText(
-			Format.getUnderscoreHint(
-				words[currentWordIndex].teReo,
-				attemptNumber == 2
-			)
-		);
+	private void updateUnderscoreHint(AnswerType type) {
+		switch(type) {
+			case FAULTED:
+				underscoreHintLabel.setText(
+						Format.getUnderscoreHint(
+								words[currentWordIndex].teReo,
+								attemptNumber == 2,
+								false
+								)
+						);
+				break;
+			case INCORRECT:
+				underscoreHintLabel.setText(
+						Format.getUnderscoreHint(
+								words[currentWordIndex].teReo,
+								false,
+								true
+								)
+						);
+				break;
+			default:
+				underscoreHintLabel.setText(
+						Format.getUnderscoreHint(
+							words[currentWordIndex].teReo,
+							attemptNumber == 2,
+							false
+						)
+					);
+				break;
+			}
+			
+				
+
 	}
 
 	/** this method updates the UI at the start of each question */
@@ -140,8 +166,9 @@ public class Game extends UIController {
 				/* 1 */words.length
 			)
 		);
-
-		updateUnderscoreHint();
+		
+		//Chooses the default case in the switch case
+		updateUnderscoreHint(AnswerType.SKIPPED); 
 
 		scoreLabel.setText("Kaute (Score): " + Format.formatScore(scoreCount));
 
@@ -329,7 +356,7 @@ public class Game extends UIController {
 						/* 1 */words[currentWordIndex].english
 					)
 				);
-				updateUnderscoreHint();
+				updateUnderscoreHint(AnswerType.FAULTED);
 				FX.flashElement(answerField, FX.State.WARNING);
 
 				answerField.clear();
@@ -344,8 +371,9 @@ public class Game extends UIController {
 							: ""
 					)
 				);
-				nextWord(AnswerType.INCORRECT);
-				FX.flashElement(answerField, FX.State.DANGER);
+				updateUnderscoreHint(AnswerType.INCORRECT);
+				FX.flashElement(answerField, FX.State.DANGER).setOnFinished(e -> nextWord(AnswerType.INCORRECT));
+				
 			}
 		}
 	}
