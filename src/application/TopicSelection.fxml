@@ -33,7 +33,7 @@
             </RadialGradient>
          </fill></Rectangle>
       <ListView fx:id="topicListView" fixedCellSize="50.0" layoutX="53.0" layoutY="71.0" prefHeight="598.0" prefWidth="504.0" />
-      <Button fx:id="startButton" layoutX="955.0" layoutY="590.0" mnemonicParsing="false" onAction="#startGame" prefHeight="75.0" prefWidth="200.0" styleClass="oval-shaped-button" stylesheets="@application.css" text="Tāti (Start)">
+      <Button fx:id="startButton" layoutX="949.0" layoutY="568.0" mnemonicParsing="false" onAction="#startGame" prefHeight="97.0" prefWidth="230.0" styleClass="green-cloud-button" stylesheets="@application.css" text="Tāti (Start)" textFill="WHITE">
          <font>
             <Font name="Open Sans Extrabold" size="20.0" />
          </font></Button>
@@ -42,7 +42,7 @@
             <Font name="Open Sans Extrabold" size="22.0" />
          </font>
       </Label>
-      <Button fx:id="backButton" layoutX="679.0" layoutY="590.0" mnemonicParsing="false" onAction="#goBack" prefHeight="75.0" prefWidth="200.0" styleClass="oval-shaped-button" stylesheets="@application.css" text="Hoki (Back)">
+      <Button fx:id="backButton" layoutX="679.0" layoutY="568.0" mnemonicParsing="false" onAction="#goBack" prefHeight="97.0" prefWidth="230.0" styleClass="cloud-shaped-button" stylesheets="@application.css" text="Hoki (Back)">
          <font>
             <Font name="Open Sans Extrabold" size="20.0" />
          </font></Button>
@@ -61,8 +61,6 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="1179.0" layoutY="82.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="1177.0" layoutY="301.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="616.0" layoutY="531.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
-      <Rectangle fx:id="imageBackground" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="400.0" layoutX="712.0" layoutY="102.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="400.0" />
-      <ImageView fx:id="topicDisplay" fitHeight="400.0" fitWidth="400.0" layoutX="712.0" layoutY="102.0" pickOnBounds="true" preserveRatio="true" />
       <SVGPath content="M 150 300 Q 200 300 200 200 Q 200 300 250 300 Q 200 300 200 400 C 200 300 150 300 150 300 " fill="WHITE" layoutX="834.0" layoutY="-256.0" scaleX="0.15" scaleY="0.15" />
       <SVGPath content="M 150 300 Q 200 300 200 200 Q 200 300 250 300 Q 200 300 200 400 C 200 300 150 300 150 300 " fill="WHITE" layoutX="507.0" layoutY="-229.0" scaleX="0.1" scaleY="0.1" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="933.0" layoutY="563.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
@@ -84,5 +82,7 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="1053.0" layoutY="368.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <SVGPath content="M 150 300 Q 200 300 200 200 Q 200 300 250 300 Q 200 300 200 400 C 200 300 150 300 150 300 " fill="WHITE" layoutX="717.0" layoutY="-9.0" scaleX="0.1" scaleY="0.1" />
       <SVGPath content="M 150 300 Q 200 300 200 200 Q 200 300 250 300 Q 200 300 200 400 C 200 300 150 300 150 300 " fill="WHITE" layoutX="463.0" layoutY="365.0" scaleX="0.1" scaleY="0.1" />
+      <Rectangle fx:id="imageBackground" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="400.0" layoutX="712.0" layoutY="102.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="400.0" />
+      <ImageView fx:id="topicDisplay" fitHeight="400.0" fitWidth="400.0" layoutX="712.0" layoutY="102.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>
