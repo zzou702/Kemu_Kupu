@@ -32,14 +32,14 @@
                </stops>
             </RadialGradient>
          </fill></Rectangle>
-      <ListView fx:id="topicListView" fixedCellSize="50.0" layoutX="53.0" layoutY="71.0" prefHeight="598.0" prefWidth="504.0" />
+      <ListView fx:id="topicListView" fixedCellSize="50.0" layoutX="53.0" layoutY="71.0" prefHeight="598.0" prefWidth="504.0" styleClass="list-view" stylesheets="@application.css" />
       <Button fx:id="startButton" layoutX="949.0" layoutY="568.0" mnemonicParsing="false" onAction="#startGame" prefHeight="97.0" prefWidth="230.0" styleClass="green-cloud-button" stylesheets="@application.css" text="Tāti (Start)" textFill="WHITE">
          <font>
             <Font name="Open Sans Extrabold" size="20.0" />
          </font></Button>
-      <Label layoutX="133.0" layoutY="14.0" prefHeight="45.0" prefWidth="345.0" text="Kōwhiri marau (Select a Topic)" textFill="WHITE">
+      <Label alignment="CENTER" layoutX="54.0" layoutY="14.0" prefHeight="45.0" prefWidth="504.0" text="Kōwhiri marau (Select a Topic)" textFill="WHITE">
          <font>
-            <Font name="Open Sans Extrabold" size="22.0" />
+            <Font name="Open Sans Extrabold" size="29.0" />
          </font>
       </Label>
       <Button fx:id="backButton" layoutX="679.0" layoutY="568.0" mnemonicParsing="false" onAction="#goBack" prefHeight="97.0" prefWidth="230.0" styleClass="cloud-shaped-button" stylesheets="@application.css" text="Hoki (Back)">
