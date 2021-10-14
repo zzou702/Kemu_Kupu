@@ -89,7 +89,7 @@
          <font>
             <Font name="Raleway Regular" size="20.0" />
          </font></Label>
-      <Button layoutX="1076.0" layoutY="599.0" mnemonicParsing="false" onAction="#playSample" prefHeight="77.0" prefWidth="164.0" stylesheets="@application.css" text="Kupu Tīpako&#10;(Play Sample)" textAlignment="CENTER">
+      <Button fx:id="sampleButton" layoutX="1076.0" layoutY="599.0" mnemonicParsing="false" onAction="#playSample" prefHeight="77.0" prefWidth="164.0" stylesheets="@application.css" text="Kupu Tīpako&#10;(Play Sample)" textAlignment="CENTER">
          <font>
             <Font name="Raleway Regular" size="20.0" />
          </font></Button>
