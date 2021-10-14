@@ -22,7 +22,8 @@ public class Format {
 	 */
 	public static String getUnderscoreHint(
 		String word,
-		Boolean includeSomeLetters
+		Boolean includeSomeLetters,
+		Boolean includeAllLetters
 	) {
 		int lastIndex = word.length() - 1;
 
@@ -39,6 +40,13 @@ public class Format {
 			withUnderscore.setCharAt(lastIndex * 2, word.charAt(lastIndex));
 			// we use `lastIndex * 2` because withUnderscore is double as long as
 			// the original, since it has spaces between every letter.
+		}
+		
+		if (includeAllLetters) {
+			// add back all letters
+			for (int i = 0; i < withUnderscore.length(); i += 2) {
+				withUnderscore.setCharAt(i, word.charAt(i/2));
+			}
 		}
 
 		return withUnderscore.toString();
