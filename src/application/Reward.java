@@ -21,7 +21,7 @@ public class Reward extends UIController {
 
 	@FXML
 	private SVGPath cloudSVG;
-	
+
 	@FXML
 	private AnchorPane rewardPane;
 
@@ -132,20 +132,23 @@ public class Reward extends UIController {
 
 	/** Switches back to topic selection screen on button press */
 	public void newGame(ActionEvent event) {
-		FX.fadeOut(rewardPane).setOnFinished(e -> {
-			TopicSelection newPage = (TopicSelection) this.navigateTo(
-					"TopicSelection.fxml",
-					event
-				);
-			newPage.mode = gameMode; // start the new game in the same mode as the current game
-		});
-		
+		FX
+			.fadeOut(rewardPane)
+			.setOnFinished(e -> {
+				TopicSelection newPage = (TopicSelection) this.navigateTo(
+						"TopicSelection.fxml",
+						event
+					);
+				newPage.mode = gameMode; // start the new game in the same mode as the current game
+			});
 	}
 
 	/** Switches back to home screen on button press */
 	public void goHome(ActionEvent event) {
-		FX.fadeOut(rewardPane).setOnFinished(e -> {
-			this.navigateTo("Home.fxml", event);
-		});	
+		FX
+			.fadeOut(rewardPane)
+			.setOnFinished(e -> {
+				this.navigateTo("Home.fxml", event);
+			});
 	}
 }

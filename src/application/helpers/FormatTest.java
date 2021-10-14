@@ -31,7 +31,10 @@ class FormatTest {
 
 	@Test
 	void testUnderscoreWithNoLetters() {
-		assertEquals(Format.getUnderscoreHint("Whānau", false, false), "_ _ _ _ _ _");
+		assertEquals(
+			Format.getUnderscoreHint("Whānau", false, false),
+			"_ _ _ _ _ _"
+		);
 		assertEquals(
 			Format.getUnderscoreHint("Te Ika-a-māui", false, false),
 			"_ _   _ _ _ - _ - _ _ _ _"
@@ -40,15 +43,21 @@ class FormatTest {
 
 	@Test
 	void testUnderscoreWithLetters() {
-		assertEquals(Format.getUnderscoreHint("Whānau", true, false), "W _ _ _ _ u");
+		assertEquals(
+			Format.getUnderscoreHint("Whānau", true, false),
+			"W _ _ _ _ u"
+		);
 		assertEquals(
 			Format.getUnderscoreHint("Te Ika-a-māui", true, false),
 			"T _   _ _ _ - _ - _ _ _ i"
 		);
 	}
-	
+
 	void testUnderscoreWithCorrectDisplay() {
-		assertEquals(Format.getUnderscoreHint("Whānau", false, true), "W h ā n a u");
+		assertEquals(
+			Format.getUnderscoreHint("Whānau", false, true),
+			"W h ā n a u"
+		);
 		assertEquals(
 			Format.getUnderscoreHint("Te Ika-a-māui", false, true),
 			"T e   I k a - a - m ā u i"

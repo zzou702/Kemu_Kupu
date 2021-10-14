@@ -41,11 +41,11 @@ public class Format {
 			// we use `lastIndex * 2` because withUnderscore is double as long as
 			// the original, since it has spaces between every letter.
 		}
-		
+
 		if (includeAllLetters) {
 			// add back all letters
 			for (int i = 0; i < withUnderscore.length(); i += 2) {
-				withUnderscore.setCharAt(i, word.charAt(i/2));
+				withUnderscore.setCharAt(i, word.charAt(i / 2));
 			}
 		}
 

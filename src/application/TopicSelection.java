@@ -31,15 +31,15 @@ public class TopicSelection extends UIController {
 
 	@FXML
 	private Rectangle imageBackground;
-	
+
 	@FXML
 	private AnchorPane topicPane;
-	
+
 	@FXML
 	private void initialize() {
 		try {
 			FX.fadeIn(topicPane);
-			
+
 			startButton.setDisable(true); // because no topic selected
 
 			topicsList = Topics.getTopics();
@@ -115,8 +115,10 @@ public class TopicSelection extends UIController {
 
 	/** called when you click the back button */
 	public void goBack(ActionEvent event) {
-		FX.fadeOut(topicPane).setOnFinished(e -> {
-			this.navigateTo("Home.fxml", event);
-		});
+		FX
+			.fadeOut(topicPane)
+			.setOnFinished(e -> {
+				this.navigateTo("Home.fxml", event);
+			});
 	}
 }

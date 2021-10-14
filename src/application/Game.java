@@ -69,32 +69,17 @@ public class Game extends UIController {
 	private Timeline timeline;
 
 	@FXML
-	private Label statusLabel;
+	private Label statusLabel, countLabel, quizTitle, scoreLabel, underscoreHintLabel, timeLabel;
 
 	@FXML
 	private TextField answerField;
-
-	@FXML
-	private Label countLabel;
-
-	@FXML
-	private Label quizTitle;
-
-	@FXML
-	private Label scoreLabel;
-
-	@FXML
-	private Label underscoreHintLabel;
-
-	@FXML
-	private Label timeLabel;
 
 	@FXML
 	private ProgressBar timeBar;
 
 	@FXML
 	private Button backButton, repeatButton, submitButton;
-	
+
 	@FXML
 	private AnchorPane gamePane;
 
@@ -128,38 +113,27 @@ public class Game extends UIController {
 
 	/** the "underscore hint" is the text that says "P _ _ _ a   _ _ " or the correct spelling of the word  */
 	private void updateUnderscoreHint(AnswerType type) {
-		switch(type) {
+		switch (type) {
 			case FAULTED:
 				underscoreHintLabel.setText(
-						Format.getUnderscoreHint(
-								words[currentWordIndex].teReo,
-								attemptNumber == 2,
-								false
-								)
-						);
+					Format.getUnderscoreHint(
+						words[currentWordIndex].teReo,
+						attemptNumber == 2,
+						false
+					)
+				);
 				break;
 			case INCORRECT:
 				underscoreHintLabel.setText(
-						Format.getUnderscoreHint(
-								words[currentWordIndex].teReo,
-								false,
-								true
-								)
-						);
+					Format.getUnderscoreHint(words[currentWordIndex].teReo, false, true)
+				);
 				break;
 			default:
 				underscoreHintLabel.setText(
-						Format.getUnderscoreHint(
-							words[currentWordIndex].teReo,
-							false,
-							false
-						)
-					);
+					Format.getUnderscoreHint(words[currentWordIndex].teReo, false, false)
+				);
 				break;
-			}
-			
-				
-
+		}
 	}
 
 	/** this method updates the UI at the start of each question */
@@ -171,9 +145,9 @@ public class Game extends UIController {
 				/* 1 */words.length
 			)
 		);
-		
+
 		//Chooses the default case in the switch case
-		updateUnderscoreHint(AnswerType.SKIPPED); 
+		updateUnderscoreHint(AnswerType.SKIPPED);
 
 		scoreLabel.setText("Kaute (Score): " + Format.formatScore(scoreCount));
 
@@ -227,11 +201,11 @@ public class Game extends UIController {
 	/** called by the back button */
 	public void switchHome(ActionEvent event) {
 		stopCountdown();
-		FX.fadeOut(gamePane).setOnFinished(e -> {
-			this.navigateTo("Home.fxml", event);
-		});
-
-		
+		FX
+			.fadeOut(gamePane)
+			.setOnFinished(e -> {
+				this.navigateTo("Home.fxml", event);
+			});
 	}
 
 	/** called by the repeat button, and also by other methods */
@@ -280,10 +254,15 @@ public class Game extends UIController {
 			// we are now done
 			stopCountdown();
 
-			FX.fadeOut(gamePane).setOnFinished(e -> {
-				Reward rewardPage = (Reward) this.navigateTo("Reward.fxml", statusLabel);
-				rewardPage.initialize(scoreCount, answers, words, mode);
-			});
+			FX
+				.fadeOut(gamePane)
+				.setOnFinished(e -> {
+					Reward rewardPage = (Reward) this.navigateTo(
+							"Reward.fxml",
+							statusLabel
+						);
+					rewardPage.initialize(scoreCount, answers, words, mode);
+				});
 
 			// save this score as a high-score if it's the best they've ever achieved
 			// but only if we're in game mode. practice mode does not count.
@@ -366,16 +345,16 @@ public class Game extends UIController {
 						/* 1 */words[currentWordIndex].english
 					)
 				);
-				
+
 				//Displays two letter hint.
 				updateUnderscoreHint(AnswerType.FAULTED);
 				answerField.clear();
-				
+
 				//Disables submit button and flashes the status
 				submitButton.setDisable(true);
-				FX.flashElement(answerField, FX.State.WARNING).setOnFinished(e -> submitButton.setDisable(false));
-
-				
+				FX
+					.flashElement(answerField, FX.State.WARNING)
+					.setOnFinished(e -> submitButton.setDisable(false));
 			} else {
 				// User has gotten it wrong twice in practice mode, or once in game mode.
 				// Writes encouraging message
@@ -387,22 +366,21 @@ public class Game extends UIController {
 							: ""
 					)
 				);
-				
+
 				//Displays correct spelling of word.
 				if (mode == Mode.PRACTICE) {
 					updateUnderscoreHint(AnswerType.INCORRECT);
 				}
-				
+
 				//Disables submit button and flashes the status
 				submitButton.setDisable(true);
-				
-				FX.flashElement(answerField, FX.State.DANGER)
+
+				FX
+					.flashElement(answerField, FX.State.DANGER)
 					.setOnFinished(e -> {
 						submitButton.setDisable(false);
 						nextWord(AnswerType.INCORRECT);
-					}
-				);
-				
+					});
 			}
 		}
 	}

@@ -40,10 +40,10 @@ public class FX {
 		);
 		flasher.setCycleCount(FLASH_COUNTS);
 		flasher.play();
-		
+
 		return flasher;
 	}
-	
+
 	/**
 	 * Methods to fade in and out transition when switching scenes
 	 * Heavily based off: https://www.youtube.com/watch?v=rMQrXSYHl8w
@@ -55,10 +55,10 @@ public class FX {
 		sceneTransitionOut.setFromValue(1);
 		sceneTransitionOut.setToValue(0);
 		sceneTransitionOut.play();
-	
+
 		return sceneTransitionOut;
 	}
-	
+
 	public static FadeTransition fadeIn(AnchorPane pane) {
 		pane.setOpacity(0);
 		FadeTransition sceneTransitionIn = new FadeTransition();
@@ -67,7 +67,7 @@ public class FX {
 		sceneTransitionIn.setFromValue(0);
 		sceneTransitionIn.setToValue(1);
 		sceneTransitionIn.play();
-		
+
 		return sceneTransitionIn;
 	}
 }
