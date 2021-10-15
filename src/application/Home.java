@@ -1,34 +1,16 @@
 package application;
 
 import application.helpers.*;
+import application.wrappers.*;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class Home extends UIController {
-
-	/** these are the names and values for the TTS Speed ComboBox */
-	private static final ObservableList<String> ttsOptionNames = FXCollections.observableArrayList(
-		"Hohoro \nFast",
-		"Māori \nNormal",
-		"Pōturi \nSlow",
-		"Puku Pōturi \nVery Slow"
-	);
-	private static final double[] ttsOptionValues = new double[] {
-		0.5,
-		1.0,
-		1.5,
-		2.0,
-	};
-
-	@FXML
-	private Label errorMsg;
 
 	@FXML
 	private Button quitButton, sampleButton;
@@ -43,24 +25,23 @@ public class Home extends UIController {
 	public void onReady() {
 		try {
 			FX.fadeIn(homePane);
-			// add the options to the TTSSpeed ComboBox
-			ttsSpeedDropdown.setItems(ttsOptionNames);
 
-			// set the initial value of the ComboBox to be the current TTSSpeed
-			for (int i = 0; i < ttsOptionValues.length; i++) {
-				if (ttsOptionValues[i] == this.context.getTTSSpeed()) {
-					ttsSpeedDropdown.setValue(ttsOptionNames.get(i));
+			// initialize the TTS speed dropdown
+			new Dropdown<Double>(
+				/* element */ttsSpeedDropdown,
+				/* values */FXCollections.observableArrayList(
+					"Hohoro \nFast",
+					"Māori \nNormal",
+					"Pōturi \nSlow",
+					"Puku Pōturi \nVery Slow"
+				),
+				/* keys */new Double[] { 0.5, 1.0, 1.5, 2.0 },
+				/* initial value */context.getTTSSpeed()
+			) {
+				public void onChange(Double newValue) {
+					context.setTTSSpeed(newValue);
 				}
-			}
-
-			// register the onChange callback
-			ttsSpeedDropdown.setOnAction(event -> {
-				double selectedSpeed =
-					ttsOptionValues[ttsSpeedDropdown
-							.getSelectionModel()
-							.getSelectedIndex()];
-				this.context.setTTSSpeed(selectedSpeed);
-			});
+			};
 		} catch (Exception error) {
 			error.printStackTrace();
 		}
@@ -102,26 +83,14 @@ public class Home extends UIController {
 
 	/** called by the 'Play Sample' button next to the TTS Speed selection */
 	public void playSample() {
+		// Disables the button in a separate thread while festival is speaking
+		sampleButton.setDisable(true);
+
 		Festival.speak(
 			"Kia Ora",
 			Festival.Language.TE_REO,
-			this.context.getTTSSpeed()
+			this.context.getTTSSpeed(),
+			() -> sampleButton.setDisable(false)
 		);
-
-		// Disables the button in a separate thread while festival is speaking
-		Runnable callback = () -> {
-			try {
-				while (Festival.getStatus()) {
-					sampleButton.setDisable(true);
-				}
-
-				sampleButton.setDisable(false);
-			} catch (Exception error) {
-				error.printStackTrace();
-			}
-		};
-		Thread sampleThread = new Thread(callback);
-		sampleThread.setDaemon(true);
-		sampleThread.start();
 	}
 }

@@ -20,7 +20,7 @@ public class Bash {
 	/**
 	 * Execute a bash command
 	 * @param cmdTemplate the bash command
-	 * @param args arguments to `String.format`
+	 * @param args arguments for `MessageFormat.format`
 	 * @return a string containing the STD Out
 	 * @throws IOException
 	 */

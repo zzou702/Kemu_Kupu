@@ -94,7 +94,6 @@ public class Reward extends UIController {
 		Game.Mode gameMode
 	) {
 		FX.fadeIn(rewardPane);
-		this.triggerFireworks(); // runs in an async thread so we call this first
 
 		String formattedScore = Format.formatScore(score);
 		int totalPossiblePoints = gameMode == Game.Mode.GAME ? 10 : 5;
@@ -108,6 +107,7 @@ public class Reward extends UIController {
 				" out of " +
 				totalPossiblePoints
 			);
+			this.triggerFireworks(); // we only show fireworks for good scores
 		} else {
 			rewardLabel.setText(
 				"Auare ake! You scored " +
@@ -165,6 +165,7 @@ public class Reward extends UIController {
 			});
 	}
 
+	/** this runs in an async thread so it's not blocking */
 	private void triggerFireworks() {
 		new Thread(() -> {
 			try {
