@@ -32,11 +32,11 @@
                </stops>
             </RadialGradient>
          </fill></Rectangle>
-      <Button layoutX="115.0" layoutY="235.0" mnemonicParsing="false" onAction="#startGameModule" prefHeight="182.0" prefWidth="452.0" styleClass="cloud-shaped-button" stylesheets="@application.css" text="Tāti kēmu&#10;(New Game)" textAlignment="CENTER">
+      <Button fx:id="newGameBtn" layoutX="115.0" layoutY="235.0" mnemonicParsing="false" onAction="#startGameModule" prefHeight="182.0" prefWidth="452.0" styleClass="cloud-shaped-button" stylesheets="@application.css" text="Tāti kēmu&#10;(New Game)" textAlignment="CENTER">
          <font>
             <Font name="Open Sans Extrabold Italic" size="28.0" />
          </font></Button>
-      <Button layoutX="706.0" layoutY="235.0" mnemonicParsing="false" onAction="#startPracticeModule" prefHeight="182.0" prefWidth="452.0" styleClass="cloud-shaped-button" stylesheets="@application.css" text="Parakitihi&#10;(New Practice Quiz)" textAlignment="CENTER">
+      <Button fx:id="newPracticeBtn" layoutX="706.0" layoutY="235.0" mnemonicParsing="false" onAction="#startPracticeModule" prefHeight="182.0" prefWidth="452.0" styleClass="cloud-shaped-button" stylesheets="@application.css" text="Parakitihi&#10;(New Practice Quiz)" textAlignment="CENTER">
          <font>
             <Font name="Open Sans Extrabold Italic" size="28.0" />
          </font></Button>
@@ -84,8 +84,9 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="29.0" layoutY="131.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="603.0" layoutY="241.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="47.0" layoutY="27.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <ComboBox fx:id="languageDropdown" layoutX="18.0" layoutY="655.0" prefHeight="38.0" prefWidth="270.0" styleClass="combobox" stylesheets="@application.css" />
       <ComboBox fx:id="ttsSpeedDropdown" layoutX="865.0" layoutY="599.0" prefHeight="77.0" prefWidth="197.0" styleClass="combobox" stylesheets="@application.css" />
-      <Label layoutX="701.0" layoutY="613.0" prefHeight="50.0" prefWidth="164.0" text="Kupu tere:&#10;Speaking speed:" textAlignment="RIGHT" textFill="WHITE">
+      <Label fx:id="ttsLabel" layoutX="701.0" layoutY="613.0" prefHeight="50.0" prefWidth="164.0" text="Kupu tere:&#10;Speaking speed:" textAlignment="RIGHT" textFill="WHITE">
          <font>
             <Font name="Raleway Regular" size="20.0" />
          </font></Label>

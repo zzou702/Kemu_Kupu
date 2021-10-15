@@ -1,0 +1,14 @@
+THIS FILE CONTAINS ALL TEXT USED IN THE APP AND IS READ BY TRANSLATIONS.JAVA,,,
+,,,
+ID,English,Te Reo,Both
+newGame,Start Game,Tāti Kēmu,Tāti Kēmu\n(Start Game)
+newPracticeGame,New Practice Quiz,Parakitihi,Parakitihi\n(New Practice Quiz)
+playSample,Play Sample,Kupu Tīpako,Kupu Tīpako\n(Play Sample)
+ttsLabel,Speaking speed:,Kupu tere:,Kupu tere:\nSpeaking speed:
+quit,Quit,Whakamutu,Whakamutu\n(Quit)
+answerType_CORRECT,✓ Correct,✓ Tika,✓ Tika / Correct
+answerType_FAULTED,✓ Faulted,✓ Hāwhe kaute,✓ Hāwhe kaute / Faulted
+answerType_INCORRECT,✖ Incorrect,✖ Hē,✖ Hē / Incorrect
+answerType_SKIPPED,✖ Skipped,✖ Pahemo,✖ Pahemo / Skipped
+answerType_TOO_SLOW,✖ Too Slow,✖ Tō pōturi hoki,✖ Tō pōturi hoki / Too Slow
+time,Time: {0},Tāima: {0},Tāima (time): {0}

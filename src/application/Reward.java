@@ -39,23 +39,6 @@ public class Reward extends UIController {
 	/** whether the game was a practice or real quiz */
 	private Game.Mode gameMode;
 
-	private String readableAnswerType(Game.AnswerType answerType) {
-		switch (answerType) {
-			case CORRECT:
-				return "✓ Tika / Correct";
-			case FAULTED:
-				return "✓ Hāwhe kaute / Faulted";
-			case INCORRECT:
-				return "✖ Hē / Incorrect";
-			case SKIPPED:
-				return "✖ Pahemo / Skipped";
-			case TOO_SLOW:
-				return "✖ Tō pōturi hoki / Too Slow";
-			default:
-				return ""; // will never happen
-		}
-	}
-
 	private void populateTable(Game.AnswerType[] answers, Topics.Word[] words) {
 		tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 
@@ -80,7 +63,7 @@ public class Reward extends UIController {
 					new AnswerTableModel(
 						words[i].teReo,
 						words[i].english,
-						readableAnswerType(answers[i])
+						text("answerType_" + answers[i].name())
 					)
 				);
 		}

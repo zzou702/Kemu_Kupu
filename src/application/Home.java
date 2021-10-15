@@ -7,16 +7,20 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class Home extends UIController {
 
 	@FXML
-	private Button quitButton, sampleButton;
+	private Label ttsLabel;
 
 	@FXML
-	private ComboBox<String> ttsSpeedDropdown;
+	private Button quitButton, sampleButton, newGameBtn, newPracticeBtn;
+
+	@FXML
+	private ComboBox<String> ttsSpeedDropdown, languageDropdown;
 
 	@FXML
 	private AnchorPane homePane;
@@ -24,7 +28,25 @@ public class Home extends UIController {
 	@Override
 	public void onReady() {
 		try {
+			updateTranslations();
 			FX.fadeIn(homePane);
+
+			// initialize the Language dropdown
+			new Dropdown<String>(
+				/* element */languageDropdown,
+				/* values */FXCollections.observableArrayList(
+					"English",
+					"te reo Māori",
+					"Ngā Reo e Rua (both)"
+				),
+				/* keys */new String[] { "en", "mi", "both" },
+				/* initial value */context.getLanguage()
+			) {
+				public void onChange(String newValue) {
+					context.setLanguage(newValue);
+					updateTranslations();
+				}
+			};
 
 			// initialize the TTS speed dropdown
 			new Dropdown<Double>(
@@ -45,6 +67,14 @@ public class Home extends UIController {
 		} catch (Exception error) {
 			error.printStackTrace();
 		}
+	}
+
+	public void updateTranslations() {
+		ttsLabel.setText(text("ttsLabel"));
+		sampleButton.setText(text("playSample"));
+		quitButton.setText(text("quit"));
+		newGameBtn.setText(text("newGame"));
+		newPracticeBtn.setText(text("newPracticeGame"));
 	}
 
 	/** called when you click the 'Start Game' button */

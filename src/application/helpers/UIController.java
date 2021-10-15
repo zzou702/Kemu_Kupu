@@ -31,6 +31,17 @@ public abstract class UIController {
 		return navigateTo(page, (Node) event.getSource());
 	}
 
+	/**
+	 * this is how you get all text in the UI in the user's chosen language
+	 * @param messageId corresponds to an ID in the file `text.csv`
+	 * @param args arguments for `MessageFormat.format`
+	 */
+	protected final String text(String messageID, Object... args) {
+		return Translations
+			.getInstance()
+			.get(messageID, context.getLanguage(), args);
+	}
+
 	public UIController navigateTo(String page, Node node) {
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource(page));
