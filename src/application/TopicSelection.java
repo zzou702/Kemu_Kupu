@@ -6,6 +6,7 @@ import java.util.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -24,7 +25,10 @@ public class TopicSelection extends UIController {
 	private ListView<String> topicListView;
 
 	@FXML
-	private Button startButton;
+	private Button startButton, backButton, helpButton;
+
+	@FXML
+	private Label topicSelectionHeader;
 
 	@FXML
 	private ImageView topicDisplay;
@@ -35,14 +39,19 @@ public class TopicSelection extends UIController {
 	@FXML
 	private AnchorPane topicPane;
 
-	@FXML
-	private void initialize() {
+	@Override
+	public void onReady() {
 		try {
+			startButton.setText(text("start"));
+			backButton.setText(text("back"));
+			helpButton.setText(text("help"));
+			topicSelectionHeader.setText(text("topicSelectionHeader"));
+
 			FX.fadeIn(topicPane);
 
 			startButton.setDisable(true); // because no topic selected
 
-			topicsList = Topics.getTopics();
+			topicsList = Topics.getTopics(context.getLanguage());
 
 			// JavaFX wants a list of Strings, not a list of Topics
 			ArrayList<String> topicTitleList = new ArrayList<>();

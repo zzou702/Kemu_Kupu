@@ -39,7 +39,9 @@ public class AppContext {
 				String value = line[1];
 
 				// skip badly formatted lines
-				if (key == null || key == "" || value == null || value == "") continue;
+				if (
+					key == null || key.equals("") || value == null || value.equals("")
+				) continue;
 
 				switch (key) {
 					case "TTSSpeed":

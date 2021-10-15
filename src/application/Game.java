@@ -1,7 +1,6 @@
 package application;
 
 import application.helpers.*;
-import java.text.MessageFormat;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
@@ -78,7 +77,7 @@ public class Game extends UIController {
 	private ProgressBar timeBar;
 
 	@FXML
-	private Button backButton, repeatButton, submitButton;
+	private Button backButton, skipButton, repeatButton, submitButton, helpButton;
 
 	@FXML
 	private AnchorPane gamePane;
@@ -100,6 +99,12 @@ public class Game extends UIController {
 		FX.fadeIn(gamePane);
 		this.mode = mode;
 		quizTitle.setText(topic.title);
+		backButton.setText(text("back"));
+		skipButton.setText(text("skip"));
+		submitButton.setText(text("submit"));
+		repeatButton.setText(text("repeat"));
+		helpButton.setText(text("help"));
+
 		words = topic.getRandomWords();
 
 		this.speakCurrentWord();
@@ -138,18 +143,12 @@ public class Game extends UIController {
 
 	/** this method updates the UI at the start of each question */
 	private void refreshUI() {
-		countLabel.setText(
-			MessageFormat.format(
-				"Spell word {0} of {1}\nUiui: {0} ō {1}",
-				/* 0 */currentWordIndex + 1,
-				/* 1 */words.length
-			)
-		);
+		countLabel.setText(text("spellWord", currentWordIndex + 1, words.length));
 
 		//Chooses the default case in the switch case
 		updateUnderscoreHint(AnswerType.SKIPPED);
 
-		scoreLabel.setText("Kaute (Score): " + Format.formatScore(scoreCount));
+		scoreLabel.setText(text("scoreDisplay", Format.formatScore(scoreCount)));
 
 		// When in game mode, creates a timer, counting up once per second, while decreasing the progress bar.
 		if (mode == Mode.GAME) {
@@ -159,7 +158,7 @@ public class Game extends UIController {
 				timeline.stop();
 			}
 
-			timeLabel.setText("Tāima (time): " + Format.formatAsTime(TIME_LIMIT));
+			timeLabel.setText(text("time", Format.formatAsTime(TIME_LIMIT)));
 			timeline =
 				new Timeline(
 					new KeyFrame(
@@ -167,13 +166,13 @@ public class Game extends UIController {
 						(ActionEvent event) -> {
 							clock++;
 							timeLabel.setText(
-								"Tāima (time): " + Format.formatAsTime(TIME_LIMIT - clock)
+								text("time", Format.formatAsTime(TIME_LIMIT - clock))
 							);
 							timeBar.setProgress(1 - (double) clock / TIME_LIMIT);
 							if (clock == TIME_LIMIT) {
 								// stop, time is up. The question will be marked as wrong
 								timeline.stop();
-								statusLabel.setText("Tō pōturi hoki! / Too slow!");
+								statusLabel.setText(text("tooSlow"));
 								nextWord(AnswerType.TOO_SLOW);
 							}
 						}
@@ -275,7 +274,7 @@ public class Game extends UIController {
 		if (currentWordIndex == words.length) return; // do nothing if the user is spamming this button
 
 		// Writes encouraging message
-		statusLabel.setText("Auare ake / Chin up, you've got the next one!");
+		statusLabel.setText(text("skippedMsg"));
 		nextWord(AnswerType.SKIPPED);
 	}
 
@@ -295,7 +294,7 @@ public class Game extends UIController {
 
 		if (correctness == Answer.Correctness.CORRECT) {
 			// Answer is completely correct
-			statusLabel.setText("Tika! (Correct!)");
+			statusLabel.setText(text("correct"));
 
 			// If answered correctly on second attempt, add half point. Otherwise add full point
 			if (attemptNumber == 2) {
@@ -328,17 +327,15 @@ public class Game extends UIController {
 
 				// Gives a hint depending on the answer
 				String hintPrefix = correctness == Answer.Correctness.ONLY_MACRONS_WRONG
-					? "Hē, hihira te tohutō / Almost right! Check the macrons."
+					? text("hintMacrons")
 					: correctness == Answer.Correctness.ONLY_SYNTAX_WRONG
-						? "Hē, hihira te tohuwehe / Almost right! Check your spaces and hyphens."
-						: "Hē, tēnā anō / Incorrect, try once more."; // if totally wrong
+						? text("hintHyphens")
+						: text("hintGeneric"); // if totally wrong
 
 				statusLabel.setText(
-					MessageFormat.format(
-						"{0}\nThe English word is ''{1}''.",
-						/* 0 */hintPrefix,
-						/* 1 */words[currentWordIndex].english
-					)
+					hintPrefix +
+					"\n" +
+					text("englishWordIs", words[currentWordIndex].english)
 				);
 
 				//Displays two letter hint.
@@ -353,9 +350,7 @@ public class Game extends UIController {
 			} else {
 				// User has gotten it wrong twice in practice mode, or once in game mode.
 				// Writes encouraging message
-				statusLabel.setText(
-					"Hē, auare ake (Incorrect. Chin up, you've got the next one!)"
-				);
+				statusLabel.setText(text("incorrect"));
 
 				//Displays correct spelling of word.
 				if (mode == Mode.PRACTICE) {

@@ -3,6 +3,9 @@ THIS FILE CONTAINS ALL TEXT USED IN THE APP AND IS READ BY TRANSLATIONS.JAVA,,,
 ID,English,Te Reo,Both
 newGame,Start Game,Tāti Kēmu,Tāti Kēmu\n(Start Game)
 newPracticeGame,New Practice Quiz,Parakitihi,Parakitihi\n(New Practice Quiz)
+goHome,Go Home,Haere ki te kāinga,Haere ki te kāinga (Go Home)
+playAgainGame,Start Game,Tāti Kēmu,Tāti Kēmu (Start Game)
+playAgainPractice,New Practice Quiz,Parakitihi,Parakitihi (New Practice Quiz)
 playSample,Play Sample,Kupu Tīpako,Kupu Tīpako\n(Play Sample)
 ttsLabel,Speaking speed:,Kupu tere:,Kupu tere:\nSpeaking speed:
 quit,Quit,Whakamutu,Whakamutu\n(Quit)
@@ -12,3 +15,30 @@ answerType_INCORRECT,✖ Incorrect,✖ Hē,✖ Hē / Incorrect
 answerType_SKIPPED,✖ Skipped,✖ Pahemo,✖ Pahemo / Skipped
 answerType_TOO_SLOW,✖ Too Slow,✖ Tō pōturi hoki,✖ Tō pōturi hoki / Too Slow
 time,Time: {0},Tāima: {0},Tāima (time): {0}
+start,Start,Tāti,Tāti (Start)
+back,Back,Hoki,Hoki (Back)
+skip,Skip,Pahemo,Pahemo (Skip)
+repeat,Repeat,Toai,Toai (Repeat)
+submit,Submit,Whakautu,Whakautu (Submit)
+topicSelectionHeader,Select a Topic,Kōwhiri marau,Kōwhiri marau (Select a Topic)
+help,Help,Āwhina,Āwhina / Help
+spellWord,Spell word {0} of {1},Uiui: {0} ō {1},Spell word {0} of {1}\nUiui: {0} ō {1}
+scoreDisplay,Score: {0},Kaute: {0},Kaute (Score): {0}
+highScore,High Score: {0},Tino kaute: {0},Tino Kaute (High Score): {0}
+tooSlow,Too slow!,Tō pōturi hoki!,Tō pōturi hoki! / Too slow!
+skippedMsg,Chin up; you''ve got the next one!,Auare ake!,Auare ake / Chin up; you''ve got the next one!
+correct,Correct,Tika!,Tika! (Correct!)
+incorrect,Incorrect. Chin up; you''ve got the next one,Hē; auare ake,Hē; auare ake (Incorrect. Chin up; you''ve got the next one!)
+hintMacrons,Almost right! Check the macrons.,Hē; hihira te tohutō,Hē; hihira te tohutō / Almost right! Check the macrons.
+hintHyphens,Almost right! Check your spaces and hyphens.,Hē; hihira te tohuwehe,Hē; hihira te tohuwehe / Almost right! Check your spaces and hyphens.
+hintGeneric,Incorrect; try once more.,Hē; tēnā anō.,Hē; tēnā anō / Incorrect; try once more.
+englishWordIs,The English word is ''{0}'',English: ''{0}'',The English word is ''{0}''
+scoreMsgGold,Ka pai! You scored {0} out of {1},Ka pai! Kaute: {0} ō {1},Ka pai! You scored {0} out of {1}
+scoreMsgSilver,Ka pai! You scored {0} out of {1},Ka pai! Kaute: {0} ō {1},Ka pai! You scored {0} out of {1}
+scoreMsgBronze,You scored {0} out of {1}; \n you''ll do better next time!,Auare ake! Kaute: {0} ō {1},Auare ake! You scored {0} out of {1}; \n you''ll do better next time!
+clickAnyCloud,Click any cloud to see your statistics,Pāwhiri te ao,Pāwhiri te ao - Click any cloud to see your statistics
+outcome,Outcome,Putanga,Putanga / Outcome
+ttsSpeed_fast,Fast,Hohoro,Hohoro \nFast
+ttsSpeed_normal,Normal,Māori,Māori \nNormal
+ttsSpeed_slow,Slow,Pōturi,Pōturi \nSlow
+ttsSpeed_verySlow,Very Slow,Puku Pōturi,Puku Pōturi \nVery Slow

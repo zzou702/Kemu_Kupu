@@ -55,12 +55,12 @@
             </LinearGradient>
          </fill>
       </Ellipse>
-      <Button layoutX="640.0" layoutY="470.0" mnemonicParsing="false" onAction="#newGame" prefHeight="174.0" prefWidth="290.0" styleClass="leaf-shaped-button" stylesheets="@application.css" text="Tāti kēmu (New Game)" textFill="WHITE">
+      <Button fx:id="playAgainBtn" layoutX="640.0" layoutY="470.0" mnemonicParsing="false" onAction="#newGame" prefHeight="174.0" prefWidth="290.0" styleClass="leaf-shaped-button" stylesheets="@application.css" text="Tāti kēmu (New Game)" textFill="WHITE">
          <font>
             <Font name="Open Sans Extrabold" size="15.0" />
          </font>
       </Button>
-      <Button layoutX="324.0" layoutY="452.0" mnemonicParsing="false" onAction="#goHome" prefHeight="192.0" prefWidth="316.0" styleClass="reverse-leaf-shaped-button" stylesheets="@application.css" text="Haere ki te kāinga (Go Home)" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="goHomeBtn" layoutX="324.0" layoutY="452.0" mnemonicParsing="false" onAction="#goHome" prefHeight="192.0" prefWidth="316.0" styleClass="reverse-leaf-shaped-button" stylesheets="@application.css" text="Haere ki te kāinga (Go Home)" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Open Sans Extrabold" size="15.0" />
          </font>
