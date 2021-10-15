@@ -210,29 +210,20 @@ public class Game extends UIController {
 
 	/** called by the repeat button, and also by other methods */
 	public void speakCurrentWord() {
+		// Disables buttons while festival is speaking in a separate thread
+		backButton.setDisable(true);
+		repeatButton.setDisable(true);
+
 		Festival.speak(
 			words[currentWordIndex].teReo,
 			Festival.Language.TE_REO,
-			this.context.getTTSSpeed()
-		);
-
-		// Disables buttons while festival is speaking in a separate thread
-		Runnable callback = () -> {
-			try {
-				while (Festival.getStatus()) {
-					backButton.setDisable(true);
-					repeatButton.setDisable(true);
-				}
-
+			this.context.getTTSSpeed(),
+			() -> {
+				// re-enable buttons when finished speaking
 				backButton.setDisable(false);
 				repeatButton.setDisable(false);
-			} catch (Exception error) {
-				error.printStackTrace();
 			}
-		};
-		Thread gameThread = new Thread(callback);
-		gameThread.setDaemon(true);
-		gameThread.start();
+		);
 	}
 
 	/**
@@ -359,12 +350,7 @@ public class Game extends UIController {
 				// User has gotten it wrong twice in practice mode, or once in game mode.
 				// Writes encouraging message
 				statusLabel.setText(
-					"Hē, auare ake (Incorrect. Chin up, you've got the next one!)" +
-					(
-						mode == Mode.PRACTICE
-							? "\nThe correct spelling was: " + correctAnswer
-							: ""
-					)
+					"Hē, auare ake (Incorrect. Chin up, you've got the next one!)"
 				);
 
 				//Displays correct spelling of word.

@@ -47,7 +47,12 @@ public class Festival {
 		TE_REO,
 	}
 
-	public static void speak(String phrase, Language lang, double TTSSpeed) {
+	public static void speak(
+		String phrase,
+		Language lang,
+		double TTSSpeed,
+		Runnable onFinish
+	) {
 		if (busy) {
 			queue.add(new QueueItem(phrase, lang));
 			return; // do not create a new thread if one is currently active
@@ -89,7 +94,10 @@ public class Festival {
 			if (queue.size() > 0) {
 				QueueItem nextItem = queue.get(0);
 				queue.remove(0);
-				speak(nextItem.phrase, nextItem.lang, TTSSpeed);
+				speak(nextItem.phrase, nextItem.lang, TTSSpeed, onFinish);
+			} else {
+				// queue is finally empty, trigger the callback
+				onFinish.run();
 			}
 		};
 		Thread thread = new Thread(callback);
@@ -99,9 +107,5 @@ public class Festival {
 
 	public static void emptyQueue() {
 		queue.clear();
-	}
-
-	public static boolean getStatus() {
-		return busy;
 	}
 }
