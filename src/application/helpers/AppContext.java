@@ -21,6 +21,9 @@ public class AppContext {
 	/** the highest score the user has ever achieved */
 	private double highScore = 0.0;
 
+	/** either "both", "en", or "mi" */
+	private String language = "both";
+
 	public AppContext() {
 		// read settings from disk to initially populate the context
 		try {
@@ -45,6 +48,9 @@ public class AppContext {
 					case "highScore":
 						highScore = Double.parseDouble(value);
 						break;
+					case "language":
+						language = value;
+						break;
 					// skip unknown items in the file
 				}
 			}
@@ -57,9 +63,10 @@ public class AppContext {
 	private void updatePreferencesFile() {
 		try {
 			String newFile = MessageFormat.format(
-				"TTSSpeed|{0}\nhighScore|{1}\n",
+				"TTSSpeed|{0}\nhighScore|{1}\nlanguage|{2}\n",
 				/* 0 */TTSSpeed,
-				/* 1 */highScore
+				/* 1 */highScore,
+				/* 2 */language
 			);
 
 			BufferedWriter writer = new BufferedWriter(new FileWriter(PREF_FILE));
@@ -89,6 +96,15 @@ public class AppContext {
 
 	public void setHighScore(double newHighScore) {
 		highScore = newHighScore;
+		updatePreferencesFile();
+	}
+
+	public String getLanguage() {
+		return language;
+	}
+
+	public void setLanguage(String newLanguage) {
+		language = newLanguage;
 		updatePreferencesFile();
 	}
 }
