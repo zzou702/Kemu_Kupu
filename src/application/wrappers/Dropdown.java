@@ -32,8 +32,12 @@ public abstract class Dropdown<T> {
 
 		// register the onChange callback
 		comboBox.setOnAction(event -> {
-			T selectedValue = keys[comboBox.getSelectionModel().getSelectedIndex()];
-			onChange(selectedValue);
+			int index = comboBox.getSelectionModel().getSelectedIndex();
+
+			// when we update the language of the labels, JavaFX calls setOnAction with -1
+			if (index == -1) return;
+
+			onChange(keys[index]);
 		});
 	}
 

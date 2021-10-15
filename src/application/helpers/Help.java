@@ -17,6 +17,9 @@ public class Help {
 	/**
 	 * gets the appropriate help message for the current page/category.
 	 *
+	 * We always show the hint in both languages, in case the user
+	 * is stuck or confused.
+	 *
 	 * The comments are the transliteral translation
 	 */
 	private static String getHelpMessage(Category category) {

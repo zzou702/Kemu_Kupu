@@ -6,6 +6,7 @@ import java.net.URL;
 import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -23,6 +24,9 @@ public class Reward extends UIController {
 
 	@FXML
 	private Label rewardLabel, highScoreLabel, messageLabel;
+
+	@FXML
+	private Button playAgainBtn, goHomeBtn;
 
 	@FXML
 	private TableView<AnswerTableModel> tableView;
@@ -51,7 +55,7 @@ public class Reward extends UIController {
 		tableView.getColumns().add(col2);
 
 		TableColumn<AnswerTableModel, String> col3 = new TableColumn<>(
-			"Putanga / Outcome"
+			text("outcome")
 		);
 		col3.setCellValueFactory(new PropertyValueFactory<>("status"));
 		tableView.getColumns().add(col3);
@@ -78,6 +82,13 @@ public class Reward extends UIController {
 	) {
 		FX.fadeIn(rewardPane);
 
+		goHomeBtn.setText(text("goHome"));
+		playAgainBtn.setText(
+			gameMode == Game.Mode.GAME
+				? text("playAgainGame")
+				: text("playAgainPractice")
+		);
+
 		String formattedScore = Format.formatScore(score);
 		int totalPossiblePoints = gameMode == Game.Mode.GAME ? 10 : 5;
 		this.gameMode = gameMode;
@@ -89,42 +100,32 @@ public class Reward extends UIController {
 
 		if (score == 10) {
 			rewardLabel.setText(
-				"Ka pai! You have scored " +
-				formattedScore +
-				" out of " +
-				totalPossiblePoints
+				text("scoreMsgGold", formattedScore, totalPossiblePoints)
 			);
 
 			goldMedal.setVisible(true);
 			triggerFireworks();
 		} else if ((score <= 9) && (score > 5)) {
 			rewardLabel.setText(
-				"Ka pai! You have scored " +
-				formattedScore +
-				" out of " +
-				totalPossiblePoints
+				text("scoreMsgSilver", formattedScore, totalPossiblePoints)
 			);
 
 			silverMedal.setVisible(true);
 			triggerFireworks();
 		} else {
 			rewardLabel.setText(
-				"Auare ake! You scored " +
-				formattedScore +
-				" out of " +
-				totalPossiblePoints +
-				", \n you'll do better next time!"
+				text("scoreMsgBronze", formattedScore, totalPossiblePoints)
 			);
 
 			bronzeMedal.setVisible(true);
 		}
 
-		messageLabel.setText("Click any cloud to view/close your statistics");
+		messageLabel.setText(text("clickAnyCloud"));
 
 		//Does not display high score in practice
 		if (gameMode == Game.Mode.GAME) {
 			highScoreLabel.setVisible(true);
-			highScoreLabel.setText("High Score: " + this.context.getHighScore());
+			highScoreLabel.setText(text("highScore", this.context.getHighScore()));
 		}
 
 		populateTable(answers, words);

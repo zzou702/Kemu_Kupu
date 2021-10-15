@@ -30,46 +30,51 @@ public class Home extends UIController {
 		try {
 			updateTranslations();
 			FX.fadeIn(homePane);
-
-			// initialize the Language dropdown
-			new Dropdown<String>(
-				/* element */languageDropdown,
-				/* values */FXCollections.observableArrayList(
-					"English",
-					"te reo Māori",
-					"Ngā Reo e Rua (both)"
-				),
-				/* keys */new String[] { "en", "mi", "both" },
-				/* initial value */context.getLanguage()
-			) {
-				public void onChange(String newValue) {
-					context.setLanguage(newValue);
-					updateTranslations();
-				}
-			};
-
-			// initialize the TTS speed dropdown
-			new Dropdown<Double>(
-				/* element */ttsSpeedDropdown,
-				/* values */FXCollections.observableArrayList(
-					"Hohoro \nFast",
-					"Māori \nNormal",
-					"Pōturi \nSlow",
-					"Puku Pōturi \nVery Slow"
-				),
-				/* keys */new Double[] { 0.5, 1.0, 1.5, 2.0 },
-				/* initial value */context.getTTSSpeed()
-			) {
-				public void onChange(Double newValue) {
-					context.setTTSSpeed(newValue);
-				}
-			};
+			initTTSDropDown();
+			initLangDropdown();
 		} catch (Exception error) {
 			error.printStackTrace();
 		}
 	}
 
-	public void updateTranslations() {
+	private void initTTSDropDown() {
+		new Dropdown<Double>(
+			/* element */ttsSpeedDropdown,
+			/* values */FXCollections.observableArrayList(
+				text("ttsSpeed_fast"),
+				text("ttsSpeed_normal"),
+				text("ttsSpeed_slow"),
+				text("ttsSpeed_verySlow")
+			),
+			/* keys */new Double[] { 0.5, 1.0, 1.5, 2.0 },
+			/* initial value */context.getTTSSpeed()
+		) {
+			public void onChange(Double newValue) {
+				context.setTTSSpeed(newValue);
+			}
+		};
+	}
+
+	private void initLangDropdown() {
+		new Dropdown<String>(
+			/* element */languageDropdown,
+			/* values */FXCollections.observableArrayList(
+				"English",
+				"te reo Māori",
+				"Ngā Reo e Rua (both)"
+			),
+			/* keys */new String[] { "en", "mi", "both" },
+			/* initial value */context.getLanguage()
+		) {
+			public void onChange(String newValue) {
+				context.setLanguage(newValue);
+				updateTranslations();
+				initTTSDropDown();
+			}
+		};
+	}
+
+	private void updateTranslations() {
 		ttsLabel.setText(text("ttsLabel"));
 		sampleButton.setText(text("playSample"));
 		quitButton.setText(text("quit"));

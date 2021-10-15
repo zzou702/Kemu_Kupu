@@ -54,7 +54,9 @@ public class Translations {
 	 * @param args arguments for `MessageFormat.format`
 	 */
 	public String get(String messageId, String languageId, Object... args) {
-		int langIndex = languageId == "en" ? 1 : languageId == "mi" ? 2 : 3;
+		int langIndex = languageId.equals("en")
+			? 1
+			: languageId.equals("mi") ? 2 : 3;
 
 		String[] items = translationMap.get(messageId);
 
@@ -62,7 +64,8 @@ public class Translations {
 		if (items == null) return "MISSING TRANSLATION FOR " + messageId;
 
 		return MessageFormat.format(
-			items[langIndex].replaceAll("\\\\n", "\n"),
+			// commas would break the format, so you can use a semicolon to insert a literal comma
+			items[langIndex].replaceAll(";", ",").replaceAll("\\\\n", "\n"),
 			args
 		);
 	}

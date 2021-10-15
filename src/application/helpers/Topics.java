@@ -74,10 +74,28 @@ public class Topics {
 		}
 	}
 
+	/** gets the topic title in the user's prefered language */
+	private static String getTopicTitle(
+		String teReoTitle,
+		String englishTitle,
+		String language
+	) {
+		// see the README, the first line is the topic title
+		// if the title in Te Reo is blank, only show the English title
+		boolean hasTeReoTitle = teReoTitle.length() > 1;
+
+		// we have no choice, so use the English title
+		if (!hasTeReoTitle) return englishTitle;
+
+		if (language.equals("both")) return englishTitle + " / " + teReoTitle;
+		return language.equals("mi") ? teReoTitle : englishTitle;
+	}
+
 	/**
 	 * Reads all the files in the WORDS_DIR directory, and returns a list of Topic classes
+	 * @param language either "en", "mi", or "both"
 	 */
-	public static ArrayList<Topic> getTopics() {
+	public static ArrayList<Topic> getTopics(String language) {
 		ArrayList<Topic> topics = new ArrayList<>();
 
 		// get a list of every file in the WORDS_DIR folder
@@ -96,12 +114,7 @@ public class Topics {
 				String[] firstLine = scanner.nextLine().split(",");
 				scanner.close();
 
-				// see the README, the first line is the topic title
-				// if the title in Te Reo is blank, only show the English title
-				boolean hasTeReoTitle = firstLine[0].length() > 1;
-				String topicTitle = hasTeReoTitle
-					? (firstLine[1] + " / " + firstLine[0])
-					: firstLine[1];
+				String topicTitle = getTopicTitle(firstLine[0], firstLine[1], language);
 
 				topics.add(new Topic(fileName, topicTitle));
 			} catch (Exception error) {

@@ -83,9 +83,9 @@
          <font>
             <Font name="Open Sans Extrabold Italic" size="19.0" />
          </font></Label>
-      <Label fx:id="statusLabel" alignment="CENTER" layoutX="382.0" layoutY="380.0" prefHeight="119.0" prefWidth="516.0" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+      <Label fx:id="statusLabel" alignment="CENTER" layoutX="248.0" layoutY="380.0" prefHeight="119.0" prefWidth="780.0" textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
-            <Font name="Raleway Medium" size="15.0" />
+            <Font name="Open Sans Extrabold" size="26.0" />
          </font></Label>
       <Button fx:id="skipButton" layoutX="255.0" layoutY="238.0" mnemonicParsing="false" onAction="#skipWord" prefHeight="40.0" prefWidth="130.0" styleClass="white-button" stylesheets="@application.css" text="Pahemo (Skip)">
          <font>
@@ -159,11 +159,11 @@
          <font>
             <Font name="Raleway Medium" size="15.0" />
          </font></Button>
-      <Button layoutX="1167.0" layoutY="694.0" mnemonicParsing="false" onAction="#help" styleClass="white-button" stylesheets="@application.css" text="Āwhina / Help">
+      <Button fx:id="helpButton" layoutX="1167.0" layoutY="694.0" mnemonicParsing="false" onAction="#help" styleClass="white-button" stylesheets="@application.css" text="Āwhina / Help">
          <font>
             <Font name="Open Sans Extrabold" size="13.0" />
          </font></Button>
-      <Label fx:id="underscoreHintLabel" alignment="CENTER" layoutX="258.0" layoutY="178.0" prefHeight="41.0" prefWidth="774.0" text="P _ _ _ _ a" textFill="WHITE">
+      <Label fx:id="underscoreHintLabel" alignment="CENTER" layoutY="178.0" prefHeight="41.0" prefWidth="1280.0" text="P _ _ _ _ a" textFill="WHITE">
          <font>
             <Font name="Open Sans Extrabold" size="29.0" />
          </font></Label>
