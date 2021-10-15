@@ -45,9 +45,9 @@
             <Font name="Raleway Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="521.0" layoutY="44.0" styleClass="text-font" stylesheets="@application.css" text="Kēmu Kupu" textFill="WHITE">
+      <Label layoutX="517.0" layoutY="27.0" styleClass="text-font" stylesheets="@application.css" text="Kēmu Kupu" textFill="WHITE">
          <font>
-            <Font name="Raleway ExtraBold" size="42.0" />
+            <Font name="Open Sans Extrabold" size="42.0" />
          </font>
       </Label>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="154.0" layoutY="214.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />

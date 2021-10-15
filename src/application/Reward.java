@@ -28,7 +28,7 @@ public class Reward extends UIController {
 	private TableView<AnswerTableModel> tableView;
 
 	@FXML
-	private SVGPath cloudSVG;
+	private SVGPath cloudSVG, goldMedal, silverMedal, bronzeMedal;
 
 	@FXML
 	private AnchorPane rewardPane;
@@ -82,15 +82,31 @@ public class Reward extends UIController {
 		int totalPossiblePoints = gameMode == Game.Mode.GAME ? 10 : 5;
 		this.gameMode = gameMode;
 
-		// two different messages
-		if (score > 7) {
+		//making all medals invisible
+		goldMedal.setVisible(false);
+		silverMedal.setVisible(false);
+		bronzeMedal.setVisible(false);
+
+		if (score == 10) {
 			rewardLabel.setText(
 				"Ka pai! You have scored " +
 				formattedScore +
 				" out of " +
 				totalPossiblePoints
 			);
-			this.triggerFireworks(); // we only show fireworks for good scores
+
+			goldMedal.setVisible(true);
+			triggerFireworks();
+		} else if ((score <= 9) && (score > 5)) {
+			rewardLabel.setText(
+				"Ka pai! You have scored " +
+				formattedScore +
+				" out of " +
+				totalPossiblePoints
+			);
+
+			silverMedal.setVisible(true);
+			triggerFireworks();
 		} else {
 			rewardLabel.setText(
 				"Auare ake! You scored " +
@@ -99,6 +115,8 @@ public class Reward extends UIController {
 				totalPossiblePoints +
 				", \n you'll do better next time!"
 			);
+
+			bronzeMedal.setVisible(true);
 		}
 
 		messageLabel.setText("Click any cloud to view/close your statistics");
