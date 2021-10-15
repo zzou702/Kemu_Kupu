@@ -272,6 +272,8 @@ public class Game extends UIController {
 
 	/** called by the skip button and when the time runs out (in game mode) */
 	public void skipWord(ActionEvent event) {
+		if (currentWordIndex == words.length) return; // do nothing if the user is spamming this button
+
 		// Writes encouraging message
 		statusLabel.setText("Auare ake / Chin up, you've got the next one!");
 		nextWord(AnswerType.SKIPPED);
@@ -279,6 +281,8 @@ public class Game extends UIController {
 
 	/** called when you click the submit button */
 	public void submit(ActionEvent event) {
+		if (currentWordIndex == words.length) return; // do nothing if the user is spamming this button
+
 		statusLabel.setText("");
 		String usersAnswer = answerField.getText(); // Gets the value in the text field
 		String correctAnswer = words[currentWordIndex].teReo;
