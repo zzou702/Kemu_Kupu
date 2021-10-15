@@ -46,12 +46,12 @@
          <font>
             <Font name="Open Sans Extrabold" size="20.0" />
          </font></Button>
-      <Label layoutX="1239.0" layoutY="186.0" text="Kupu" textFill="#ffffffc6">
+      <Label layoutX="1257.0" layoutY="185.0" text="Kupu" textFill="#ffffffc6">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Arc fill="#ffffffc6" layoutX="1223.0" layoutY="193.0" length="270.0" radiusX="14.0" radiusY="13.0" startAngle="45.0" stroke="#00000027" strokeType="INSIDE" type="ROUND" />
+      <Arc fill="#ffffffc6" layoutX="1233.0" layoutY="192.0" length="270.0" radiusX="14.0" radiusY="13.0" startAngle="45.0" stroke="#00000027" strokeType="INSIDE" type="ROUND" />
       <Button layoutX="1181.0" layoutY="695.0" mnemonicParsing="false" onAction="#help" styleClass="white-button" stylesheets="@application.css" text="Āwhina / Help" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="618.0" layoutY="139.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="1181.0" layoutY="452.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
@@ -83,6 +83,6 @@
       <SVGPath content="M 150 300 Q 200 300 200 200 Q 200 300 250 300 Q 200 300 200 400 C 200 300 150 300 150 300 " fill="WHITE" layoutX="717.0" layoutY="-9.0" scaleX="0.1" scaleY="0.1" />
       <SVGPath content="M 150 300 Q 200 300 200 200 Q 200 300 250 300 Q 200 300 200 400 C 200 300 150 300 150 300 " fill="WHITE" layoutX="463.0" layoutY="365.0" scaleX="0.1" scaleY="0.1" />
       <Rectangle fx:id="imageBackground" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="400.0" layoutX="712.0" layoutY="102.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="400.0" />
-      <ImageView fx:id="topicDisplay" fitHeight="400.0" fitWidth="400.0" layoutX="712.0" layoutY="102.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="topicDisplay" fitHeight="400.0" fitWidth="400.0" layoutX="712.0" layoutY="102.0" pickOnBounds="true" preserveRatio="true" visible="false" />
    </children>
 </AnchorPane>

@@ -144,6 +144,60 @@
          </image>
       </ImageView>
       <SVGPath content="m 9 17 C 10 12 10 7 9 2 C 10 3 11 2 11 2 C 12 7 12 12 11 17 C 11 18 9 18 9 17" fill="#191a1987" layoutX="628.0" layoutY="758.0" scaleX="15.0" scaleY="9.0" />
+      <SVGPath fx:id="goldMedal" content="M 50 10 A 40 40 0 1 0 50 90 A 40 40 0 1 0 50 10 Z M 50 18 A 20 20 0 1 1 50 82 A 20 20 0 1 1 50 18 L 40 35 L 22 35 L 30 52 L 22 66 L 40 66 L 50 82 L 60 66 L 78 66 L 70 52 L 78 35 L 60 35 Z" layoutX="294.0" layoutY="57.0" visible="false">
+         <fill>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.6428571428571429">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.8313725590705872" green="0.686274528503418" blue="0.21568627655506134" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="0.843137264251709" />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </fill>
+      </SVGPath>
+      <SVGPath fx:id="silverMedal" content="M 50 10 A 40 40 0 1 0 50 90 A 40 40 0 1 0 50 10 Z M 50 18 A 20 20 0 1 1 50 82 A 20 20 0 1 1 50 18 L 40 35 L 22 35 L 30 52 L 22 66 L 40 66 L 50 82 L 60 66 L 78 66 L 70 52 L 78 35 L 60 35 Z" layoutX="294.0" layoutY="57.0" visible="false">
+         <fill>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.6428571428571429">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.6315789222717285" green="0.6308479309082031" blue="0.628654956817627" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.7894737124443054" green="0.7858186960220337" blue="0.7858186960220337" />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </fill>
+      </SVGPath>
+      <SVGPath fx:id="bronzeMedal" content="M 50 10 A 40 40 0 1 0 50 90 A 40 40 0 1 0 50 10 Z M 50 18 A 20 20 0 1 1 50 82 A 20 20 0 1 1 50 18 L 40 35 L 22 35 L 30 52 L 22 66 L 40 66 L 50 82 L 60 66 L 78 66 L 70 52 L 78 35 L 60 35 Z" layoutX="294.0" layoutY="57.0" visible="false">
+         <fill>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.6428571428571429">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.8039215803146362" green="0.49803921580314636" blue="0.19607843458652496" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.9210526347160339" green="0.6875203251838684" blue="0.46905457973480225" />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </fill>
+      </SVGPath>
       <SVGPath fx:id="cloudSVG" content="m 2 7 C 2 6 4 6 4 7 C 4 6 6 6 6 7 C 6 6 8 6 8 7 C 9 7 9 9 8 9 C 9 9 9 11 8 11 C 9 11 9 13 8 13 C 8 14 6 14 6 13 C 6 14 4 14 4 13 C 4 14 2 14 2 13 C 1 13 1 11 2 11 C 1 11 1 9 2 9 C 1 9 1 7 2 7" fill="WHITE" layoutX="622.0" layoutY="326.0" scaleX="100.0" scaleY="70.0" stroke="BLACK" strokeWidth="0.005" visible="false" />
       <TableView fx:id="tableView" fixedCellSize="74.2" layoutX="332.0" layoutY="144.0" prefHeight="376.0" prefWidth="594.0" styleClass="tableview" stylesheets="@application.css" visible="false" />
       <Label fx:id="highScoreLabel" layoutX="1082.0" layoutY="107.0" text="High Score: " visible="false">
