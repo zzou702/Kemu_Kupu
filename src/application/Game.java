@@ -1,12 +1,15 @@
 package application;
 
 import application.helpers.*;
+import application.wrappers.Dropdown;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
@@ -81,7 +84,11 @@ public class Game extends UIController {
 
 	@FXML
 	private AnchorPane gamePane;
+	
+	@FXML
+	private ComboBox<String> ttsSpeedDropdown;
 
+	
 	/** This method inserts a vowel with a macron on button press. This method is used by 5 buttons **/
 	public void insertMacron(ActionEvent event) {
 		/** the character with the macron */
@@ -98,6 +105,8 @@ public class Game extends UIController {
 	public void startGame(Topics.Topic topic, Mode mode) throws Exception {
 		FX.fadeIn(gamePane);
 		this.mode = mode;
+		
+		initGameTTSDropDown();
 		quizTitle.setText(topic.title);
 		backButton.setText(text("back"));
 		skipButton.setText(text("skip"));
@@ -114,6 +123,25 @@ public class Game extends UIController {
 			timeBar.setVisible(true);
 			timeLabel.setVisible(true);
 		}
+	}
+	
+	//Initialises dropdown for festival speeds in the game window.
+	private void initGameTTSDropDown() {
+		new Dropdown<Double>(
+			/* element */ttsSpeedDropdown,
+			/* values */FXCollections.observableArrayList(
+				text("ttsSpeed_fast"),
+				text("ttsSpeed_normal"),
+				text("ttsSpeed_slow"),
+				text("ttsSpeed_verySlow")
+			),
+			/* keys */new Double[] { 0.5, 1.0, 1.5, 2.0 },
+			/* initial value */context.getTTSSpeed()
+		) {
+			public void onChange(Double newValue) {
+				context.setTTSSpeed(newValue);
+			}
+		};
 	}
 
 	/** the "underscore hint" is the text that says "P _ _ _ a   _ _ " or the correct spelling of the word  */

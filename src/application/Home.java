@@ -30,14 +30,14 @@ public class Home extends UIController {
 		try {
 			updateTranslations();
 			FX.fadeIn(homePane);
-			initTTSDropDown();
+			initHomeTTSDropDown();
 			initLangDropdown();
 		} catch (Exception error) {
 			error.printStackTrace();
 		}
 	}
 
-	private void initTTSDropDown() {
+	private void initHomeTTSDropDown() {
 		new Dropdown<Double>(
 			/* element */ttsSpeedDropdown,
 			/* values */FXCollections.observableArrayList(
@@ -69,7 +69,7 @@ public class Home extends UIController {
 			public void onChange(String newValue) {
 				context.setLanguage(newValue);
 				updateTranslations();
-				initTTSDropDown();
+				initHomeTTSDropDown();
 			}
 		};
 	}
