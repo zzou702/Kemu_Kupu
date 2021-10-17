@@ -67,6 +67,8 @@ public class Game extends UIController {
 
 	/** the maximum number of seconds allowed per question */
 	private static int TIME_LIMIT = 120;
+	
+	private int oldCaretPosition;
 
 	private Timeline timeline;
 
@@ -93,12 +95,13 @@ public class Game extends UIController {
 	public void insertMacron(ActionEvent event) {
 		/** the character with the macron */
 		String character = (String) ((Node) event.getSource()).getUserData();
-		answerField.insertText(answerField.getLength(), character);
-
+		answerField.insertText(oldCaretPosition, character);
+		
+		
 		// move the cursor back to the textField and re-focus on it.
 		// the allows the user to resume typing immediately.
 		answerField.requestFocus();
-		answerField.positionCaret(answerField.getLength());
+		answerField.positionCaret(oldCaretPosition+1);
 	}
 
 	/** called by the topic selection page when it renders this page */
@@ -123,6 +126,14 @@ public class Game extends UIController {
 			timeBar.setVisible(true);
 			timeLabel.setVisible(true);
 		}
+		
+		//Checks for changes in caret position of text field.
+		//Source: https://stackoverflow.com/questions/36054363/is-there-more-than-one-caret-in-javafx-textfield
+		answerField.focusedProperty().addListener((observable, oldValue, newValue) -> {
+		    if (!newValue) {
+		        oldCaretPosition = answerField.getCaretPosition();
+		    }
+		});
 	}
 	
 	//Initialises dropdown for festival speeds in the game window.
@@ -237,6 +248,8 @@ public class Game extends UIController {
 
 	/** called by the repeat button, and also by other methods */
 	public void speakCurrentWord() {
+		System.out.println(answerField.getCaretPosition());
+		answerField.requestFocus();
 		// Disables buttons while festival is speaking in a separate thread
 		backButton.setDisable(true);
 		repeatButton.setDisable(true);
