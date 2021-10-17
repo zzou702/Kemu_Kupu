@@ -173,8 +173,13 @@ public class Reward extends UIController {
 			try {
 				URL path = getClass()
 					.getClassLoader()
-					.getResource("images/fireworks.gif");
+					.getResource("images/fireworks2.gif");
 				fireworks.setImage(new Image(path.toString(), true));
+				
+				fireworks.setFitWidth(1280);
+				fireworks.setFitHeight(720);
+				fireworks.setX(0);
+				fireworks.setY(0);
 				fireworks.setVisible(true);
 
 				// wait for the gif to finish, then hide it
