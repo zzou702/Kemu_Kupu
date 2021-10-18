@@ -99,8 +99,11 @@ public class Reward extends UIController {
 		bronzeMedal.setVisible(false);
 
 		messageLabel.setText(text("clickAnyCloud"));
+		
+		
+		
 
-		//Does not display high score in practice
+		//Does not display high score or medals in practice
 		if (gameMode == Game.Mode.GAME) {
 			highScoreLabel.setVisible(true);
 			highScoreLabel.setText(text("highScore", this.context.getHighScore()));
@@ -125,6 +128,12 @@ public class Reward extends UIController {
 
 				bronzeMedal.setVisible(true);
 			}
+		} else {
+			rewardLabel.setText(
+				score > 3
+					? text("scoreMsgGold", formattedScore, totalPossiblePoints)
+					: text("scoreMsgBronze", formattedScore, totalPossiblePoints)
+			);
 		}
 
 		populateTable(answers, words);
