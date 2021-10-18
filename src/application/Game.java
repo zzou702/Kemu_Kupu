@@ -67,7 +67,7 @@ public class Game extends UIController {
 
 	/** the maximum number of seconds allowed per question */
 	private static int TIME_LIMIT = 120;
-	
+
 	private int oldCaretPosition;
 
 	private Timeline timeline;
@@ -86,29 +86,27 @@ public class Game extends UIController {
 
 	@FXML
 	private AnchorPane gamePane;
-	
+
 	@FXML
 	private ComboBox<String> ttsSpeedDropdown;
 
-	
 	/** This method inserts a vowel with a macron on button press. This method is used by 5 buttons **/
 	public void insertMacron(ActionEvent event) {
 		/** the character with the macron */
 		String character = (String) ((Node) event.getSource()).getUserData();
 		answerField.insertText(oldCaretPosition, character);
-		
-		
+
 		// move the cursor back to the textField and re-focus on it.
 		// the allows the user to resume typing immediately.
 		answerField.requestFocus();
-		answerField.positionCaret(oldCaretPosition+1);
+		answerField.positionCaret(oldCaretPosition + 1);
 	}
 
 	/** called by the topic selection page when it renders this page */
 	public void startGame(Topics.Topic topic, Mode mode) throws Exception {
 		FX.fadeIn(gamePane);
 		this.mode = mode;
-		
+
 		initGameTTSDropDown();
 		quizTitle.setText(topic.title);
 		backButton.setText(text("back"));
@@ -126,17 +124,19 @@ public class Game extends UIController {
 			timeBar.setVisible(true);
 			timeLabel.setVisible(true);
 		}
-		
+
 		//Checks for changes in caret position of text field.
 		//Source: https://stackoverflow.com/questions/36054363/is-there-more-than-one-caret-in-javafx-textfield
-		answerField.focusedProperty().addListener((observable, oldValue, newValue) -> {
-		    if (!newValue) {
-		        oldCaretPosition = answerField.getCaretPosition();
-		    }
-		});
+		answerField
+			.focusedProperty()
+			.addListener((observable, oldValue, newValue) -> {
+				if (!newValue) {
+					oldCaretPosition = answerField.getCaretPosition();
+				}
+			});
 	}
-	
-	//Initialises dropdown for festival speeds in the game window.
+
+	// Initializes dropdown for festival speeds in the game window.
 	private void initGameTTSDropDown() {
 		new Dropdown<Double>(
 			/* element */ttsSpeedDropdown,
@@ -197,17 +197,21 @@ public class Game extends UIController {
 				timeline.stop();
 			}
 
+			// Initialize the clock to show the time limit
 			timeLabel.setText(text("time", Format.formatAsTime(TIME_LIMIT)));
+
 			timeline =
 				new Timeline(
 					new KeyFrame(
 						Duration.seconds(1),
 						(ActionEvent event) -> {
+							// this runs every second, and updates the progress bar and clock text
 							clock++;
 							timeLabel.setText(
 								text("time", Format.formatAsTime(TIME_LIMIT - clock))
 							);
 							timeBar.setProgress(1 - (double) clock / TIME_LIMIT);
+
 							if (clock == TIME_LIMIT) {
 								// stop, time is up. The question will be marked as wrong
 								timeline.stop();

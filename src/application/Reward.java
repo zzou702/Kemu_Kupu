@@ -99,9 +99,6 @@ public class Reward extends UIController {
 		bronzeMedal.setVisible(false);
 
 		messageLabel.setText(text("clickAnyCloud"));
-		
-		
-		
 
 		//Does not display high score or medals in practice
 		if (gameMode == Game.Mode.GAME) {
@@ -138,6 +135,7 @@ public class Reward extends UIController {
 
 		populateTable(answers, words);
 
+		// the table is initially hidden until you click a cloud
 		tableView.setVisible(false);
 		cloudSVG.setVisible(false);
 	}
@@ -181,9 +179,9 @@ public class Reward extends UIController {
 			try {
 				URL path = getClass()
 					.getClassLoader()
-					.getResource("images/fireworks2.gif");
+					.getResource("images/fireworks.gif");
 				fireworks.setImage(new Image(path.toString(), true));
-				
+
 				fireworks.setFitWidth(1280);
 				fireworks.setFitHeight(720);
 				fireworks.setX(0);

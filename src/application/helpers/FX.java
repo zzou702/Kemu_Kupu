@@ -10,7 +10,7 @@ import javafx.util.Duration;
 /** static helpers for animations and other special effects */
 public class FX {
 
-	/** we use the sucess/warning/danger/info paradigm for alerts */
+	/** we use the success/warning/danger/info paradigm for alerts */
 	public enum State {
 		SUCCESS,
 		WARNING,

@@ -65,6 +65,7 @@ public class Translations {
 
 		return MessageFormat.format(
 			// commas would break the format, so you can use a semicolon to insert a literal comma
+			// a literal "\n" also gets converted to a line break
 			items[langIndex].replaceAll(";", ",").replaceAll("\\\\n", "\n"),
 			args
 		);
