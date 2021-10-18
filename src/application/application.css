@@ -109,6 +109,10 @@
 	-fx-text-fill: "black";
 }
 
+.tableview .column-header .label{
+	-fx-text-fill: "black";
+}
+
 /**
  * anything can be flashable, we currently use
  * this for the input field on the Games page.

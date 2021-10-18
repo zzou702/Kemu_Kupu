@@ -248,7 +248,6 @@ public class Game extends UIController {
 
 	/** called by the repeat button, and also by other methods */
 	public void speakCurrentWord() {
-		System.out.println(answerField.getCaretPosition());
 		answerField.requestFocus();
 		// Disables buttons while festival is speaking in a separate thread
 		backButton.setDisable(true);
