@@ -98,34 +98,42 @@ public class Reward extends UIController {
 		silverMedal.setVisible(false);
 		bronzeMedal.setVisible(false);
 
-		if (score == 10) {
-			rewardLabel.setText(
-				text("scoreMsgGold", formattedScore, totalPossiblePoints)
-			);
-
-			goldMedal.setVisible(true);
-			triggerFireworks();
-		} else if ((score <= 9) && (score > 5)) {
-			rewardLabel.setText(
-				text("scoreMsgSilver", formattedScore, totalPossiblePoints)
-			);
-
-			silverMedal.setVisible(true);
-			triggerFireworks();
-		} else {
-			rewardLabel.setText(
-				text("scoreMsgBronze", formattedScore, totalPossiblePoints)
-			);
-
-			bronzeMedal.setVisible(true);
-		}
-
 		messageLabel.setText(text("clickAnyCloud"));
+		
+		
+		
 
-		//Does not display high score in practice
+		//Does not display high score or medals in practice
 		if (gameMode == Game.Mode.GAME) {
 			highScoreLabel.setVisible(true);
 			highScoreLabel.setText(text("highScore", this.context.getHighScore()));
+			if (score == 10) {
+				rewardLabel.setText(
+					text("scoreMsgGold", formattedScore, totalPossiblePoints)
+				);
+
+				goldMedal.setVisible(true);
+				triggerFireworks();
+			} else if ((score <= 9) && (score > 5)) {
+				rewardLabel.setText(
+					text("scoreMsgSilver", formattedScore, totalPossiblePoints)
+				);
+
+				silverMedal.setVisible(true);
+				triggerFireworks();
+			} else {
+				rewardLabel.setText(
+					text("scoreMsgBronze", formattedScore, totalPossiblePoints)
+				);
+
+				bronzeMedal.setVisible(true);
+			}
+		} else {
+			rewardLabel.setText(
+				score > 3
+					? text("scoreMsgGold", formattedScore, totalPossiblePoints)
+					: text("scoreMsgBronze", formattedScore, totalPossiblePoints)
+			);
 		}
 
 		populateTable(answers, words);

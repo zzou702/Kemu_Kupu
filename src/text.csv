@@ -3,9 +3,9 @@ THIS FILE CONTAINS ALL TEXT USED IN THE APP AND IS READ BY TRANSLATIONS.JAVA,,,
 ID,English,Te Reo,Both
 newGame,Start Game,Tāti Kēmu,Tāti Kēmu\n(Start Game)
 newPracticeGame,New Practice Quiz,Parakitihi,Parakitihi\n(New Practice Quiz)
-goHome,Go Home,Haere ki te kāinga,Haere ki te kāinga (Go Home)
-playAgainGame,Start Game,Tāti Kēmu,Tāti Kēmu (Start Game)
-playAgainPractice,New Practice Quiz,Parakitihi,Parakitihi (New Practice Quiz)
+goHome,Go Home,Haere ki te kāinga,Haere ki te kāinga\n(Go Home)
+playAgainGame,Start Game,Tāti Kēmu,Tāti Kēmu\n(Start Game)
+playAgainPractice,New Practice Quiz,Parakitihi,Parakitihi\n(New Practice Quiz)
 playSample,Play Sample,Kupu Tīpako,Kupu Tīpako\n(Play Sample)
 ttsLabel,Speaking speed:,Kupu tere:,Kupu tere:\nSpeaking speed:
 quit,Quit,Whakamutu,Whakamutu\n(Quit)
