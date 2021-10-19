@@ -62,6 +62,7 @@ public class AppContext {
 		}
 	}
 
+	// this writes the new settings to disk
 	private void updatePreferencesFile() {
 		try {
 			String newFile = MessageFormat.format(

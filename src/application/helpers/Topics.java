@@ -74,7 +74,7 @@ public class Topics {
 		}
 	}
 
-	/** gets the topic title in the user's prefered language */
+	/** gets the topic title in the user's preferred language */
 	private static String getTopicTitle(
 		String teReoTitle,
 		String englishTitle,

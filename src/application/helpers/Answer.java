@@ -41,24 +41,31 @@ public class Answer {
 	 * which is what some Iwi prefer (Ā = AA, ē = ee, etc.)
 	 */
 	public static Correctness checkAnswer(
-		String usersAnswer,
-		String correctAnswer
+		String rawUsersAnswer,
+		String rawCorrectAnswer
 	) {
-		// doesn't matter whether we mix up usersAnswer and correctAnswer
-		String a = doubleVowelsToMacrons(usersAnswer.toLowerCase().strip());
-		String b = doubleVowelsToMacrons(correctAnswer.toLowerCase().strip());
+		String usersAnswer = doubleVowelsToMacrons(
+			rawUsersAnswer.toLowerCase().strip()
+		);
+		String correctAnswer = doubleVowelsToMacrons(
+			rawCorrectAnswer.toLowerCase().strip()
+		);
 
 		// totally correct
-		if (a.equals(b)) return Correctness.CORRECT;
+		if (usersAnswer.equals(correctAnswer)) return Correctness.CORRECT;
 
 		// if we omit hyphens and spaces, the answer would be correct
-		if (a.replaceAll("( |-)", "").equals(b.replaceAll("( |-)", ""))) {
+		if (
+			usersAnswer
+				.replaceAll("( |-)", "")
+				.equals(correctAnswer.replaceAll("( |-)", ""))
+		) {
 			// "( |-)" means find " " and "-". based on https://stackoverflow.com/a/10827900/5470183
 			return Correctness.ONLY_SYNTAX_WRONG;
 		}
 
 		// if we ignore macrons, the answer would be correct
-		if (removeMacrons(a).equals(removeMacrons(b))) {
+		if (removeMacrons(usersAnswer).equals(removeMacrons(correctAnswer))) {
 			return Correctness.ONLY_MACRONS_WRONG;
 		}
 

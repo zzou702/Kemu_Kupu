@@ -74,6 +74,7 @@ public class Home extends UIController {
 		};
 	}
 
+	/** called when a new value is selected in the language dropdown */
 	private void updateTranslations() {
 		ttsLabel.setText(text("ttsLabel"));
 		sampleButton.setText(text("playSample"));
