@@ -79,6 +79,7 @@ public class TopicSelection extends UIController {
 
 	/** called when you click the start button */
 	public void startGame(ActionEvent event) {
+		startButton.setDisable(true);
 		try {
 			Topics.Topic chosenTopic = getSelection();
 
@@ -124,6 +125,7 @@ public class TopicSelection extends UIController {
 
 	/** called when you click the back button */
 	public void goBack(ActionEvent event) {
+		backButton.setDisable(true);
 		FX
 			.fadeOut(topicPane)
 			.setOnFinished(e -> {

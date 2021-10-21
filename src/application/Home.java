@@ -85,6 +85,7 @@ public class Home extends UIController {
 
 	/** called when you click the 'Start Game' button */
 	public void startGameModule(ActionEvent event) {
+		newGameBtn.setDisable(true);
 		Festival.emptyQueue();
 		FX
 			.fadeOut(homePane)
@@ -99,6 +100,7 @@ public class Home extends UIController {
 
 	/** called when you click the 'Start Practice Quiz' button */
 	public void startPracticeModule(ActionEvent event) {
+		newPracticeBtn.setDisable(true);
 		Festival.emptyQueue();
 		FX
 			.fadeOut(homePane)

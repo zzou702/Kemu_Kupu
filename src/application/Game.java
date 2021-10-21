@@ -242,6 +242,7 @@ public class Game extends UIController {
 
 	/** called by the back button */
 	public void switchHome(ActionEvent event) {
+		backButton.setDisable(true);
 		stopCountdown();
 		FX
 			.fadeOut(gamePane)
