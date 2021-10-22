@@ -68,7 +68,11 @@ public class Game extends UIController {
 	/** the maximum number of seconds allowed per question */
 	private static int TIME_LIMIT = 120;
 
+	/** the location of the cursor within the textfield, before a macron button is pushed */
 	private int oldCaretPosition;
+
+	/** `true` if we are currently transitioning from one question to the next */
+	private boolean isSubmitting = false;
 
 	private Timeline timeline;
 
@@ -312,6 +316,7 @@ public class Game extends UIController {
 		// so move to the next question
 		this.speakCurrentWord();
 		this.refreshUI();
+		isSubmitting = false;
 	}
 
 	/** called by the skip button and when the time runs out (in game mode) */
@@ -325,6 +330,10 @@ public class Game extends UIController {
 
 	/** called when you click the submit button */
 	public void submit(ActionEvent event) {
+		// if the user presses enter multiple times, ignore subsequent presses
+		if (isSubmitting) return;
+		isSubmitting = true;
+
 		if (currentWordIndex == words.length) return; // do nothing if the user is spamming this button
 
 		statusLabel.setText("");
@@ -391,7 +400,10 @@ public class Game extends UIController {
 				submitButton.setDisable(true);
 				FX
 					.flashElement(answerField, FX.State.WARNING)
-					.setOnFinished(e -> submitButton.setDisable(false));
+					.setOnFinished(e -> {
+						submitButton.setDisable(false);
+						isSubmitting = false;
+					});
 			} else {
 				// User has gotten it wrong twice in practice mode, or once in game mode.
 				// Writes encouraging message
