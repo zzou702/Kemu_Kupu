@@ -18,7 +18,7 @@ public class FX {
 	}
 
 	/** flash this many times */
-	public static final int FLASH_COUNTS = 2;
+	public static final int FLASH_COUNTS = 3;
 
 	/** in milliseconds */
 	public static final int DEFAULT_FADE_TIME = 500;

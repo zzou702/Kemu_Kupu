@@ -153,6 +153,7 @@ public class Reward extends UIController {
 
 	/** Switches back to topic selection screen on button press */
 	public void newGame(ActionEvent event) {
+		playAgainBtn.setDisable(true);
 		FX
 			.fadeOut(rewardPane)
 			.setOnFinished(e -> {
@@ -166,6 +167,7 @@ public class Reward extends UIController {
 
 	/** Switches back to home screen on button press */
 	public void goHome(ActionEvent event) {
+		goHomeBtn.setDisable(true);
 		FX
 			.fadeOut(rewardPane)
 			.setOnFinished(e -> {
