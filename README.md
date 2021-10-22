@@ -11,9 +11,20 @@ To start the `final.jar` file, run
 chmod u+x start.sh && . ./start.sh
 ```
 
-# Set-up Instructions
+If you have any issues, see the [User_Manual.pdf](/User_Manual.pdf) file.
 
-> This is only if you want to edit to code
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+# Development Documentation
+
+> ✨ The rest of this document is aimed at people who want to edit the code
+
+## Setting up Eclipse
 
 - Go to `Window -> Preferences -> Java -> Build Path -> User Libraries` and ensure the user library is called `JavaFX-11`
 - Go to `Run -> Run Configurations -> Java Application -> Main -> Arguments` and set the VM Arguments to:
@@ -28,8 +39,6 @@ chmod u+x start.sh && . ./start.sh
 in eclipse: file -> export -> java -> JAR file -> next -> [check box on left next to repo folder] -> [click browse for save path of JAR file] -> next -> next -> [click browse next to main class] -> finish
 
 </details>
-
-# Development Documentation
 
 ## Format of the word lists
 

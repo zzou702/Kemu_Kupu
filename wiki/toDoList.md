@@ -146,15 +146,14 @@
 ### Meeting 10: 18/10/2021
 
 - [x] _we planned the competition presentation_
-- [ ] Improve/remove table on reward page
 - [x] Bug: Medals show up in practice mode - Ethan
 - [x] Typo in Huntley - Ethan
 - [x] Remove System.out - Kyle
 - [x] Checking commets - Kyle
-- [ ] Regenerate jar
-- [ ] User manual screenshots
-- [ ] save final user manual as pdf in repo
-- [ ] Update wiki folder
+- [x] Regenerate jar
+- [x] User manual screenshots
+- [x] save final user manual as pdf in repo
+- [x] Update wiki folder
 
 ### Meeting 11: 19/10/2021
 
