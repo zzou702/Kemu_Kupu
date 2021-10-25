@@ -111,7 +111,7 @@ public class Reward extends UIController {
 
 				goldMedal.setVisible(true);
 				triggerFireworks();
-			} else if ((score <= 9) && (score > 5)) {
+			} else if ((score < 10) && (score >= 6)) {
 				rewardLabel.setText(
 					text("scoreMsgSilver", formattedScore, totalPossiblePoints)
 				);
